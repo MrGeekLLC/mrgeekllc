@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Process — Mr. Geek LLC</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.process-item{display:grid;grid-template-columns:100px 1fr auto;align-items:start;gap:40px;background:var(--card);border:1px solid var(--border);padding:48px;margin-bottom:2px;transition:all 0.3s;position:relative;overflow:hidden;}
+.process-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transition:transform 0.3s;transform-origin:top;}
+.process-item:hover::before{transform:scaleY(1);}
+.process-item:hover{border-color:rgba(0,255,136,0.3);padding-left:56px;}
+.process-num{font-family:var(--mono);font-size:56px;font-weight:700;color:transparent;-webkit-text-stroke:1px var(--border);line-height:1;transition:all 0.3s;}
+.process-item:hover .process-num{color:var(--accent);-webkit-text-stroke:1px var(--accent);}
+.process-body h3{font-size:24px;font-weight:700;margin-bottom:12px;letter-spacing:-0.5px;}
+.process-body p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:16px;}
+.process-details{list-style:none;}
+.process-details li{font-family:var(--mono);font-size:12px;color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;letter-spacing:0.5px;}
+.process-details li::before{content:'→';color:var(--accent);}
+.process-tag{font-family:var(--mono);font-size:11px;color:var(--accent);border:1px solid rgba(0,255,136,0.3);padding:6px 16px;letter-spacing:2px;white-space:nowrap;align-self:start;margin-top:8px;}
+.faq-item{background:var(--card);border:1px solid var(--border);margin-bottom:2px;overflow:hidden;}
+.faq-q{font-size:18px;font-weight:700;padding:28px 40px;cursor:none;display:flex;justify-content:space-between;align-items:center;transition:color 0.2s;}
+.faq-q:hover{color:var(--accent);}
+.faq-q .icon{font-family:var(--mono);font-size:20px;color:var(--accent);transition:transform 0.3s;}
+.faq-a{padding:0 40px 28px;font-size:15px;color:var(--muted);line-height:1.7;display:none;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .icon{transform:rotate(45deg);}
+@media(max-width:768px){.process-item{grid-template-columns:60px 1fr;padding:28px;gap:20px;}.process-tag{display:none;}.faq-q{padding:20px 24px;font-size:16px;}.faq-a{padding:0 24px 20px;}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav>
+  <a href="index.html" class="nav-logo">MR.<span>GEEK</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="process.html" class="active">Process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="pay.html" class="nav-cta">Pay Now</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-tag">How We Work</div>
+  <h1>Our <span class="accent">Process<span class="blink">_</span></span></h1>
+  <p>A clear, structured approach that keeps you informed and in control at every stage of the engagement.</p>
+</div>
+
+<section class="section">
+  <div class="section-label">Step by Step</div>
+  <h2 class="section-title reveal">From First Contact<br>to Final Delivery</h2>
+
+  <div class="process-item reveal">
+    <div class="process-num">01</div>
+    <div class="process-body">
+      <h3>Initial Consultation</h3>
+      <p>Every engagement starts with a conversation. We listen carefully to understand your challenge, goals, timeline, and budget before proposing anything.</p>
+      <ul class="process-details">
+        <li>Free 30-minute discovery call</li>
+        <li>Needs assessment & goal setting</li>
+        <li>Budget & timeline discussion</li>
+        <li>No obligation, no pressure</li>
+      </ul>
+    </div>
+    <div class="process-tag">Day 1</div>
+  </div>
+
+  <div class="process-item reveal">
+    <div class="process-num">02</div>
+    <div class="process-body">
+      <h3>Proposal & Scoping</h3>
+      <p>Based on our discovery call, we prepare a detailed proposal outlining the scope of work, deliverables, timeline, and pricing. Everything is transparent — no surprises.</p>
+      <ul class="process-details">
+        <li>Detailed scope of work document</li>
+        <li>Clear deliverables & milestones</li>
+        <li>Fixed or milestone-based pricing</li>
+        <li>Timeline with key checkpoints</li>
+      </ul>
+    </div>
+    <div class="process-tag">Days 2–5</div>
+  </div>
+
+  <div class="process-item reveal">
+    <div class="process-num">03</div>
+    <div class="process-body">
+      <h3>Agreement & Kickoff</h3>
+      <p>Once you approve the proposal, we formalize the engagement with a service agreement and collect an initial payment to begin work. Then we hit the ground running.</p>
+      <ul class="process-details">
+        <li>Service agreement signing</li>
+        <li>Secure payment via Stripe</li>
+        <li>Project kickoff meeting</li>
+        <li>Communication channels established</li>
+      </ul>
+    </div>
+    <div class="process-tag">Week 1</div>
+  </div>
+
+  <div class="process-item reveal">
+    <div class="process-num">04</div>
+    <div class="process-body">
+      <h3>Execution & Updates</h3>
+      <p>We execute the work with precision, keeping you informed throughout. Regular status updates ensure you're never in the dark and can course-correct if priorities shift.</p>
+      <ul class="process-details">
+        <li>Regular progress reports</li>
+        <li>Milestone reviews & approvals</li>
+        <li>Responsive communication</li>
+        <li>Scope change management</li>
+      </ul>
+    </div>
+    <div class="process-tag">Ongoing</div>
+  </div>
+
+  <div class="process-item reveal">
+    <div class="process-num">05</div>
+    <div class="process-body">
+      <h3>Delivery & Review</h3>
+      <p>Final deliverables are presented for your review. We walk you through everything, answer questions, and make any adjustments needed to ensure you're fully satisfied.</p>
+      <ul class="process-details">
+        <li>Final deliverable presentation</li>
+        <li>Walkthrough & training if needed</li>
+        <li>Revision rounds included</li>
+        <li>Sign-off & final payment</li>
+      </ul>
+    </div>
+    <div class="process-tag">Project End</div>
+  </div>
+
+  <div class="process-item reveal">
+    <div class="process-num">06</div>
+    <div class="process-body">
+      <h3>Ongoing Support & Optimization</h3>
+      <p>Our relationship doesn't end at delivery. We offer ongoing support, monitoring, and optimization to ensure long-term success and adapt to your evolving needs.</p>
+      <ul class="process-details">
+        <li>Post-project support packages</li>
+        <li>Performance monitoring</li>
+        <li>Optimization recommendations</li>
+        <li>Priority access for returning clients</li>
+      </ul>
+    </div>
+    <div class="process-tag">Post-Launch</div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="section-label">Common Questions</div>
+  <h2 class="section-title reveal">FAQ</h2>
+  <div class="reveal">
+    <div class="faq-item">
+      <div class="faq-q">How long does a typical project take? <span class="icon">+</span></div>
+      <div class="faq-a">It depends on the scope and complexity. Simple IT support tasks can be resolved in hours. Consulting engagements typically run 2–4 weeks. Larger engineering or research projects may span 1–3 months. We always provide a clear timeline in our proposal.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you work with individuals or only businesses? <span class="icon">+</span></div>
+      <div class="faq-a">Both. We serve B2B and B2C clients. Whether you're a solo entrepreneur, small business, or established company — we tailor our approach to your specific situation and scale accordingly.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do payments work? <span class="icon">+</span></div>
+      <div class="faq-a">We accept one-time and recurring payments securely through Stripe. For projects, we typically require a deposit upfront and collect the balance at delivery. For retainer services, we offer monthly subscription billing. All payments are processed through our secure Pay page.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Are you available for ongoing support? <span class="icon">+</span></div>
+      <div class="faq-a">Absolutely. Many of our clients engage us on a monthly retainer basis for ongoing IT support, digital marketing management, or consulting. We offer flexible plans that can be adjusted as your needs evolve.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I'm not satisfied with the work? <span class="icon">+</span></div>
+      <div class="faq-a">Your satisfaction is our priority. We include revision rounds in every project and work with you until you're happy with the outcome. If there's ever a concern, we address it directly and promptly — transparent communication is a core part of how we operate.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">MR.GEEK LLC</div>
+  <div class="footer-copy">© 2024–2026 Mr. Geek LLC. All rights reserved.</div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="pay.html">Pay</a></li>
+  </ul>
+</footer>
+<script src="main.js"></script>
+<script>
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    document.querySelectorAll('.faq-item').forEach(i=>{ if(i!==item) i.classList.remove('open'); });
+    item.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>
