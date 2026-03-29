@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Mr. Geek LLC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0a0a0a;--surface:#111111;--surface2:#1a1a1a;--border:#222222;--accent:#00ff88;--accent2:#0099ff;--accent3:#ff6b35;--text:#e8e8e8;--muted:#666;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;}
+    .nav-logo{font-family:var(--mono);font-size:0.9rem;color:var(--accent);text-decoration:none;letter-spacing:0.15em;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{font-family:var(--mono);font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent);}
+    .nav-cta{font-family:var(--mono);font-size:0.7rem;background:var(--accent);color:#000;padding:0.5rem 1rem;text-decoration:none;letter-spacing:0.1em;font-weight:700;}
+    .section-label{font-family:var(--mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:3rem;display:flex;align-items:center;gap:1rem;}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    .btn-primary{font-family:var(--mono);font-size:0.75rem;background:var(--accent);color:#000;padding:0.9rem 2rem;text-decoration:none;font-weight:700;letter-spacing:0.1em;transition:opacity 0.2s;display:inline-block;}
+    .btn-primary:hover{opacity:0.85;}
+    .btn-secondary{font-family:var(--mono);font-size:0.75rem;border:1px solid var(--border);color:var(--muted);padding:0.9rem 2rem;text-decoration:none;letter-spacing:0.1em;transition:all 0.2s;display:inline-block;}
+    .btn-secondary:hover{border-color:var(--muted);color:var(--text);}
+
+    /* HERO */
+    .hero{margin-top:60px;padding:5rem 2rem 4rem;border-bottom:1px solid var(--border);background:radial-gradient(ellipse at 60% 0%,rgba(0,255,136,0.05) 0%,transparent 60%);}
+    .hero-label{font-family:var(--mono);font-size:0.7rem;color:var(--accent);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:1.5rem;}
+    .hero h1{font-family:var(--mono);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1.1;margin-bottom:1.25rem;}
+    .hero h1 span{color:var(--accent);}
+    .hero p{font-size:1rem;color:var(--muted);max-width:560px;line-height:1.8;font-weight:300;}
+
+    /* STORY */
+    .story{max-width:1100px;margin:0 auto;padding:5rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+    .story-text h2{font-family:var(--mono);font-size:1.3rem;margin-bottom:1.5rem;color:#fff;}
+    .story-text h2 span{color:var(--accent);}
+    .story-text p{font-size:0.88rem;color:var(--muted);line-height:1.9;margin-bottom:1rem;font-weight:300;}
+    .story-text p strong{color:var(--text);font-weight:500;}
+    .story-actions{display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;}
+
+    /* SKILLS */
+    .skills-block{display:flex;flex-direction:column;gap:2px;}
+    .skill-row{background:var(--surface);border:1px solid var(--border);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1.25rem;transition:border-color 0.2s;}
+    .skill-row:hover{border-color:#333;}
+    .skill-icon{font-size:1.1rem;flex-shrink:0;}
+    .skill-info{flex:1;}
+    .skill-title{font-family:var(--mono);font-size:0.78rem;font-weight:700;color:#fff;margin-bottom:0.2rem;}
+    .skill-desc{font-size:0.75rem;color:var(--muted);font-weight:300;}
+    .skill-bar-wrap{width:80px;height:3px;background:var(--border);flex-shrink:0;}
+    .skill-bar{height:100%;background:var(--accent);}
+
+    /* STATS */
+    .stats-strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .stats-inner{max-width:1100px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+    .stat-block{padding:1.5rem;border-right:1px solid var(--border);text-align:center;}
+    .stat-block:last-child{border-right:none;}
+    .stat-val{font-family:var(--mono);font-size:1.8rem;font-weight:700;color:var(--accent);display:block;margin-bottom:0.4rem;}
+    .stat-label{font-family:var(--mono);font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;}
+
+    /* VALUES */
+    .values{max-width:1100px;margin:0 auto;padding:5rem 2rem;}
+    .values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
+    .value-card{background:var(--surface);border:1px solid var(--border);padding:2rem;transition:border-color 0.2s;}
+    .value-card:hover{border-color:#333;}
+    .value-icon{font-size:1.25rem;margin-bottom:0.75rem;}
+    .value-title{font-family:var(--mono);font-size:0.85rem;font-weight:700;color:#fff;margin-bottom:0.5rem;}
+    .value-desc{font-size:0.82rem;color:var(--muted);line-height:1.7;font-weight:300;}
+
+    /* CTA */
+    .cta-section{padding:5rem 2rem;text-align:center;background:var(--surface);border-top:1px solid var(--border);}
+    .cta-section h2{font-family:var(--mono);font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:0.75rem;}
+    .cta-section h2 span{color:var(--accent);}
+    .cta-section p{font-size:0.9rem;color:var(--muted);margin-bottom:2rem;}
+    .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+    footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:0.65rem;color:var(--muted);flex-wrap:wrap;gap:1rem;}
+    footer a{color:var(--muted);text-decoration:none;}
+    footer a:hover{color:var(--text);}
+    .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+
+    @media(max-width:768px){
+      .nav-links{display:none;}
+      .story{grid-template-columns:1fr;gap:3rem;}
+      .stats-inner{grid-template-columns:repeat(2,1fr);}
+      .stat-block:nth-child(2){border-right:none;}
+      .values-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">MR.GEEK</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="contact.html">Book Now</a>
+</nav>
+
+<section class="hero">
+  <p class="hero-label">// Who We Are</p>
+  <h1>About <span>Mr. Geek_</span></h1>
+  <p>A Houston-based mobile tech service built on real skills, honest pricing, and showing up — literally — for every client in the Westchase area.</p>
+</section>
+
+<section class="story">
+  <div class="story-text">
+    <h2>Built on <span>Real Skills.</span><br>Not a Storefront.</h2>
+    <p>Mr. Geek LLC started with a simple observation: <strong>most tech shops make you come to them.</strong> You drop off your device, wait a day or two, and pay whatever they say the bill is. There's a better way.</p>
+    <p>We're a mobile-first operation based in Houston's Westchase corridor. No retail space overhead means lower prices for you and faster turnaround — because the work happens where you are, not where it's convenient for us.</p>
+    <p>Every service is <strong>flat-rate and quoted upfront.</strong> Parts are sourced by the client at cost — no markups, no inflated part prices hiding in the bill. And if we can't fix it, you don't pay for labor. That's the deal.</p>
+    <div class="story-actions">
+      <a class="btn-primary" href="services.html">See All Services</a>
+      <a class="btn-secondary" href="process.html">How It Works →</a>
+    </div>
+  </div>
+  <div class="skills-block">
+    <div class="skill-row">
+      <span class="skill-icon">🖥️</span>
+      <div class="skill-info">
+        <div class="skill-title">Computer Repair</div>
+        <div class="skill-desc">Hardware, OS, drivers, peripherals</div>
+      </div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-icon">⚙️</span>
+      <div class="skill-info">
+        <div class="skill-title">PC Building</div>
+        <div class="skill-desc">Custom builds, gaming rigs, workstations</div>
+      </div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-icon">📱</span>
+      <div class="skill-info">
+        <div class="skill-title">Device Setup & Troubleshooting</div>
+        <div class="skill-desc">Laptops, routers, TVs, printers</div>
+      </div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-icon">🔍</span>
+      <div class="skill-info">
+        <div class="skill-title">Critical Thinking & Diagnostics</div>
+        <div class="skill-desc">Root cause analysis, not guesswork</div>
+      </div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-icon">🛰️</span>
+      <div class="skill-info">
+        <div class="skill-title">Remote Support</div>
+        <div class="skill-desc">Software, accounts, slowdowns</div>
+      </div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-icon">📦</span>
+      <div class="skill-info">
+        <div class="skill-title">Logistics & Time Management</div>
+        <div class="skill-desc">On-time, organized, reliable</div>
+      </div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-block">
+      <span class="stat-val">2+</span>
+      <span class="stat-label">Years Established</span>
+    </div>
+    <div class="stat-block">
+      <span class="stat-val">$0</span>
+      <span class="stat-label">Parts Markup</span>
+    </div>
+    <div class="stat-block">
+      <span class="stat-val">4</span>
+      <span class="stat-label">Core Services</span>
+    </div>
+    <div class="stat-block">
+      <span class="stat-val">HOU</span>
+      <span class="stat-label">Based in Houston TX</span>
+    </div>
+  </div>
+</div>
+
+<section class="values">
+  <div class="section-label">Core Values</div>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">🎯</div>
+      <h3 class="value-title">Flat-Rate Honesty</h3>
+      <p class="value-desc">You get a price before I touch anything. No hourly creep, no surprise add-ons. What I quote is what you pay.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">⚡</div>
+      <h3 class="value-title">Speed Without Shortcuts</h3>
+      <p class="value-desc">Same-day service is the goal, not the exception. Fast doesn't mean sloppy — it means I know what I'm doing.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🔍</div>
+      <h3 class="value-title">Full Transparency</h3>
+      <p class="value-desc">I'll tell you exactly what's wrong, what it'll cost, and whether it's even worth fixing. No upselling what you don't need.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🤝</div>
+      <h3 class="value-title">Your Tech, Your Terms</h3>
+      <p class="value-desc">I come to you, work around your schedule, and explain everything in plain English. You stay in control of your own devices.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Let's Fix Something<span> Together_</span></h2>
+  <p>Reach out and I'll get back to you within the hour. Most jobs are same-day.</p>
+  <div class="cta-buttons">
+    <a class="btn-primary" href="contact.html">Get in Touch</a>
+    <a class="btn-secondary" href="process.html">See How It Works →</a>
+  </div>
+</section>
+
+<footer>
+  <span>MR.GEEK LLC © 2024–2026 · Houston, TX</span>
+  <div class="footer-links">
+    <a href="services.html">Services</a>
+    <a href="process.html">Process</a>
+    <a href="contact.html">Contact</a>
+    <a href="pay.html">Pay</a>
+    <a href="tos.html">Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>

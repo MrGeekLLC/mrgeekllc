@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mr. Geek LLC — Houston's On-Site Tech Expert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#0a0a0a; --surface:#111111; --surface2:#1a1a1a;
+      --border:#222222; --accent:#00ff88; --accent2:#0099ff;
+      --accent3:#ff6b35; --text:#e8e8e8; --muted:#666;
+      --mono:'Space Mono',monospace; --sans:'DM Sans',sans-serif;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden;}
+
+    /* NAV */
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;}
+    .nav-logo{font-family:var(--mono);font-size:0.9rem;color:var(--accent);text-decoration:none;letter-spacing:0.15em;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{font-family:var(--mono);font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--accent);}
+    .nav-cta{font-family:var(--mono);font-size:0.7rem;background:var(--accent);color:#000;padding:0.5rem 1rem;text-decoration:none;letter-spacing:0.1em;font-weight:700;transition:opacity 0.2s;}
+    .nav-cta:hover{opacity:0.85;}
+
+    /* HERO */
+    .hero{margin-top:60px;min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding:4rem 2rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(0,255,136,0.06) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(0,153,255,0.04) 0%,transparent 50%);pointer-events:none;}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.3;pointer-events:none;}
+    .hero-inner{max-width:900px;position:relative;z-index:1;}
+    .hero-label{font-family:var(--mono);font-size:0.7rem;color:var(--accent);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;}
+    .hero-label::before{content:'';width:2rem;height:1px;background:var(--accent);}
+    .hero h1{font-family:var(--mono);font-size:clamp(2.5rem,6vw,5rem);font-weight:700;line-height:1.0;margin-bottom:1.5rem;letter-spacing:-0.02em;}
+    .hero h1 .line2{color:var(--accent);}
+    .hero h1 .line3{color:var(--muted);font-size:0.55em;}
+    .hero-desc{font-size:1.05rem;color:var(--muted);max-width:480px;line-height:1.8;margin-bottom:2.5rem;font-weight:300;}
+    .hero-desc strong{color:var(--text);font-weight:500;}
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+    .btn-primary{font-family:var(--mono);font-size:0.75rem;background:var(--accent);color:#000;padding:0.9rem 2rem;text-decoration:none;font-weight:700;letter-spacing:0.1em;transition:opacity 0.2s;display:inline-block;}
+    .btn-primary:hover{opacity:0.85;}
+    .btn-secondary{font-family:var(--mono);font-size:0.75rem;border:1px solid var(--border);color:var(--muted);padding:0.9rem 2rem;text-decoration:none;letter-spacing:0.1em;transition:all 0.2s;display:inline-block;}
+    .btn-secondary:hover{border-color:var(--muted);color:var(--text);}
+    .hero-stats{display:flex;gap:0;border:1px solid var(--border);}
+    .stat{padding:1rem 1.5rem;border-right:1px solid var(--border);}
+    .stat:last-child{border-right:none;}
+    .stat-val{font-family:var(--mono);font-size:1.2rem;font-weight:700;color:var(--accent);display:block;}
+    .stat-label{font-family:var(--mono);font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;margin-top:0.25rem;display:block;}
+
+    /* TICKER */
+    .ticker{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0;overflow:hidden;background:var(--surface);}
+    .ticker-inner{display:flex;gap:3rem;white-space:nowrap;animation:ticker 20s linear infinite;}
+    .ticker-item{font-family:var(--mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;flex-shrink:0;}
+    .ticker-item span{color:var(--accent);margin-right:0.5rem;}
+    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* SERVICES PREVIEW */
+    .services-preview{max-width:1100px;margin:0 auto;padding:5rem 2rem;}
+    .section-label{font-family:var(--mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:3rem;display:flex;align-items:center;gap:1rem;}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
+    .svc{background:var(--surface);border:1px solid var(--border);padding:2rem;position:relative;overflow:hidden;transition:border-color 0.3s;}
+    .svc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+    .svc:nth-child(2)::after{background:var(--accent2);}
+    .svc:nth-child(3)::after{background:var(--accent3);}
+    .svc:nth-child(4)::after{background:var(--accent);}
+    .svc:hover{border-color:#333;}
+    .svc:hover::after{transform:scaleX(1);}
+    .svc-num{font-family:var(--mono);font-size:0.6rem;color:var(--muted);letter-spacing:0.2em;margin-bottom:1rem;}
+    .svc-icon{font-size:1.5rem;margin-bottom:0.75rem;}
+    .svc-title{font-family:var(--mono);font-size:0.95rem;font-weight:700;color:#fff;margin-bottom:0.5rem;}
+    .svc-desc{font-size:0.82rem;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:1.25rem;}
+    .svc-price{font-family:var(--mono);font-size:0.75rem;color:var(--accent);}
+    .svc:nth-child(2) .svc-price{color:var(--accent2);}
+    .svc:nth-child(3) .svc-price{color:var(--accent3);}
+    .svc-link{font-family:var(--mono);font-size:0.65rem;color:var(--muted);text-decoration:none;letter-spacing:0.1em;display:inline-flex;align-items:center;gap:0.5rem;margin-top:0.75rem;transition:color 0.2s;}
+    .svc-link:hover{color:var(--accent);}
+
+    /* WHY */
+    .why{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .why-inner{max-width:1100px;margin:0 auto;padding:5rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+    .why-text h2{font-family:var(--mono);font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:1rem;line-height:1.2;}
+    .why-text h2 span{color:var(--accent);}
+    .why-text p{font-size:0.88rem;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;font-weight:300;}
+    .why-list{list-style:none;display:flex;flex-direction:column;gap:0.75rem;}
+    .why-list li{font-size:0.85rem;color:var(--text);display:flex;align-items:flex-start;gap:0.75rem;line-height:1.6;}
+    .why-list li::before{content:'✓';color:var(--accent);font-family:var(--mono);font-size:0.75rem;margin-top:0.15rem;flex-shrink:0;}
+    .why-terminal{background:var(--bg);border:1px solid var(--border);padding:1.5rem;}
+    .terminal-bar{display:flex;gap:0.4rem;margin-bottom:1.25rem;}
+    .dot{width:10px;height:10px;border-radius:50%;}
+    .dot.r{background:#ff5f57;} .dot.y{background:#febc2e;} .dot.g{background:#28c840;}
+    .terminal-body{font-family:var(--mono);font-size:0.72rem;line-height:2;color:var(--muted);}
+    .t-prompt{color:var(--accent);}
+    .t-cmd{color:var(--text);}
+    .t-out{color:#555;}
+    .t-val{color:var(--accent2);}
+    .t-warn{color:var(--accent3);}
+    .t-cursor{display:inline-block;width:8px;height:14px;background:var(--accent);animation:blink 1s step-end infinite;vertical-align:middle;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+    /* AREA STRIP */
+    .area-strip{max-width:1100px;margin:0 auto;padding:5rem 2rem;}
+    .area-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+    .area-card{background:var(--surface);border:1px solid var(--border);padding:1.5rem;}
+    .area-card-icon{font-size:1.25rem;margin-bottom:0.75rem;}
+    .area-card-title{font-family:var(--mono);font-size:0.8rem;font-weight:700;color:#fff;margin-bottom:0.4rem;}
+    .area-card-desc{font-size:0.78rem;color:var(--muted);line-height:1.6;font-weight:300;}
+    .area-card-tag{margin-top:0.75rem;font-family:var(--mono);font-size:0.62rem;color:var(--accent);letter-spacing:0.1em;}
+
+    /* CTA */
+    .cta-section{padding:5rem 2rem;text-align:center;background:var(--surface);border-top:1px solid var(--border);}
+    .cta-section h2{font-family:var(--mono);font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:0.75rem;}
+    .cta-section h2 span{color:var(--accent);}
+    .cta-section p{font-size:0.9rem;color:var(--muted);margin-bottom:2rem;}
+    .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:0.65rem;color:var(--muted);flex-wrap:wrap;gap:1rem;}
+    footer a{color:var(--muted);text-decoration:none;}
+    footer a:hover{color:var(--text);}
+    .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+
+    @media(max-width:768px){
+      .nav-links{display:none;}
+      .services-grid{grid-template-columns:1fr;}
+      .why-inner{grid-template-columns:1fr;gap:2rem;}
+      .area-cards{grid-template-columns:1fr;}
+      .hero-stats{flex-wrap:wrap;}
+      .stat{border-right:none;border-bottom:1px solid var(--border);}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">MR.GEEK</a>
+  <ul class="nav-links">
+    <li><a href="index.html" style="color:var(--accent)">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="contact.html">Book Now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <p class="hero-label">// Houston · Westchase · 77042 · 77077</p>
+    <h1>
+      Your Tech.<br>
+      <span class="line2">Fixed Fast._</span><br>
+      <span class="line3">We Come to You.</span>
+    </h1>
+    <p class="hero-desc">
+      On-site computer repair, custom PC builds, and device setup for <strong>homes and businesses</strong> in Houston's Westchase corridor. No parts markup. No hourly surprises. Flat rates.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="services.html">See Services & Pricing</a>
+      <a class="btn-secondary" href="contact.html">Book a Visit →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-val">Same Day</span><span class="stat-label">Often Available</span></div>
+      <div class="stat"><span class="stat-val">$0</span><span class="stat-label">Parts Markup</span></div>
+      <div class="stat"><span class="stat-val">Flat</span><span class="stat-label">Rate Pricing</span></div>
+      <div class="stat"><span class="stat-val">No Fix</span><span class="stat-label">No Fee</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span>→</span>PC Repair</span>
+    <span class="ticker-item"><span>→</span>Custom Builds</span>
+    <span class="ticker-item"><span>→</span>Virus Removal</span>
+    <span class="ticker-item"><span>→</span>Device Setup</span>
+    <span class="ticker-item"><span>→</span>Remote Support</span>
+    <span class="ticker-item"><span>→</span>Data Recovery</span>
+    <span class="ticker-item"><span>→</span>Network Setup</span>
+    <span class="ticker-item"><span>→</span>Westchase Delivery</span>
+    <span class="ticker-item"><span>→</span>PC Repair</span>
+    <span class="ticker-item"><span>→</span>Custom Builds</span>
+    <span class="ticker-item"><span>→</span>Virus Removal</span>
+    <span class="ticker-item"><span>→</span>Device Setup</span>
+    <span class="ticker-item"><span>→</span>Remote Support</span>
+    <span class="ticker-item"><span>→</span>Data Recovery</span>
+    <span class="ticker-item"><span>→</span>Network Setup</span>
+    <span class="ticker-item"><span>→</span>Westchase Delivery</span>
+  </div>
+</div>
+
+<section class="services-preview">
+  <div class="section-label">What We Do</div>
+  <div class="services-grid">
+    <div class="svc">
+      <p class="svc-num">// 01</p>
+      <div class="svc-icon">🖥️</div>
+      <h3 class="svc-title">PC Repair & Diagnostics</h3>
+      <p class="svc-desc">On-site diagnosis and repair for hardware failures, viruses, blue screens, and slow machines. You buy parts at cost — no markup.</p>
+      <span class="svc-price">From $35</span><br>
+      <a class="svc-link" href="services.html">View pricing →</a>
+    </div>
+    <div class="svc">
+      <p class="svc-num">// 02</p>
+      <div class="svc-icon">⚙️</div>
+      <h3 class="svc-title">Custom PC Building</h3>
+      <p class="svc-desc">You pick the parts, I build and configure your machine. Gaming rigs, workstations, home office builds. Expert labor only.</p>
+      <span class="svc-price">From $100 labor</span><br>
+      <a class="svc-link" href="services.html">View pricing →</a>
+    </div>
+    <div class="svc">
+      <p class="svc-num">// 03</p>
+      <div class="svc-icon">📱</div>
+      <h3 class="svc-title">Device Setup & Troubleshooting</h3>
+      <p class="svc-desc">New laptop, router, smart TV, or printer — flat-rate visits so you're not paying hourly while I figure things out.</p>
+      <span class="svc-price">From $50 flat</span><br>
+      <a class="svc-link" href="services.html">View pricing →</a>
+    </div>
+    <div class="svc">
+      <p class="svc-num">// 04</p>
+      <div class="svc-icon">🛰️</div>
+      <h3 class="svc-title">Remote Tech Support</h3>
+      <p class="svc-desc">Fix it without leaving your couch. I connect to your machine and resolve software issues, slowdowns, and account problems in real time.</p>
+      <span class="svc-price">From $30/session</span><br>
+      <a class="svc-link" href="services.html">View pricing →</a>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="why-inner">
+    <div class="why-text">
+      <h2>Why <span>Mr. Geek</span><br>Over a Shop?</h2>
+      <p>Every repair shop in Westchase requires you to drop off your device and wait. Mr. Geek comes to you — your office parking lot, your apartment, your home — and fixes it while you watch.</p>
+      <ul class="why-list">
+        <li>No drop-off, no waiting room, no runaround</li>
+        <li>Flat rates quoted before work starts — zero surprises</li>
+        <li>You buy parts at cost — I never markup components</li>
+        <li>No fix means no labor fee — ever</li>
+        <li>Same-day availability on most jobs</li>
+        <li>Small business monthly plans with priority response</li>
+      </ul>
+    </div>
+    <div class="why-terminal">
+      <div class="terminal-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      </div>
+      <div class="terminal-body">
+        <div><span class="t-prompt">$ </span><span class="t-cmd">mrgeek diagnose --device laptop</span></div>
+        <div class="t-out">→ Scanning hardware...</div>
+        <div class="t-out">→ Checking processes...</div>
+        <div class="t-out">→ Running malware scan...</div>
+        <div>&nbsp;</div>
+        <div><span class="t-warn">! </span><span class="t-cmd">Issue found: startup bloat (47 items)</span></div>
+        <div><span class="t-warn">! </span><span class="t-cmd">Temp files: 14.2 GB detected</span></div>
+        <div>&nbsp;</div>
+        <div><span class="t-prompt">$ </span><span class="t-cmd">mrgeek repair --fix-all</span></div>
+        <div class="t-out">→ Cleaning startup items...</div>
+        <div class="t-out">→ Removing junk files...</div>
+        <div class="t-out">→ Optimizing boot sequence...</div>
+        <div>&nbsp;</div>
+        <div><span class="t-val">✓ Repair complete. Boot time: 8s → 2s</span></div>
+        <div><span class="t-val">✓ Freed 14.2 GB of disk space</span></div>
+        <div><span class="t-prompt">$ </span><span class="t-cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="area-strip">
+  <div class="section-label">Service Area</div>
+  <div class="area-cards">
+    <div class="area-card">
+      <div class="area-card-icon">📍</div>
+      <h3 class="area-card-title">Westchase Core</h3>
+      <p class="area-card-desc">77042 and 77077 zip codes — my home turf. Same-day on most requests.</p>
+      <span class="area-card-tag">Primary Zone</span>
+    </div>
+    <div class="area-card">
+      <div class="area-card-icon">🗺️</div>
+      <h3 class="area-card-title">Surrounding Areas</h3>
+      <p class="area-card-desc">Energy Corridor, Briar Grove, Memorial, Meyerland, Bellaire — all covered. Travel fee may apply.</p>
+      <span class="area-card-tag">Extended Zone</span>
+    </div>
+    <div class="area-card">
+      <div class="area-card-icon">🛰️</div>
+      <h3 class="area-card-title">Remote — Anywhere</h3>
+      <p class="area-card-desc">Software issues, slowdowns, account problems — handled remotely nationwide with no travel needed.</p>
+      <span class="area-card-tag">Nationwide</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Ready to Get It<span> Fixed Today?_</span></h2>
+  <p>Most jobs are same-day. Text, call, or book online — I respond within the hour.</p>
+  <div class="cta-buttons">
+    <a class="btn-primary" href="contact.html">Book a Service</a>
+    <a class="btn-secondary" href="services.html">View All Pricing →</a>
+  </div>
+</section>
+
+<footer>
+  <span>MR.GEEK LLC © 2024–2026 · Houston, TX</span>
+  <div class="footer-links">
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="process.html">Process</a>
+    <a href="contact.html">Contact</a>
+    <a href="pay.html">Pay</a>
+    <a href="tos.html">Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>

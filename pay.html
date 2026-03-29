@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pay — Mr. Geek LLC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0a0a0a;--surface:#111111;--surface2:#1a1a1a;--border:#222222;--accent:#00ff88;--accent2:#0099ff;--accent3:#ff6b35;--text:#e8e8e8;--muted:#666;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;}
+    .nav-logo{font-family:var(--mono);font-size:0.9rem;color:var(--accent);text-decoration:none;letter-spacing:0.15em;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{font-family:var(--mono);font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--accent);}
+    .nav-cta{font-family:var(--mono);font-size:0.7rem;background:var(--accent);color:#000;padding:0.5rem 1rem;text-decoration:none;letter-spacing:0.1em;font-weight:700;}
+
+    .hero{margin-top:60px;padding:5rem 2rem 4rem;border-bottom:1px solid var(--border);background:radial-gradient(ellipse at 70% 0%,rgba(0,153,255,0.05) 0%,transparent 60%);}
+    .hero-label{font-family:var(--mono);font-size:0.7rem;color:var(--accent2);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:1.5rem;}
+    .hero h1{font-family:var(--mono);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1.1;margin-bottom:1.25rem;}
+    .hero h1 span{color:var(--accent2);}
+    .hero p{font-size:1rem;color:var(--muted);max-width:480px;line-height:1.8;font-weight:300;}
+
+    /* PAY OPTIONS */
+    .pay-main{max-width:900px;margin:0 auto;padding:5rem 2rem;}
+    .section-label{font-family:var(--mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:3rem;display:flex;align-items:center;gap:1rem;}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+    .pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;}
+    .pay-card{background:var(--surface);border:1px solid var(--border);padding:2.5rem;position:relative;}
+    .pay-card.featured{border-color:var(--accent2);}
+    .pay-badge{position:absolute;top:1.25rem;right:1.25rem;font-family:var(--mono);font-size:0.55rem;color:#000;background:var(--accent2);padding:0.2rem 0.5rem;letter-spacing:0.1em;text-transform:uppercase;}
+    .pay-icon{font-size:1.5rem;margin-bottom:1rem;}
+    .pay-title{font-family:var(--mono);font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.5rem;}
+    .pay-desc{font-size:0.82rem;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:1.5rem;}
+    .pay-features{list-style:none;display:flex;flex-direction:column;gap:0.4rem;margin-bottom:2rem;}
+    .pay-features li{font-size:0.78rem;color:var(--muted);display:flex;align-items:center;gap:0.6rem;font-weight:300;}
+    .pay-features li::before{content:'✓';color:var(--accent);font-family:var(--mono);font-size:0.65rem;flex-shrink:0;}
+    .pay-btn{display:block;text-align:center;font-family:var(--mono);font-size:0.75rem;padding:0.9rem;text-decoration:none;font-weight:700;letter-spacing:0.1em;transition:opacity 0.2s;border:1px solid var(--accent);color:var(--accent);}
+    .pay-btn:hover{background:var(--accent);color:#000;}
+    .pay-card.featured .pay-btn{background:var(--accent2);color:#000;border-color:var(--accent2);}
+    .pay-card.featured .pay-btn:hover{opacity:0.85;}
+
+    /* CUSTOM AMOUNT */
+    .custom-pay{background:var(--surface);border:1px solid var(--border);padding:2.5rem;}
+    .custom-title{font-family:var(--mono);font-size:0.85rem;font-weight:700;color:#fff;margin-bottom:0.5rem;}
+    .custom-desc{font-size:0.82rem;color:var(--muted);margin-bottom:1.5rem;font-weight:300;line-height:1.6;}
+    .amount-row{display:flex;gap:1rem;align-items:center;}
+    .amount-field{position:relative;flex:1;}
+    .amount-field span{position:absolute;left:1rem;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:0.85rem;color:var(--muted);}
+    .amount-field input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:0.85rem;padding:0.8rem 1rem 0.8rem 2rem;outline:none;transition:border-color 0.2s;}
+    .amount-field input:focus{border-color:var(--accent);}
+    .amount-btn{font-family:var(--mono);font-size:0.75rem;background:var(--accent);color:#000;padding:0.8rem 1.5rem;border:none;cursor:pointer;font-weight:700;letter-spacing:0.1em;white-space:nowrap;transition:opacity 0.2s;}
+    .amount-btn:hover{opacity:0.85;}
+
+    /* TRUST */
+    .trust-row{display:flex;gap:0;margin-top:2px;}
+    .trust-item{flex:1;background:var(--surface);border:1px solid var(--border);padding:1.25rem;text-align:center;border-right:none;}
+    .trust-item:last-child{border-right:1px solid var(--border);}
+    .trust-icon{font-size:1rem;margin-bottom:0.4rem;}
+    .trust-label{font-family:var(--mono);font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;}
+
+    /* METHODS */
+    .methods{max-width:900px;margin:0 auto;padding:0 2rem 5rem;}
+    .methods-label{font-family:var(--mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;}
+    .methods-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    .methods-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;}
+    .method{background:var(--surface);border:1px solid var(--border);padding:1.25rem;text-align:center;}
+    .method-name{font-family:var(--mono);font-size:0.7rem;color:var(--text);margin-bottom:0.2rem;}
+    .method-note{font-size:0.65rem;color:var(--muted);font-weight:300;}
+
+    footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:0.65rem;color:var(--muted);flex-wrap:wrap;gap:1rem;}
+    footer a{color:var(--muted);text-decoration:none;}
+    footer a:hover{color:var(--text);}
+    .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+
+    @media(max-width:768px){
+      .nav-links{display:none;}
+      .pay-grid{grid-template-columns:1fr;}
+      .methods-grid{grid-template-columns:repeat(3,1fr);}
+      .trust-row{flex-wrap:wrap;}
+      .amount-row{flex-direction:column;}
+      .amount-btn{width:100%;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">MR.GEEK</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="contact.html">Book Now</a>
+</nav>
+
+<section class="hero">
+  <p class="hero-label">// Secure Payments</p>
+  <h1>Pay Mr.<br><span>Geek LLC_</span></h1>
+  <p>Pay invoices, deposits, or subscribe to monthly support plans. Secure billing powered by Stripe.</p>
+</section>
+
+<section class="pay-main">
+  <div class="section-label">Payment Options</div>
+
+  <div class="pay-grid">
+    <div class="pay-card">
+      <div class="pay-icon">💳</div>
+      <h2 class="pay-title">Pay an Invoice</h2>
+      <p class="pay-desc">For one-time repairs, project deposits, and service fees. Use the invoice number from your receipt.</p>
+      <ul class="pay-features">
+        <li>All major credit & debit cards</li>
+        <li>ACH bank transfer available</li>
+        <li>Instant payment confirmation</li>
+        <li>Receipt sent to your email</li>
+        <li>256-bit SSL encryption</li>
+      </ul>
+      <a class="pay-btn" href="https://dashboard.stripe.com" target="_blank">Pay Invoice →</a>
+    </div>
+    <div class="pay-card featured">
+      <span class="pay-badge">Monthly</span>
+      <div class="pay-icon">🔄</div>
+      <h2 class="pay-title">Small Business Plan</h2>
+      <p class="pay-desc">$79/month for 2 priority remote sessions + dedicated response line. Cancel anytime, no contracts.</p>
+      <ul class="pay-features">
+        <li>2 remote support sessions/month</li>
+        <li>Priority response (within 30 min)</li>
+        <li>Auto-billing — no manual payments</li>
+        <li>Cancel anytime from your portal</li>
+        <li>Rollover unused sessions</li>
+      </ul>
+      <a class="pay-btn" href="https://dashboard.stripe.com" target="_blank">Subscribe — $79/mo →</a>
+    </div>
+  </div>
+
+  <!-- CUSTOM AMOUNT -->
+  <div class="custom-pay">
+    <h3 class="custom-title">Custom Amount</h3>
+    <p class="custom-desc">Have a specific invoice amount? Enter it below and proceed directly to Stripe checkout.</p>
+    <div class="amount-row">
+      <div class="amount-field">
+        <span>$</span>
+        <input type="number" id="customAmt" placeholder="0.00" min="1" step="0.01"/>
+      </div>
+      <button class="amount-btn" onclick="goToStripe()">Proceed to Payment →</button>
+    </div>
+  </div>
+
+  <!-- TRUST ROW -->
+  <div class="trust-row">
+    <div class="trust-item"><div class="trust-icon">🔒</div><div class="trust-label">SSL Encrypted</div></div>
+    <div class="trust-item"><div class="trust-icon">⚡</div><div class="trust-label">Powered by Stripe</div></div>
+    <div class="trust-item"><div class="trust-icon">🛡️</div><div class="trust-label">PCI Compliant</div></div>
+    <div class="trust-item"><div class="trust-icon">✉️</div><div class="trust-label">Receipt via Email</div></div>
+    <div class="trust-item"><div class="trust-icon">🔄</div><div class="trust-label">Cancel Anytime</div></div>
+  </div>
+</section>
+
+<section class="methods">
+  <div class="methods-label">Also Accepted In-Person</div>
+  <div class="methods-grid">
+    <div class="method"><div class="method-name">Venmo</div><div class="method-note">@MrGeekLLC</div></div>
+    <div class="method"><div class="method-name">Zelle</div><div class="method-note">Via phone number</div></div>
+    <div class="method"><div class="method-name">Cash App</div><div class="method-note">$MrGeekLLC</div></div>
+    <div class="method"><div class="method-name">Cash</div><div class="method-note">On-site only</div></div>
+    <div class="method"><div class="method-name">Card</div><div class="method-note">Tap or swipe</div></div>
+  </div>
+</section>
+
+<footer>
+  <span>MR.GEEK LLC © 2024–2026 · Houston, TX</span>
+  <div class="footer-links">
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="process.html">Process</a>
+    <a href="contact.html">Contact</a>
+    <a href="tos.html">Terms</a>
+  </div>
+</footer>
+
+<script>
+  function goToStripe(){
+    const amt=parseFloat(document.getElementById('customAmt').value);
+    if(!amt||amt<1){alert('Please enter a valid amount ($1.00 minimum).');return;}
+    window.open('https://dashboard.stripe.com','_blank');
+  }
+</script>
+</body>
+</html>
