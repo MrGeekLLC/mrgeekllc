@@ -3,86 +3,78 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="About Mr. Geek LLC — Houston-based mobile tech services serving Westchase. Real skills, flat rates, and no surprises."/>
   <title>About — Mr. Geek LLC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#0a0a0a;--surface:#111111;--surface2:#1a1a1a;--border:#222222;--accent:#00ff88;--accent2:#0099ff;--accent3:#ff6b35;--text:#e8e8e8;--muted:#666;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;}
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden;}
-    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;}
-    .nav-logo{font-family:var(--mono);font-size:0.9rem;color:var(--accent);text-decoration:none;letter-spacing:0.15em;}
-    .nav-links{display:flex;gap:2rem;list-style:none;}
-    .nav-links a{font-family:var(--mono);font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;}
-    .nav-links a:hover,.nav-links a.active{color:var(--accent);}
-    .nav-cta{font-family:var(--mono);font-size:0.7rem;background:var(--accent);color:#000;padding:0.5rem 1rem;text-decoration:none;letter-spacing:0.1em;font-weight:700;}
-    .section-label{font-family:var(--mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:3rem;display:flex;align-items:center;gap:1rem;}
-    .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
-    .btn-primary{font-family:var(--mono);font-size:0.75rem;background:var(--accent);color:#000;padding:0.9rem 2rem;text-decoration:none;font-weight:700;letter-spacing:0.1em;transition:opacity 0.2s;display:inline-block;}
-    .btn-primary:hover{opacity:0.85;}
-    .btn-secondary{font-family:var(--mono);font-size:0.75rem;border:1px solid var(--border);color:var(--muted);padding:0.9rem 2rem;text-decoration:none;letter-spacing:0.1em;transition:all 0.2s;display:inline-block;}
-    .btn-secondary:hover{border-color:var(--muted);color:var(--text);}
+    :root{--bg:#0a0a0a;--surface:#111;--surface2:#161616;--border:#1f1f1f;--border2:#2a2a2a;--accent:#00ff88;--accent2:#0099ff;--accent3:#ff6b35;--text:#e2e2e2;--muted:#5a5a5a;--muted2:#888;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;background:rgba(10,10,10,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 clamp(1rem,4vw,2.5rem);gap:2rem;}
+    .nav-logo{font-family:var(--mono);font-size:0.85rem;color:var(--accent);text-decoration:none;letter-spacing:0.2em;flex-shrink:0;}
+    .nav-links{display:flex;gap:1.75rem;list-style:none;margin-left:1rem;flex:1;}
+    .nav-links a{font-family:var(--mono);font-size:0.65rem;color:var(--muted);text-decoration:none;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.15s;}
+    .nav-links a:hover,.nav-links a[aria-current]{color:var(--text);}
+    .nav-book{font-family:var(--mono);font-size:0.68rem;background:var(--accent);color:#000;padding:0.48rem 1.1rem;text-decoration:none;letter-spacing:0.1em;font-weight:700;transition:opacity 0.15s;flex-shrink:0;}
+    .nav-book:hover{opacity:0.82;}
+    .btn{display:inline-block;font-family:var(--mono);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-decoration:none;padding:0.82rem 1.75rem;transition:all 0.15s;}
+    .btn-green{background:var(--accent);color:#000;}.btn-green:hover{opacity:0.85;}
+    .btn-outline{background:transparent;color:var(--muted2);border:1px solid var(--border2);}.btn-outline:hover{color:var(--text);border-color:#444;}
+    .eyebrow{font-family:var(--mono);font-size:0.62rem;color:var(--muted);letter-spacing:0.22em;text-transform:uppercase;display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem;}
+    .eyebrow::after{content:'';flex:1;height:1px;background:var(--border);}
+    .site-footer{border-top:1px solid var(--border);padding:2rem clamp(1rem,4vw,2.5rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-family:var(--mono);font-size:0.6rem;color:var(--muted);}
+    .site-footer a{color:var(--muted);text-decoration:none;transition:color 0.15s;}.site-footer a:hover{color:var(--text);}
+    .footer-nav{display:flex;gap:1.5rem;flex-wrap:wrap;}
 
-    /* HERO */
-    .hero{margin-top:60px;padding:5rem 2rem 4rem;border-bottom:1px solid var(--border);background:radial-gradient(ellipse at 60% 0%,rgba(0,255,136,0.05) 0%,transparent 60%);}
-    .hero-label{font-family:var(--mono);font-size:0.7rem;color:var(--accent);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:1.5rem;}
-    .hero h1{font-family:var(--mono);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1.1;margin-bottom:1.25rem;}
-    .hero h1 span{color:var(--accent);}
-    .hero p{font-size:1rem;color:var(--muted);max-width:560px;line-height:1.8;font-weight:300;}
+    .hero{margin-top:58px;padding:4.5rem clamp(1rem,6vw,4rem) 3.5rem;border-bottom:1px solid var(--border);background:radial-gradient(ellipse 60% 80% at 90% 30%,rgba(0,153,255,0.04) 0%,transparent 65%);}
+    .hero-kicker{font-family:var(--mono);font-size:0.62rem;color:var(--accent2);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:1.5rem;}
+    .hero h1{font-family:var(--mono);font-size:clamp(2rem,5vw,3.6rem);font-weight:700;line-height:1.05;margin-bottom:1rem;}
+    .hero h1 em{font-style:normal;color:var(--accent2);}
+    .hero-sub{font-size:0.92rem;color:var(--muted2);max-width:500px;line-height:1.8;font-weight:300;}
 
     /* STORY */
-    .story{max-width:1100px;margin:0 auto;padding:5rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
-    .story-text h2{font-family:var(--mono);font-size:1.3rem;margin-bottom:1.5rem;color:#fff;}
+    .story{max-width:1060px;margin:0 auto;padding:5rem clamp(1rem,4vw,2.5rem);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+    .story-text h2{font-family:var(--mono);font-size:clamp(1.3rem,2.5vw,1.75rem);line-height:1.2;margin-bottom:1.25rem;}
     .story-text h2 span{color:var(--accent);}
-    .story-text p{font-size:0.88rem;color:var(--muted);line-height:1.9;margin-bottom:1rem;font-weight:300;}
+    .story-text p{font-size:0.86rem;color:var(--muted2);line-height:1.9;font-weight:300;margin-bottom:1rem;}
     .story-text p strong{color:var(--text);font-weight:500;}
-    .story-actions{display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;}
-
-    /* SKILLS */
-    .skills-block{display:flex;flex-direction:column;gap:2px;}
-    .skill-row{background:var(--surface);border:1px solid var(--border);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1.25rem;transition:border-color 0.2s;}
-    .skill-row:hover{border-color:#333;}
-    .skill-icon{font-size:1.1rem;flex-shrink:0;}
-    .skill-info{flex:1;}
-    .skill-title{font-family:var(--mono);font-size:0.78rem;font-weight:700;color:#fff;margin-bottom:0.2rem;}
-    .skill-desc{font-size:0.75rem;color:var(--muted);font-weight:300;}
-    .skill-bar-wrap{width:80px;height:3px;background:var(--border);flex-shrink:0;}
-    .skill-bar{height:100%;background:var(--accent);}
+    .story-actions{display:flex;gap:0.75rem;margin-top:1.75rem;flex-wrap:wrap;}
+    .story-aside{display:flex;flex-direction:column;gap:1px;}
+    .aside-row{background:var(--surface);border:1px solid var(--border);padding:1.35rem 1.5rem;display:flex;align-items:flex-start;gap:1rem;}
+    .aside-icon{font-size:1rem;flex-shrink:0;margin-top:0.1rem;}
+    .aside-title{font-family:var(--mono);font-size:0.72rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;}
+    .aside-text{font-size:0.78rem;color:var(--muted2);font-weight:300;line-height:1.6;}
 
     /* STATS */
-    .stats-strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-    .stats-inner{max-width:1100px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
-    .stat-block{padding:1.5rem;border-right:1px solid var(--border);text-align:center;}
-    .stat-block:last-child{border-right:none;}
-    .stat-val{font-family:var(--mono);font-size:1.8rem;font-weight:700;color:var(--accent);display:block;margin-bottom:0.4rem;}
-    .stat-label{font-family:var(--mono);font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;}
+    .stats{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .stats-inner{max-width:1060px;margin:0 auto;padding:3rem clamp(1rem,4vw,2.5rem);display:grid;grid-template-columns:repeat(4,1fr);}
+    .stat{padding:1.5rem;border-right:1px solid var(--border);text-align:center;}
+    .stat:last-child{border-right:none;}
+    .stat-val{font-family:var(--mono);font-size:1.75rem;font-weight:700;color:var(--accent);display:block;margin-bottom:0.3rem;}
+    .stat-lbl{font-family:var(--mono);font-size:0.56rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;}
 
     /* VALUES */
-    .values{max-width:1100px;margin:0 auto;padding:5rem 2rem;}
-    .values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
-    .value-card{background:var(--surface);border:1px solid var(--border);padding:2rem;transition:border-color 0.2s;}
-    .value-card:hover{border-color:#333;}
-    .value-icon{font-size:1.25rem;margin-bottom:0.75rem;}
-    .value-title{font-family:var(--mono);font-size:0.85rem;font-weight:700;color:#fff;margin-bottom:0.5rem;}
-    .value-desc{font-size:0.82rem;color:var(--muted);line-height:1.7;font-weight:300;}
+    .values{max-width:1060px;margin:0 auto;padding:5rem clamp(1rem,4vw,2.5rem);}
+    .values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);}
+    .value{background:var(--bg);padding:2rem;border:none;}
+    .value-icon{font-size:1.1rem;margin-bottom:0.6rem;}
+    .value-title{font-family:var(--mono);font-size:0.78rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;}
+    .value-text{font-size:0.8rem;color:var(--muted2);line-height:1.7;font-weight:300;}
 
-    /* CTA */
-    .cta-section{padding:5rem 2rem;text-align:center;background:var(--surface);border-top:1px solid var(--border);}
-    .cta-section h2{font-family:var(--mono);font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:0.75rem;}
-    .cta-section h2 span{color:var(--accent);}
-    .cta-section p{font-size:0.9rem;color:var(--muted);margin-bottom:2rem;}
-    .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+    .cta-band{background:var(--surface);border-top:1px solid var(--border);padding:5rem clamp(1rem,4vw,2.5rem);text-align:center;}
+    .cta-band h2{font-family:var(--mono);font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:0.6rem;}
+    .cta-band h2 span{color:var(--accent);}
+    .cta-band p{font-size:0.88rem;color:var(--muted2);margin-bottom:2rem;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.7;}
+    .cta-row{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;}
 
-    footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:0.65rem;color:var(--muted);flex-wrap:wrap;gap:1rem;}
-    footer a{color:var(--muted);text-decoration:none;}
-    footer a:hover{color:var(--text);}
-    .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
-
-    @media(max-width:768px){
+    @media(max-width:700px){
       .nav-links{display:none;}
       .story{grid-template-columns:1fr;gap:3rem;}
       .stats-inner{grid-template-columns:repeat(2,1fr);}
-      .stat-block:nth-child(2){border-right:none;}
+      .stat:nth-child(even){border-right:none;}
+      .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--border);}
       .values-grid{grid-template-columns:1fr;}
     }
   </style>
@@ -94,147 +86,122 @@
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="process.html">Process</a></li>
+    <li><a href="about.html" aria-current>About</a></li>
+    <li><a href="process.html">How It Works</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a class="nav-cta" href="contact.html">Book Now</a>
+  <a class="nav-book" href="https://cal.com/mrgeekllc" target="_blank" rel="noopener">Book Now</a>
 </nav>
 
 <section class="hero">
-  <p class="hero-label">// Who We Are</p>
-  <h1>About <span>Mr. Geek_</span></h1>
-  <p>A Houston-based mobile tech service built on real skills, honest pricing, and showing up — literally — for every client in the Westchase area.</p>
+  <p class="hero-kicker">// Who We Are</p>
+  <h1>Local Tech Help.<br><em>Done Honestly._</em></h1>
+  <p class="hero-sub">Mr. Geek LLC is a one-person, mobile-first tech service based in Houston's Westchase area. No storefront, no markups, no runaround — just the work.</p>
 </section>
 
 <section class="story">
   <div class="story-text">
-    <h2>Built on <span>Real Skills.</span><br>Not a Storefront.</h2>
-    <p>Mr. Geek LLC started with a simple observation: <strong>most tech shops make you come to them.</strong> You drop off your device, wait a day or two, and pay whatever they say the bill is. There's a better way.</p>
-    <p>We're a mobile-first operation based in Houston's Westchase corridor. No retail space overhead means lower prices for you and faster turnaround — because the work happens where you are, not where it's convenient for us.</p>
-    <p>Every service is <strong>flat-rate and quoted upfront.</strong> Parts are sourced by the client at cost — no markups, no inflated part prices hiding in the bill. And if we can't fix it, you don't pay for labor. That's the deal.</p>
+    <h2>Built for<br><span>Westchase.</span></h2>
+    <p>Mr. Geek LLC was built on one observation: most people don't want to drive their laptop to a strip mall and wait two days to get it back. They want someone to show up, fix it, and be honest about what it cost.</p>
+    <p>That's the whole model. <strong>Mobile. Flat-rate. No markup on parts.</strong> I come to your home, your office, or wherever is easiest — and the price is agreed before I touch anything.</p>
+    <p>The background behind the service: computer repair, custom PC builds, device setup, and troubleshooting — plus years of logistics, customer-facing work, and figuring out real problems under pressure. That combination is what makes this more than just "IT help."</p>
     <div class="story-actions">
-      <a class="btn-primary" href="services.html">See All Services</a>
-      <a class="btn-secondary" href="process.html">How It Works →</a>
+      <a class="btn btn-green" href="https://cal.com/mrgeekllc" target="_blank" rel="noopener">Book a Visit</a>
+      <a class="btn btn-outline" href="services.html">See Services →</a>
     </div>
   </div>
-  <div class="skills-block">
-    <div class="skill-row">
-      <span class="skill-icon">🖥️</span>
-      <div class="skill-info">
-        <div class="skill-title">Computer Repair</div>
-        <div class="skill-desc">Hardware, OS, drivers, peripherals</div>
+  <div class="story-aside">
+    <div class="aside-row">
+      <span class="aside-icon">📍</span>
+      <div>
+        <p class="aside-title">Based in Westchase, Houston</p>
+        <p class="aside-text">Serving 77042, 77077, and surrounding neighborhoods. Remote support available nationwide.</p>
       </div>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
     </div>
-    <div class="skill-row">
-      <span class="skill-icon">⚙️</span>
-      <div class="skill-info">
-        <div class="skill-title">PC Building</div>
-        <div class="skill-desc">Custom builds, gaming rigs, workstations</div>
+    <div class="aside-row">
+      <span class="aside-icon">💳</span>
+      <div>
+        <p class="aside-title">Flat-Rate Pricing</p>
+        <p class="aside-text">Every service is quoted upfront. No hourly creep, no add-ons at the end of the bill.</p>
       </div>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
     </div>
-    <div class="skill-row">
-      <span class="skill-icon">📱</span>
-      <div class="skill-info">
-        <div class="skill-title">Device Setup & Troubleshooting</div>
-        <div class="skill-desc">Laptops, routers, TVs, printers</div>
+    <div class="aside-row">
+      <span class="aside-icon">🛡️</span>
+      <div>
+        <p class="aside-title">No Fix, No Fee</p>
+        <p class="aside-text">If I can't resolve your problem, you don't pay for labor. No exceptions.</p>
       </div>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
     </div>
-    <div class="skill-row">
-      <span class="skill-icon">🔍</span>
-      <div class="skill-info">
-        <div class="skill-title">Critical Thinking & Diagnostics</div>
-        <div class="skill-desc">Root cause analysis, not guesswork</div>
+    <div class="aside-row">
+      <span class="aside-icon">📦</span>
+      <div>
+        <p class="aside-title">Zero Parts Markup</p>
+        <p class="aside-text">You buy components at cost. I make money on labor, not inflated part prices.</p>
       </div>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
     </div>
-    <div class="skill-row">
-      <span class="skill-icon">🛰️</span>
-      <div class="skill-info">
-        <div class="skill-title">Remote Support</div>
-        <div class="skill-desc">Software, accounts, slowdowns</div>
+    <div class="aside-row">
+      <span class="aside-icon">📅</span>
+      <div>
+        <p class="aside-title">Book on Cal.com</p>
+        <p class="aside-text">Pick a time that works for you — synced with real availability, no back-and-forth.</p>
       </div>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
-    </div>
-    <div class="skill-row">
-      <span class="skill-icon">📦</span>
-      <div class="skill-info">
-        <div class="skill-title">Logistics & Time Management</div>
-        <div class="skill-desc">On-time, organized, reliable</div>
-      </div>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
     </div>
   </div>
 </section>
 
-<div class="stats-strip">
+<div class="stats">
   <div class="stats-inner">
-    <div class="stat-block">
-      <span class="stat-val">2+</span>
-      <span class="stat-label">Years Established</span>
-    </div>
-    <div class="stat-block">
-      <span class="stat-val">$0</span>
-      <span class="stat-label">Parts Markup</span>
-    </div>
-    <div class="stat-block">
-      <span class="stat-val">4</span>
-      <span class="stat-label">Core Services</span>
-    </div>
-    <div class="stat-block">
-      <span class="stat-val">HOU</span>
-      <span class="stat-label">Based in Houston TX</span>
-    </div>
+    <div class="stat"><span class="stat-val">2+</span><span class="stat-lbl">Years Running</span></div>
+    <div class="stat"><span class="stat-val">$0</span><span class="stat-lbl">Parts Markup</span></div>
+    <div class="stat"><span class="stat-val">4</span><span class="stat-lbl">Core Services</span></div>
+    <div class="stat"><span class="stat-val">HOU</span><span class="stat-lbl">Houston, TX</span></div>
   </div>
 </div>
 
 <section class="values">
-  <div class="section-label">Core Values</div>
+  <p class="eyebrow">How We Operate</p>
   <div class="values-grid">
-    <div class="value-card">
+    <div class="value">
       <div class="value-icon">🎯</div>
-      <h3 class="value-title">Flat-Rate Honesty</h3>
-      <p class="value-desc">You get a price before I touch anything. No hourly creep, no surprise add-ons. What I quote is what you pay.</p>
+      <h3 class="value-title">Price First, Work Second</h3>
+      <p class="value-text">You get a flat quote before I touch anything. No surprises when the job is done.</p>
     </div>
-    <div class="value-card">
+    <div class="value">
       <div class="value-icon">⚡</div>
-      <h3 class="value-title">Speed Without Shortcuts</h3>
-      <p class="value-desc">Same-day service is the goal, not the exception. Fast doesn't mean sloppy — it means I know what I'm doing.</p>
+      <h3 class="value-title">Same-Day Is the Standard</h3>
+      <p class="value-text">Fast doesn't mean rushed. It means I know what I'm doing and don't make you wait for it.</p>
     </div>
-    <div class="value-card">
+    <div class="value">
       <div class="value-icon">🔍</div>
-      <h3 class="value-title">Full Transparency</h3>
-      <p class="value-desc">I'll tell you exactly what's wrong, what it'll cost, and whether it's even worth fixing. No upselling what you don't need.</p>
+      <h3 class="value-title">Plain English, Always</h3>
+      <p class="value-text">I'll tell you what's wrong and whether it's actually worth fixing — no jargon, no upsells.</p>
     </div>
-    <div class="value-card">
+    <div class="value">
       <div class="value-icon">🤝</div>
-      <h3 class="value-title">Your Tech, Your Terms</h3>
-      <p class="value-desc">I come to you, work around your schedule, and explain everything in plain English. You stay in control of your own devices.</p>
+      <h3 class="value-title">Your Device, Your Control</h3>
+      <p class="value-text">You're always present. You always know what's happening. Your device never disappears into a back room.</p>
     </div>
   </div>
 </section>
 
-<section class="cta-section">
-  <h2>Let's Fix Something<span> Together_</span></h2>
-  <p>Reach out and I'll get back to you within the hour. Most jobs are same-day.</p>
-  <div class="cta-buttons">
-    <a class="btn-primary" href="contact.html">Get in Touch</a>
-    <a class="btn-secondary" href="process.html">See How It Works →</a>
+<div class="cta-band">
+  <h2>Ready to<span> Work Together?_</span></h2>
+  <p>Book a visit or send a message — I respond within the hour.</p>
+  <div class="cta-row">
+    <a class="btn btn-green" href="https://cal.com/mrgeekllc" target="_blank" rel="noopener">Book on Cal.com</a>
+    <a class="btn btn-outline" href="contact.html">Send a Message →</a>
   </div>
-</section>
+</div>
 
-<footer>
+<footer class="site-footer">
   <span>MR.GEEK LLC © 2024–2026 · Houston, TX</span>
-  <div class="footer-links">
+  <nav class="footer-nav" aria-label="Footer">
     <a href="services.html">Services</a>
-    <a href="process.html">Process</a>
+    <a href="process.html">How It Works</a>
     <a href="contact.html">Contact</a>
     <a href="pay.html">Pay</a>
     <a href="tos.html">Terms</a>
-  </div>
+  </nav>
 </footer>
 
 </body>
