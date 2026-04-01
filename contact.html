@@ -1,207 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Contact Mr. Geek LLC — book on Cal.com or send a message. Houston Westchase tech services."/>
-  <title>Contact — Mr. Geek LLC</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Mr. Geek LLC — Book a Service | Houston Westchase</title>
+  <meta name="description" content="Book a computer repair, PC build, or tech support service. Mr. Geek LLC serves Westchase Houston 77042/77077. Same-day available. Responds within the hour."/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0a0a'/><text y='.9em' font-size='80' x='10'>🖥</text></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    :root{--bg:#0a0a0a;--surface:#111;--surface2:#161616;--border:#1f1f1f;--border2:#2a2a2a;--accent:#00ff88;--accent2:#0099ff;--accent3:#ff6b35;--text:#e2e2e2;--muted:#5a5a5a;--muted2:#888;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;}
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;background:rgba(10,10,10,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 clamp(1rem,4vw,2.5rem);gap:2rem;}
-    .nav-logo{font-family:var(--mono);font-size:0.85rem;color:var(--accent);text-decoration:none;letter-spacing:0.2em;flex-shrink:0;}
-    .nav-links{display:flex;gap:1.75rem;list-style:none;margin-left:1rem;flex:1;}
-    .nav-links a{font-family:var(--mono);font-size:0.65rem;color:var(--muted);text-decoration:none;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.15s;}
-    .nav-links a:hover,.nav-links a[aria-current]{color:var(--text);}
-    .nav-book{font-family:var(--mono);font-size:0.68rem;background:var(--accent);color:#000;padding:0.48rem 1.1rem;text-decoration:none;letter-spacing:0.1em;font-weight:700;transition:opacity 0.15s;flex-shrink:0;}
-    .nav-book:hover{opacity:0.82;}
-    .btn{display:inline-block;font-family:var(--mono);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-decoration:none;padding:0.82rem 1.75rem;transition:all 0.15s;}
-    .btn-green{background:var(--accent);color:#000;}.btn-green:hover{opacity:0.85;}
-    .btn-outline{background:transparent;color:var(--muted2);border:1px solid var(--border2);}.btn-outline:hover{color:var(--text);border-color:#444;}
-    .site-footer{border-top:1px solid var(--border);padding:2rem clamp(1rem,4vw,2.5rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-family:var(--mono);font-size:0.6rem;color:var(--muted);}
-    .site-footer a{color:var(--muted);text-decoration:none;transition:color 0.15s;}.site-footer a:hover{color:var(--text);}
-    .footer-nav{display:flex;gap:1.5rem;flex-wrap:wrap;}
-
-    .hero{margin-top:58px;padding:4.5rem clamp(1rem,6vw,4rem) 3.5rem;border-bottom:1px solid var(--border);background:radial-gradient(ellipse 60% 80% at 60% 0%,rgba(0,255,136,0.04) 0%,transparent 65%);}
-    .hero-kicker{font-family:var(--mono);font-size:0.62rem;color:var(--accent);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:1.5rem;}
-    .hero h1{font-family:var(--mono);font-size:clamp(2rem,5vw,3.6rem);font-weight:700;line-height:1.05;margin-bottom:1rem;}
-    .hero h1 em{font-style:normal;color:var(--accent);}
-    .hero-sub{font-size:0.92rem;color:var(--muted2);max-width:480px;line-height:1.8;font-weight:300;}
-
-    /* BOOK CTA - prominent */
-    .book-strip{background:var(--surface);border-bottom:1px solid var(--border);padding:2.5rem clamp(1rem,4vw,2.5rem);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
-    .book-strip-text h2{font-family:var(--mono);font-size:1rem;font-weight:700;margin-bottom:0.3rem;}
-    .book-strip-text p{font-size:0.82rem;color:var(--muted2);font-weight:300;}
-    .book-strip-btn{font-family:var(--mono);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-decoration:none;padding:0.9rem 2rem;background:var(--accent);color:#000;white-space:nowrap;transition:opacity 0.15s;flex-shrink:0;}
-    .book-strip-btn:hover{opacity:0.85;}
-
-    /* MAIN */
-    .contact-main{max-width:1060px;margin:0 auto;padding:5rem clamp(1rem,4vw,2.5rem);display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start;}
-
+    :root{--bg:#090909;--sf:#111;--bd:#1e1e1e;--bd2:#2d2d2d;--ac:#00ff88;--ac2:#0099ff;--ac3:#ff6b35;--tx:#e8e8e8;--mu:#555;--mo:'Space Mono',monospace;--sa:'DM Sans',sans-serif;--nh:60px;}
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--tx);font-family:var(--sa);overflow-x:hidden;}a{text-decoration:none;color:inherit;}
+    nav{position:fixed;top:0;width:100%;z-index:500;height:var(--nh);background:rgba(9,9,9,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;gap:1rem;}
+    .logo{font-family:var(--mo);font-size:.85rem;color:var(--ac);letter-spacing:.18em;}
+    .nl{display:flex;gap:1.75rem;list-style:none;}
+    .nl a{font-family:var(--mo);font-size:.63rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;transition:color .2s;}
+    .nl a:hover,.nl a.on{color:var(--ac);}
+    .nr{display:flex;align-items:center;gap:.75rem;}
+    .nb{font-family:var(--mo);font-size:.65rem;background:var(--ac);color:#000;padding:.45rem 1.1rem;font-weight:700;letter-spacing:.1em;cursor:pointer;border:none;}
+    .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.3rem;}
+    .hbg span{display:block;width:22px;height:2px;background:var(--mu);transition:all .3s;}
+    .hbg.open span:first-child{transform:translateY(7px) rotate(45deg);}
+    .hbg.open span:nth-child(2){opacity:0;}
+    .hbg.open span:last-child{transform:translateY(-7px) rotate(-45deg);}
+    .mm{display:none;position:fixed;top:var(--nh);left:0;right:0;background:rgba(9,9,9,.98);border-bottom:1px solid var(--bd);z-index:499;padding:1.5rem 2rem 2rem;flex-direction:column;gap:.75rem;}
+    .mm.open{display:flex;}
+    .mm a{font-family:var(--mo);font-size:.72rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;padding:.75rem 0;border-bottom:1px solid var(--bd);}
+    .mm .mb{width:100%;margin-top:.75rem;font-family:var(--mo);font-size:.75rem;background:var(--ac);color:#000;padding:.9rem;font-weight:700;cursor:pointer;border:none;}
+    .hero{margin-top:var(--nh);padding:5rem 2rem 4rem;border-bottom:1px solid var(--bd);background:radial-gradient(ellipse at 40% 0%,rgba(255,107,53,.05),transparent 60%);}
+    .ey{font-family:var(--mo);font-size:.62rem;color:var(--ac3);letter-spacing:.28em;text-transform:uppercase;margin-bottom:1.25rem;}
+    h1{font-family:var(--mo);font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.05;margin-bottom:.9rem;}
+    h1 span{color:var(--ac3);}
+    .hs{font-size:.95rem;color:#888;max-width:500px;line-height:1.8;font-weight:300;}
+    /* QUICK BOOK BAR */
+    .qb{background:rgba(0,255,136,.05);border-top:1px solid rgba(0,255,136,.15);border-bottom:1px solid rgba(0,255,136,.15);padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
+    .qb-txt{font-family:var(--mo);font-size:.68rem;color:rgba(0,255,136,.8);letter-spacing:.08em;}
+    .qb-btn{font-family:var(--mo);font-size:.68rem;background:var(--ac);color:#000;padding:.55rem 1.25rem;font-weight:700;letter-spacing:.08em;cursor:pointer;border:none;white-space:nowrap;}
+    /* MAIN GRID */
+    .main{max-width:1080px;margin:0 auto;padding:5rem 2rem;display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start;}
     /* INFO */
-    .info-stack{display:flex;flex-direction:column;gap:1px;}
-    .info-item{background:var(--surface);border:1px solid var(--border);padding:1.4rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;}
-    .info-icon{font-size:1rem;flex-shrink:0;margin-top:0.1rem;}
-    .info-title{font-family:var(--mono);font-size:0.7rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;}
-    .info-val{font-size:0.78rem;color:var(--muted2);font-weight:300;line-height:1.65;}
-    .info-val a{color:var(--accent);text-decoration:none;}
-    .hours{margin-top:1px;}
-    .hours-row{display:flex;justify-content:space-between;padding:0.7rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-top:none;font-size:0.76rem;}
-    .hours-row:first-child{border-top:1px solid var(--border);}
-    .hours-day{font-family:var(--mono);font-size:0.62rem;color:var(--muted);}
-    .hours-time{font-family:var(--mono);font-size:0.62rem;color:var(--accent);}
-
+    .iblock{display:flex;flex-direction:column;gap:2px;}
+    .ir{background:var(--sf);border:1px solid var(--bd);padding:1.4rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color .2s;}
+    .ir:hover{border-color:var(--bd2);}
+    .iico{font-size:1rem;flex-shrink:0;margin-top:.1rem;}
+    .it{font-family:var(--mo);font-size:.72rem;font-weight:700;color:#fff;margin-bottom:.25rem;}
+    .iv{font-size:.78rem;color:var(--mu);font-weight:300;line-height:1.6;}
+    .iv a{color:var(--ac);}
+    .hours{border:1px solid var(--bd);background:var(--sf);margin-top:2px;}
+    .hr{display:flex;justify-content:space-between;padding:.7rem 1.25rem;border-bottom:1px solid var(--bd);font-size:.75rem;}
+    .hr:last-child{border-bottom:none;}
+    .hday{font-family:var(--mo);font-size:.62rem;color:var(--mu);}
+    .htime{font-family:var(--mo);font-size:.62rem;color:var(--ac);}
     /* FORM */
-    .form-wrap{background:var(--surface);border:1px solid var(--border);padding:2.5rem;}
-    .form-eyebrow{font-family:var(--mono);font-size:0.62rem;color:var(--muted);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;gap:1rem;}
-    .form-eyebrow::after{content:'';flex:1;height:1px;background:var(--border);}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
-    .field{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;}
-    .field label{font-family:var(--mono);font-size:0.6rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;}
-    .field input,.field select,.field textarea{background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:var(--sans);font-size:0.84rem;padding:0.78rem 1rem;outline:none;transition:border-color 0.2s;width:100%;font-weight:300;appearance:none;}
-    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);}
-    .field input::placeholder,.field textarea::placeholder{color:var(--muted);}
-    .field textarea{resize:vertical;min-height:110px;}
-    .submit-btn{width:100%;font-family:var(--mono);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;background:var(--accent);color:#000;border:none;padding:0.95rem;cursor:pointer;transition:opacity 0.15s;margin-top:0.25rem;}
-    .submit-btn:hover{opacity:0.85;}
-    .form-fine{font-family:var(--mono);font-size:0.58rem;color:var(--muted);text-align:center;margin-top:0.75rem;letter-spacing:0.05em;line-height:1.6;}
-
-    @media(max-width:700px){
-      .nav-links{display:none;}
-      .contact-main{grid-template-columns:1fr;gap:2.5rem;}
-      .form-row{grid-template-columns:1fr;}
-      .book-strip{flex-direction:column;text-align:center;}
+    .fw{background:var(--sf);border:1px solid var(--bd);padding:2.25rem;}
+    .fl2{font-family:var(--mo);font-size:.6rem;color:var(--mu);letter-spacing:.22em;text-transform:uppercase;margin-bottom:1.75rem;display:flex;align-items:center;gap:1rem;}
+    .fl2::after{content:'';flex:1;height:1px;background:var(--bd);}
+    .frow{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem;}
+    .fg{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.75rem;}
+    .fg label{font-family:var(--mo);font-size:.6rem;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;}
+    .fg input,.fg select,.fg textarea{background:var(--bg);border:1px solid var(--bd);color:var(--tx);font-family:var(--sa);font-size:.82rem;padding:.75rem .9rem;outline:none;transition:border-color .2s;width:100%;font-weight:300;}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--ac);}
+    .fg select{appearance:none;cursor:pointer;}
+    .fg textarea{resize:vertical;min-height:110px;}
+    .fg input::placeholder,.fg textarea::placeholder{color:#2d2d2d;}
+    .fsub{width:100%;font-family:var(--mo);font-size:.72rem;background:var(--ac);color:#000;padding:1rem;border:none;cursor:pointer;font-weight:700;letter-spacing:.1em;margin-top:.25rem;transition:opacity .2s;}
+    .fsub:hover{opacity:.85;}
+    .fnote{font-family:var(--mo);font-size:.57rem;color:var(--mu);margin-top:.65rem;text-align:center;letter-spacing:.05em;}
+    .fspree-note{background:rgba(0,153,255,.07);border:1px solid rgba(0,153,255,.2);padding:1rem 1.25rem;margin-bottom:1.5rem;font-family:var(--mo);font-size:.6rem;color:rgba(0,153,255,.8);line-height:1.8;}
+    .fspree-note a{color:var(--ac2);}
+    .suc{display:none;background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.25);padding:1.25rem;margin-top:.75rem;font-family:var(--mo);font-size:.72rem;color:var(--ac);text-align:center;letter-spacing:.05em;}
+    .ctas{background:var(--sf);border-top:1px solid var(--bd);padding:4rem 2rem;text-align:center;}
+    .ctas h2{font-family:var(--mo);font-size:clamp(1.3rem,3vw,2rem);margin-bottom:.75rem;}
+    .ctas h2 span{color:var(--ac);}
+    .ctas p{font-size:.86rem;color:#666;margin-bottom:2rem;}
+    .cb{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;}
+    .bp{font-family:var(--mo);font-size:.7rem;background:var(--ac);color:#000;padding:.9rem 1.75rem;font-weight:700;cursor:pointer;border:none;}
+    .bg{font-family:var(--mo);font-size:.7rem;border:1px solid var(--bd2);color:#777;padding:.9rem 1.75rem;transition:all .2s;}
+    .bg:hover{border-color:#555;color:var(--tx);}
+    footer{border-top:1px solid var(--bd);padding:1.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;font-family:var(--mo);font-size:.58rem;color:var(--mu);}
+    .flinks{display:flex;gap:1.5rem;flex-wrap:wrap;}
+    .flinks a{color:var(--mu);transition:color .2s;}
+    .flinks a:hover{color:var(--tx);}
+    .mstk{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(9,9,9,.97);border-top:1px solid var(--bd);padding:.9rem 1.5rem;}
+    .mstk button{width:100%;font-family:var(--mo);font-size:.73rem;background:var(--ac);color:#000;padding:.85rem;font-weight:700;cursor:pointer;border:none;}
+    @media(max-width:900px){
+      .nl{display:none;}.hbg{display:flex;}
+      .main{grid-template-columns:1fr;gap:2.5rem;}
+      .frow{grid-template-columns:1fr;}
+      .qb{flex-direction:column;align-items:flex-start;}
+      .mstk{display:block;}body{padding-bottom:68px;}
     }
   </style>
 </head>
 <body>
-
 <nav>
-  <a class="nav-logo" href="index.html">MR.GEEK</a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="process.html">How It Works</a></li>
-    <li><a href="contact.html" aria-current>Contact</a></li>
+  <a class="logo" href="index.html">MR.GEEK</a>
+  <ul class="nl">
+    <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li><li><a href="process.html">Process</a></li>
+    <li><a href="contact.html" class="on">Contact</a></li>
   </ul>
-  <a class="nav-book" href="pay.html">Pay Invoice</a>
-</nav>
-
-<section class="hero">
-  <p class="hero-kicker">// Get in Touch</p>
-  <h1>Let's Get It<br><em>Sorted._</em></h1>
-  <p class="hero-sub">Book directly on Cal.com for the fastest response — or send a message below if you have questions before booking.</p>
-</section>
-
-<!-- BOOK STRIP - most people should go here first -->
-<div class="book-strip">
-  <div class="book-strip-text">
-    <h2>Ready to Book? Skip the form.</h2>
-    <p>Pick a time directly on my calendar — confirmed instantly, no back-and-forth.</p>
+  <div class="nr">
+    <a class="nb" href="pay.html">Pay Invoice</a>
+    <button class="hbg" id="ham"><span></span><span></span><span></span></button>
   </div>
-  <a class="book-strip-btn" href="https://cal.com/mrgeekllc" target="_blank" rel="noopener">Open Cal.com →</a>
+</nav>
+<div class="mm" id="mmenu">
+  <a href="index.html">Home</a><a href="services.html">Services</a>
+  <a href="about.html">About</a><a href="process.html">How It Works</a>
+  <a href="contact.html">Contact</a><a href="pay.html">Pay Invoice</a>
+  <button class="mb" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service</button>
 </div>
 
-<section class="contact-main">
+<section class="hero">
+  <p class="ey">// Get In Touch</p>
+  <h1>Book a<br><span>Service._</span></h1>
+  <p class="hs">Fill out the form or book directly via the calendar. I'll confirm within the hour — most Westchase jobs are same-day.</p>
+</section>
+
+<div class="qb">
+  <span class="qb-txt">📅 Skip the form — book a time slot directly on the calendar</span>
+  <button class="qb-btn" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">Open Calendar →</button>
+</div>
+
+<section class="main">
   <div>
-    <div class="info-stack">
-      <div class="info-item">
-        <span class="info-icon">📍</span>
-        <div>
-          <p class="info-title">Service Area</p>
-          <p class="info-val">Westchase, Houston TX · 77042 · 77077<br>Energy Corridor · Memorial · Meyerland<br>Remote support: nationwide</p>
-        </div>
-      </div>
-      <div class="info-item">
-        <span class="info-icon">⚡</span>
-        <div>
-          <p class="info-title">Response Time</p>
-          <p class="info-val">Within 1 hour during business hours.<br>Same-day on-site available most days.</p>
-        </div>
-      </div>
-      <div class="info-item">
-        <span class="info-icon">💳</span>
-        <div>
-          <p class="info-title">Payment</p>
-          <p class="info-val">Card · Venmo · Zelle · Cash App · Cash<br>or <a href="pay.html">pay an invoice online →</a></p>
-        </div>
-      </div>
-      <div class="info-item">
-        <span class="info-icon">🛡️</span>
-        <div>
-          <p class="info-title">Guarantee</p>
-          <p class="info-val">No fix = no labor fee. Always.</p>
-        </div>
-      </div>
+    <div class="iblock">
+      <div class="ir"><span class="iico">📍</span><div><div class="it">Service Area</div><div class="iv">Westchase, Houston TX<br>77042 · 77077 · Surrounding Areas<br>Remote: Nationwide</div></div></div>
+      <div class="ir"><span class="iico">⚡</span><div><div class="it">Response Time</div><div class="iv">Within 1 hour during business hours.<br>Same-day on-site available most days.</div></div></div>
+      <div class="ir"><span class="iico">💳</span><div><div class="it">Payment</div><div class="iv">Card, Venmo, Zelle, Cash App, or <a href="pay.html">pay via invoice →</a></div></div></div>
+      <div class="ir"><span class="iico">🛡️</span><div><div class="it">Guarantee</div><div class="iv">No fix = no labor fee. Always.</div></div></div>
     </div>
     <div class="hours">
-      <div class="hours-row"><span class="hours-day">MON – FRI</span><span class="hours-time">9:00 AM – 8:00 PM</span></div>
-      <div class="hours-row"><span class="hours-day">SATURDAY</span><span class="hours-time">10:00 AM – 6:00 PM</span></div>
-      <div class="hours-row"><span class="hours-day">SUNDAY</span><span class="hours-time">By Request</span></div>
-      <div class="hours-row"><span class="hours-day">AFTER HOURS</span><span class="hours-time" style="color:var(--accent3)">+$20 fee applies</span></div>
+      <div class="hr"><span class="hday">MON – FRI</span><span class="htime">9:00 AM – 8:00 PM</span></div>
+      <div class="hr"><span class="hday">SATURDAY</span><span class="htime">10:00 AM – 6:00 PM</span></div>
+      <div class="hr"><span class="hday">SUNDAY</span><span class="htime">By Request</span></div>
+      <div class="hr"><span class="hday">AFTER HOURS</span><span class="htime">+$20 fee applies</span></div>
     </div>
   </div>
 
-  <!-- FORM — replace YOUR_FORM_ID with your Formspree endpoint -->
-  <div class="form-wrap">
-    <p class="form-eyebrow">Send a Message</p>
+  <div class="fw">
+    <p class="fl2">// Send a Message</p>
+    <!-- FORMSPREE: Replace YOUR_FORM_ID below with your Formspree endpoint ID from formspree.io -->
+    <div class="fspree-note">
+      ⚙️ <strong>Site owner:</strong> Replace <code>YOUR_FORM_ID</code> in the form action below with your Formspree ID from <a href="https://formspree.io" target="_blank">formspree.io</a> to receive form submissions by email.
+    </div>
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <div class="form-row">
-        <div class="field">
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" name="first_name" placeholder="John" required/>
-        </div>
-        <div class="field">
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="last_name" placeholder="Smith"/>
-        </div>
+      <div class="frow">
+        <div class="fg"><label>First Name *</label><input type="text" name="first_name" placeholder="John" required/></div>
+        <div class="fg"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith"/></div>
       </div>
-      <div class="field">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="you@email.com" required/>
-      </div>
-      <div class="field">
-        <label for="phone">Phone (optional)</label>
-        <input type="tel" id="phone" name="phone" placeholder="(713) 000-0000"/>
-      </div>
-      <div class="field">
-        <label for="service">Service Needed</label>
-        <select id="service" name="service">
+      <div class="fg"><label>Email Address *</label><input type="email" name="email" placeholder="you@email.com" required/></div>
+      <div class="fg"><label>Phone (optional)</label><input type="tel" name="phone" placeholder="(713) 000-0000"/></div>
+      <div class="fg"><label>Service Needed *</label>
+        <select name="service" required>
           <option value="" disabled selected>Select a service...</option>
-          <option>PC Repair &amp; Diagnostics</option>
+          <option>PC Repair & Diagnostics</option>
           <option>Custom PC Build</option>
-          <option>Device Setup &amp; Troubleshooting</option>
+          <option>Device Setup & Troubleshooting</option>
           <option>Remote Tech Support</option>
           <option>Small Business Monthly Plan</option>
           <option>Add-On Service</option>
           <option>Not sure yet</option>
         </select>
       </div>
-      <div class="field">
-        <label for="message">What's Going On?</label>
-        <textarea id="message" name="message" placeholder="Describe the issue — device type, symptoms, what you've already tried. The more detail the better." required></textarea>
-      </div>
-      <button type="submit" class="submit-btn">Send Message →</button>
-      <p class="form-fine">No commitment required. I'll confirm availability and quote before scheduling.</p>
+      <div class="fg"><label>Describe Your Issue *</label><textarea name="message" placeholder="What's going on? Include device model, symptoms, and what you've already tried..." required></textarea></div>
+      <input type="hidden" name="_subject" value="New booking request — Mr. Geek LLC"/>
+      <input type="text" name="_gotcha" style="display:none"/>
+      <button type="submit" class="fsub">Send Message →</button>
     </form>
+    <p class="fnote">✦ No commitment. I'll confirm availability and quote before anything is scheduled.</p>
+    <div class="suc" id="suc">✦ Message received! I'll be in touch within the hour.</div>
   </div>
 </section>
 
-<footer class="site-footer">
-  <span>MR.GEEK LLC © 2024–2026 · Houston, TX</span>
-  <nav class="footer-nav" aria-label="Footer">
-    <a href="services.html">Services</a>
-    <a href="about.html">About</a>
-    <a href="process.html">How It Works</a>
-    <a href="pay.html">Pay</a>
-    <a href="tos.html">Terms</a>
-  </nav>
-</footer>
+<div class="ctas">
+  <h2>Prefer to<span> Book Directly?_</span></h2>
+  <p>Skip the form — pick a time slot on the calendar and I'll see it instantly.</p>
+  <div class="cb">
+    <button class="bp" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Open Booking Calendar</button>
+    <a class="bg" href="services.html">View Pricing →</a>
+  </div>
+</div>
 
+<footer>
+  <span>MR.GEEK LLC © 2024–2026 · Houston, TX</span>
+  <div class="flinks"><a href="services.html">Services</a><a href="about.html">About</a><a href="process.html">Process</a><a href="pay.html">Pay</a><a href="tos.html">Terms</a></div>
+</footer>
+<div class="mstk"><button data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service — Same Day Available</button></div>
+
+<script type="text/javascript">(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");Cal("init",{origin:"https://cal.com"});Cal("ui",{"theme":"dark"});</script>
+<script>
+const ham=document.getElementById('ham'),mm=document.getElementById('mmenu');ham.addEventListener('click',()=>{ham.classList.toggle('open');mm.classList.toggle('open');});
+// Show success if Formspree redirects back with ?success
+if(window.location.search.includes('success')){document.getElementById('suc').style.display='block';}
+</script>
 </body>
 </html>

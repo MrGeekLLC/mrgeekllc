@@ -1,242 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Service — Mr. Geek LLC</title>
-<link rel="stylesheet" href="styles.css">
-<style>
-.tos-wrapper{max-width:860px;margin:0 auto;position:relative;z-index:1;}
-.tos-meta{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:48px;}
-.tos-meta-item{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:2px;display:flex;align-items:center;gap:8px;}
-.tos-meta-item::before{content:'✦';color:var(--accent);font-size:9px;}
-.tos-section{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--border);}
-.tos-section:last-child{border-bottom:none;}
-.tos-section h2{font-size:22px;font-weight:700;margin-bottom:16px;letter-spacing:-0.5px;display:flex;align-items:center;gap:12px;}
-.tos-section h2 .num{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:2px;}
-.tos-section p{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:16px;}
-.tos-section ul{list-style:none;margin-bottom:16px;}
-.tos-section ul li{font-size:15px;color:var(--muted);line-height:1.8;padding:6px 0;display:flex;align-items:flex-start;gap:10px;}
-.tos-section ul li::before{content:'→';color:var(--accent);font-family:var(--mono);flex-shrink:0;margin-top:2px;}
-.tos-highlight{background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.15);padding:20px 24px;margin-bottom:16px;font-size:14px;color:var(--text);line-height:1.8;}
-.tos-toc{background:var(--card);border:1px solid var(--border);padding:36px;margin-bottom:56px;}
-.tos-toc h3{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;}
-.tos-toc ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 40px;}
-.tos-toc ol li a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:1px;transition:color 0.2s;}
-.tos-toc ol li a:hover{color:var(--accent);}
-.tos-toc ol li{counter-increment:toc;display:flex;align-items:center;gap:8px;}
-.tos-toc ol li::before{content:counter(toc,decimal-leading-zero);font-family:var(--mono);font-size:10px;color:var(--accent);opacity:0.6;}
-@media(max-width:768px){.tos-toc ol{grid-template-columns:1fr;}}
-</style>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms of Service — Mr. Geek LLC</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0a0a'/><text y='.9em' font-size='80' x='10'>🖥</text></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#090909;--sf:#111;--bd:#1e1e1e;--bd2:#2d2d2d;--ac:#00ff88;--ac2:#0099ff;--ac3:#ff6b35;--tx:#e8e8e8;--mu:#555;--mo:'Space Mono',monospace;--sa:'DM Sans',sans-serif;--nh:60px;}
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--tx);font-family:var(--sa);overflow-x:hidden;}a{text-decoration:none;color:inherit;}
+    nav{position:fixed;top:0;width:100%;z-index:500;height:var(--nh);background:rgba(9,9,9,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;gap:1rem;}
+    .logo{font-family:var(--mo);font-size:.85rem;color:var(--ac);letter-spacing:.18em;}
+    .nl{display:flex;gap:1.75rem;list-style:none;}
+    .nl a{font-family:var(--mo);font-size:.63rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;transition:color .2s;}
+    .nl a:hover{color:var(--ac);}
+    .nr{display:flex;align-items:center;gap:.75rem;}
+    .nb{font-family:var(--mo);font-size:.65rem;background:var(--ac);color:#000;padding:.45rem 1.1rem;font-weight:700;letter-spacing:.1em;cursor:pointer;border:none;}
+    .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.3rem;}
+    .hbg span{display:block;width:22px;height:2px;background:var(--mu);transition:all .3s;}
+    .hbg.open span:first-child{transform:translateY(7px) rotate(45deg);}
+    .hbg.open span:nth-child(2){opacity:0;}
+    .hbg.open span:last-child{transform:translateY(-7px) rotate(-45deg);}
+    .mm{display:none;position:fixed;top:var(--nh);left:0;right:0;background:rgba(9,9,9,.98);border-bottom:1px solid var(--bd);z-index:499;padding:1.5rem 2rem 2rem;flex-direction:column;gap:.75rem;}
+    .mm.open{display:flex;}
+    .mm a{font-family:var(--mo);font-size:.72rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;padding:.75rem 0;border-bottom:1px solid var(--bd);}
+    .mm .mb{width:100%;margin-top:.75rem;font-family:var(--mo);font-size:.75rem;background:var(--ac);color:#000;padding:.9rem;font-weight:700;cursor:pointer;border:none;}
+    .hero{margin-top:var(--nh);padding:4rem 2rem 3rem;border-bottom:1px solid var(--bd);}
+    .ey{font-family:var(--mo);font-size:.62rem;color:var(--mu);letter-spacing:.28em;text-transform:uppercase;margin-bottom:1rem;}
+    h1{font-family:var(--mo);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;margin-bottom:.75rem;}
+    .meta{font-family:var(--mo);font-size:.62rem;color:var(--mu);display:flex;gap:2rem;flex-wrap:wrap;}
+    /* CONTENT */
+    .content{max-width:760px;margin:0 auto;padding:4rem 2rem 6rem;}
+    .toc{background:var(--sf);border:1px solid var(--bd);padding:1.5rem;margin-bottom:3rem;}
+    .toc-title{font-family:var(--mo);font-size:.68rem;color:var(--ac);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem;}
+    .toc ol{padding-left:1.25rem;display:flex;flex-direction:column;gap:.4rem;}
+    .toc li{font-size:.78rem;color:var(--mu);font-weight:300;}
+    .toc a{color:var(--mu);transition:color .2s;}
+    .toc a:hover{color:var(--ac);}
+    .section{margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--bd);}
+    .section:last-child{border-bottom:none;}
+    .section h2{font-family:var(--mo);font-size:.88rem;font-weight:700;color:var(--ac);margin-bottom:1rem;letter-spacing:.05em;}
+    .section p{font-size:.84rem;color:#888;line-height:1.9;margin-bottom:.9rem;font-weight:300;}
+    .section p strong{color:var(--tx);font-weight:500;}
+    .section ul{padding-left:1.25rem;margin-bottom:.9rem;}
+    .section ul li{font-size:.82rem;color:#888;line-height:1.8;margin-bottom:.3rem;font-weight:300;}
+    .section .hi{background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.2);padding:1rem 1.25rem;font-size:.8rem;color:rgba(0,255,136,.85);margin-bottom:.9rem;line-height:1.7;}
+    .section .warn{background:rgba(255,107,53,.06);border:1px solid rgba(255,107,53,.2);padding:1rem 1.25rem;font-size:.78rem;color:rgba(255,107,53,.8);margin-bottom:.9rem;line-height:1.7;text-transform:uppercase;font-family:var(--mo);letter-spacing:.04em;}
+    footer{border-top:1px solid var(--bd);padding:1.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;font-family:var(--mo);font-size:.58rem;color:var(--mu);}
+    .fl{display:flex;gap:1.5rem;flex-wrap:wrap;}
+    .fl a{color:var(--mu);transition:color .2s;}
+    .fl a:hover{color:var(--tx);}
+    @media(max-width:900px){.nl{display:none;}.hbg{display:flex;}.meta{gap:1rem;}}
+  </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 <nav>
-  <a href="index.html" class="nav-logo">MR.<span>GEEK</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="process.html">Process</a></li>
+  <a class="logo" href="index.html">MR.GEEK</a>
+  <ul class="nl">
+    <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li><li><a href="process.html">Process</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="pay.html" class="nav-cta">Pay Now</a>
+  <div class="nr">
+    <a class="nb" href="pay.html">Pay Invoice</a>
+    <button class="hbg" id="ham"><span></span><span></span><span></span></button>
+  </div>
 </nav>
-
-<div class="page-hero">
-  <div class="page-hero-tag">Legal</div>
-  <h1>Terms of <span class="accent">Service<span class="blink">_</span></span></h1>
-  <p>Please read these terms carefully before using our services or making any payment.</p>
+<div class="mm" id="mmenu">
+  <a href="index.html">Home</a><a href="services.html">Services</a>
+  <a href="about.html">About</a><a href="process.html">How It Works</a>
+  <a href="contact.html">Contact</a><a href="pay.html">Pay Invoice</a>
+  <button class="mb" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service</button>
 </div>
 
-<section class="section">
-  <div class="tos-wrapper">
-
-    <div class="tos-meta reveal">
-      <div class="tos-meta-item">Effective Date: March 17, 2026</div>
-      <div class="tos-meta-item">Last Updated: March 17, 2026</div>
-      <div class="tos-meta-item">Governing Law: State of Georgia</div>
-    </div>
-
-    <!-- TABLE OF CONTENTS -->
-    <div class="tos-toc reveal">
-      <h3>Table of Contents</h3>
-      <ol style="counter-reset:toc;">
-        <li><a href="#acceptance">Acceptance of Terms</a></li>
-        <li><a href="#services">Services Provided</a></li>
-        <li><a href="#payments">Payments & Billing</a></li>
-        <li><a href="#subscriptions">Subscriptions</a></li>
-        <li><a href="#refunds">Refund Policy</a></li>
-        <li><a href="#ip">Intellectual Property</a></li>
-        <li><a href="#confidentiality">Confidentiality</a></li>
-        <li><a href="#liability">Limitation of Liability</a></li>
-        <li><a href="#termination">Termination</a></li>
-        <li><a href="#disputes">Dispute Resolution</a></li>
-        <li><a href="#changes">Changes to Terms</a></li>
-        <li><a href="#contact">Contact Information</a></li>
-      </ol>
-    </div>
-
-    <!-- INTRO -->
-    <div class="tos-section reveal">
-      <div class="tos-highlight">
-        These Terms of Service ("Terms") constitute a legally binding agreement between you ("Client," "you," or "your") and Mr. Geek LLC, a Georgia Limited Liability Company ("Company," "we," "us," or "our"). By engaging our services, making a payment, or accessing our website, you agree to be bound by these Terms.
-      </div>
-    </div>
-
-    <!-- 1. ACCEPTANCE -->
-    <div class="tos-section reveal" id="acceptance">
-      <h2><span class="num">01</span> Acceptance of Terms</h2>
-      <p>By accessing our website, submitting a contact form, making a payment, or engaging Mr. Geek LLC for any service, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to these Terms, you may not use our services.</p>
-      <p>These Terms apply to all clients, visitors, and users of Mr. Geek LLC's services, website, and payment systems. Use of our Stripe-powered payment page constitutes acceptance of both these Terms and Stripe's own Terms of Service.</p>
-    </div>
-
-    <!-- 2. SERVICES -->
-    <div class="tos-section reveal" id="services">
-      <h2><span class="num">02</span> Services Provided</h2>
-      <p>Mr. Geek LLC provides professional, scientific, and technical services including but not limited to:</p>
-      <ul>
-        <li>Information Technology (IT) Support and Infrastructure</li>
-        <li>Technology Consulting and Digital Transformation</li>
-        <li>Digital Marketing Strategy and Management</li>
-        <li>Applied Scientific Research and Analysis</li>
-        <li>Engineering Design and Systems Integration</li>
-      </ul>
-      <p>All services are provided as described in individual project proposals, service agreements, or statements of work agreed upon between the Company and the Client. The Company reserves the right to decline any service request at its sole discretion.</p>
-      <p>Services are delivered remotely unless otherwise agreed in writing. Timelines and deliverables are specified in the applicable project proposal or service agreement.</p>
-    </div>
-
-    <!-- 3. PAYMENTS -->
-    <div class="tos-section reveal" id="payments">
-      <h2><span class="num">03</span> Payments & Billing</h2>
-      <p>All payments are processed securely through Stripe, Inc. By making a payment, you also agree to Stripe's Terms of Service and Privacy Policy.</p>
-      <ul>
-        <li>All prices are in U.S. Dollars (USD) unless otherwise specified</li>
-        <li>Payment is due as outlined in your project proposal or service agreement</li>
-        <li>Project work typically requires a deposit before work begins</li>
-        <li>Remaining balances are due upon project completion or as specified in milestones</li>
-        <li>Late payments may result in suspension of services</li>
-        <li>The Company reserves the right to charge interest on overdue balances at 1.5% per month</li>
-      </ul>
-      <p>By providing payment information, you represent and warrant that you are authorized to use the payment method provided and that all information is accurate and complete.</p>
-    </div>
-
-    <!-- 4. SUBSCRIPTIONS -->
-    <div class="tos-section reveal" id="subscriptions">
-      <h2><span class="num">04</span> Subscriptions & Recurring Billing</h2>
-      <p>For subscription-based services, the following terms apply:</p>
-      <ul>
-        <li>Subscriptions are billed on a monthly basis on the date of initial signup</li>
-        <li>Your payment method will be charged automatically each billing cycle</li>
-        <li>You will receive a reminder notification before each renewal charge</li>
-        <li>Subscriptions automatically renew unless cancelled prior to the renewal date</li>
-        <li>You may cancel your subscription at any time through Stripe's customer portal</li>
-        <li>Cancellation takes effect at the end of the current billing period — no mid-cycle refunds</li>
-        <li>The Company reserves the right to modify subscription pricing with 30 days written notice</li>
-      </ul>
-    </div>
-
-    <!-- 5. REFUNDS -->
-    <div class="tos-section reveal" id="refunds">
-      <h2><span class="num">05</span> Refund Policy</h2>
-      <p>Mr. Geek LLC is committed to client satisfaction. Our refund policy is as follows:</p>
-      <ul>
-        <li><strong style="color:var(--text);">Project Deposits:</strong> Non-refundable once work has commenced</li>
-        <li><strong style="color:var(--text);">Milestone Payments:</strong> Non-refundable for completed milestones</li>
-        <li><strong style="color:var(--text);">Subscription Payments:</strong> Non-refundable for the current billing period</li>
-        <li><strong style="color:var(--text);">Unused Services:</strong> Refunds may be considered at the Company's sole discretion for services not yet rendered</li>
-        <li><strong style="color:var(--text);">Disputes:</strong> Any refund disputes must be raised within 30 days of the payment date</li>
-      </ul>
-      <p>If you are dissatisfied with our services, please contact us at the information below before initiating a chargeback or dispute. We are committed to resolving issues directly and promptly.</p>
-    </div>
-
-    <!-- 6. IP -->
-    <div class="tos-section reveal" id="ip">
-      <h2><span class="num">06</span> Intellectual Property</h2>
-      <p>Upon receipt of full payment, the Client shall own all deliverables created specifically for their project, including but not limited to reports, designs, code, and documentation, unless otherwise agreed in writing.</p>
-      <ul>
-        <li>Mr. Geek LLC retains ownership of all pre-existing tools, frameworks, and methodologies used in delivering services</li>
-        <li>The Company retains the right to display work in its portfolio unless the Client requests otherwise in writing</li>
-        <li>All website content, branding, and materials belonging to Mr. Geek LLC are protected by applicable copyright law</li>
-        <li>Client grants the Company a limited license to use Client materials solely for the purpose of delivering the agreed services</li>
-      </ul>
-    </div>
-
-    <!-- 7. CONFIDENTIALITY -->
-    <div class="tos-section reveal" id="confidentiality">
-      <h2><span class="num">07</span> Confidentiality</h2>
-      <p>The Company agrees to keep all Client information, business data, and project details confidential and will not disclose such information to third parties without the Client's express written consent, except as required by law.</p>
-      <p>The Client agrees to keep any proprietary methodologies, pricing, and processes of Mr. Geek LLC confidential.</p>
-      <p>This confidentiality obligation survives the termination of any service agreement between the parties.</p>
-    </div>
-
-    <!-- 8. LIABILITY -->
-    <div class="tos-section reveal" id="liability">
-      <h2><span class="num">08</span> Limitation of Liability</h2>
-      <div class="tos-highlight">
-        TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, MR. GEEK LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATED TO THE USE OF OUR SERVICES.
-      </div>
-      <p>The Company's total liability to any Client for any claim arising out of or relating to these Terms or our services shall not exceed the total amount paid by the Client to the Company in the three (3) months preceding the claim.</p>
-      <p>The Company makes no warranties, express or implied, regarding the results or outcomes of any services provided. All services are delivered on a best-efforts basis.</p>
-    </div>
-
-    <!-- 9. TERMINATION -->
-    <div class="tos-section reveal" id="termination">
-      <h2><span class="num">09</span> Termination</h2>
-      <p>Either party may terminate a service engagement with written notice. The following terms apply upon termination:</p>
-      <ul>
-        <li>The Client shall pay for all work completed up to the date of termination</li>
-        <li>The Company shall deliver all completed work product paid for by the Client</li>
-        <li>Deposits and payments for completed milestones are non-refundable</li>
-        <li>The Company may immediately terminate services for non-payment or violation of these Terms</li>
-        <li>Subscription cancellations take effect at the end of the current billing period</li>
-      </ul>
-    </div>
-
-    <!-- 10. DISPUTES -->
-    <div class="tos-section reveal" id="disputes">
-      <h2><span class="num">10</span> Dispute Resolution</h2>
-      <p>In the event of any dispute arising out of or relating to these Terms or our services, the parties agree to first attempt to resolve the dispute through good-faith negotiation.</p>
-      <p>If negotiation fails, disputes shall be resolved through binding arbitration in the State of Georgia in accordance with the rules of the American Arbitration Association. The prevailing party shall be entitled to recover reasonable attorney's fees and costs.</p>
-      <p>These Terms shall be governed by and construed in accordance with the laws of the State of Georgia, without regard to its conflict of law provisions.</p>
-    </div>
-
-    <!-- 11. CHANGES -->
-    <div class="tos-section reveal" id="changes">
-      <h2><span class="num">11</span> Changes to These Terms</h2>
-      <p>Mr. Geek LLC reserves the right to modify these Terms at any time. When changes are made, we will update the "Last Updated" date at the top of this page. Continued use of our services after any changes constitutes your acceptance of the new Terms.</p>
-      <p>For active subscription clients, material changes to these Terms will be communicated with at least 14 days advance notice via email.</p>
-    </div>
-
-    <!-- 12. CONTACT -->
-    <div class="tos-section reveal" id="contact">
-      <h2><span class="num">12</span> Contact Information</h2>
-      <p>If you have any questions about these Terms of Service, please contact us:</p>
-      <ul>
-        <li>Company: Mr. Geek LLC</li>
-        <li>State of Formation: Georgia, United States</li>
-        <li>Website: Via the Contact page on this site</li>
-        <li>Response Time: Within 24 business hours</li>
-      </ul>
-      <div style="margin-top:32px;">
-        <a href="contact.html" class="btn-primary">Contact Us</a>
-      </div>
-    </div>
-
+<section class="hero">
+  <p class="ey">// Legal</p>
+  <h1>Terms of Service_</h1>
+  <div class="meta">
+    <span>Effective: March 17, 2026</span>
+    <span>Last Updated: March 2026</span>
+    <span>Governing Law: State of Georgia</span>
   </div>
 </section>
 
+<div class="content">
+  <div class="toc">
+    <p class="toc-title">// Table of Contents</p>
+    <ol>
+      <li><a href="#acceptance">Acceptance of Terms</a></li>
+      <li><a href="#services">Services Provided</a></li>
+      <li><a href="#guarantee">No Fix, No Fee Guarantee</a></li>
+      <li><a href="#payments">Payments & Billing</a></li>
+      <li><a href="#subscriptions">Subscriptions</a></li>
+      <li><a href="#refunds">Refund Policy</a></li>
+      <li><a href="#data">Client Data & Privacy</a></li>
+      <li><a href="#liability">Limitation of Liability</a></li>
+      <li><a href="#termination">Termination</a></li>
+      <li><a href="#disputes">Dispute Resolution</a></li>
+      <li><a href="#changes">Changes to Terms</a></li>
+      <li><a href="#contact">Contact Information</a></li>
+    </ol>
+  </div>
+
+  <div class="section" id="acceptance">
+    <h2>01 // Acceptance of Terms</h2>
+    <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("Client") and Mr. Geek LLC, a Georgia Limited Liability Company ("Company," "we," "us"). By booking a service, submitting a contact form, making a payment, or engaging Mr. Geek LLC in any capacity, you agree to be bound by these Terms.</p>
+  </div>
+
+  <div class="section" id="services">
+    <h2>02 // Services Provided</h2>
+    <p>Mr. Geek LLC provides mobile and remote technology services including but not limited to:</p>
+    <ul>
+      <li>Computer repair and hardware diagnostics (on-site)</li>
+      <li>Custom PC building — labor only, client-supplied parts</li>
+      <li>Device setup and troubleshooting (laptops, routers, printers, smart TVs)</li>
+      <li>Remote tech support and software troubleshooting</li>
+      <li>Monthly business support retainer plans</li>
+      <li>Add-on services (security checkups, backup setup, tune-ups, lessons)</li>
+    </ul>
+    <p>Services are delivered on-site at the client's chosen location within the service area, or remotely via secure screen-sharing software. The Company reserves the right to decline any service request at its sole discretion.</p>
+  </div>
+
+  <div class="section" id="guarantee">
+    <h2>03 // No Fix, No Fee Guarantee</h2>
+    <div class="hi">If Mr. Geek LLC cannot resolve the reported issue, no labor fee will be charged.</div>
+    <p>The following conditions apply:</p>
+    <ul>
+      <li>A $35 diagnostic fee may apply if significant investigative time was spent on a device that ultimately cannot be repaired</li>
+      <li>The diagnostic fee is credited toward the total cost if the client proceeds with a repair</li>
+      <li>The guarantee applies to labor fees only — parts purchased by the client are non-refundable</li>
+      <li>Issues arising after repair from unrelated causes are not covered under this guarantee</li>
+    </ul>
+  </div>
+
+  <div class="section" id="payments">
+    <h2>04 // Payments & Billing</h2>
+    <p>All prices are in USD. Payment is due upon completion of service unless a deposit is agreed upon in advance. Accepted payment methods: all major credit/debit cards (via Stripe), Venmo, Zelle, Cash App, and cash (on-site only).</p>
+    <ul>
+      <li>Card payments processed securely through Stripe, Inc.</li>
+      <li>Digital receipt provided for all transactions</li>
+      <li>Late payments may result in suspension of ongoing service arrangements</li>
+    </ul>
+  </div>
+
+  <div class="section" id="subscriptions">
+    <h2>05 // Subscriptions & Recurring Billing</h2>
+    <p>The Small Business Monthly Plan ($79/month) is billed automatically on the date of initial signup via Stripe.</p>
+    <ul>
+      <li>Subscriptions auto-renew unless cancelled before the renewal date</li>
+      <li>Cancellation takes effect at the end of the current billing period</li>
+      <li>You may cancel at any time through the Stripe customer portal</li>
+      <li>Pricing changes will be communicated with at least 14 days advance notice</li>
+    </ul>
+  </div>
+
+  <div class="section" id="refunds">
+    <h2>06 // Refund Policy</h2>
+    <ul>
+      <li><strong>Completed repairs:</strong> Non-refundable if the reported issue was resolved</li>
+      <li><strong>Subscription payments:</strong> Non-refundable for the current billing period</li>
+      <li><strong>Parts (client-purchased):</strong> Client assumes responsibility — contact the retailer directly</li>
+      <li><strong>Disputes:</strong> Must be raised within 30 days of the service date</li>
+    </ul>
+    <p>If you are dissatisfied, please contact us before initiating a chargeback. We resolve issues directly and promptly.</p>
+  </div>
+
+  <div class="section" id="data">
+    <h2>07 // Client Data & Privacy</h2>
+    <p>Mr. Geek LLC does not access, copy, or retain client data beyond what is necessary to perform the requested service. Clients are solely responsible for backing up their data before any repair or service visit.</p>
+    <p>All client information shared during the service engagement is kept confidential and will not be disclosed to third parties without express written consent, except as required by law.</p>
+  </div>
+
+  <div class="section" id="liability">
+    <h2>08 // Limitation of Liability</h2>
+    <div class="warn">To the maximum extent permitted by law, Mr. Geek LLC shall not be liable for any indirect, incidental, or consequential damages arising from the use of our services.</div>
+    <p>Our total liability for any claim shall not exceed the total amount paid by the client in the three months preceding the claim. Services are delivered on a best-efforts basis. Clients are advised to maintain up-to-date backups of all important data.</p>
+  </div>
+
+  <div class="section" id="termination">
+    <h2>09 // Termination</h2>
+    <p>Either party may terminate a service engagement with written notice. The client shall pay for all work completed up to the termination date. The Company may immediately suspend services for non-payment or material violation of these Terms.</p>
+  </div>
+
+  <div class="section" id="disputes">
+    <h2>10 // Dispute Resolution</h2>
+    <p>In the event of any dispute, the parties agree to first attempt resolution through good-faith negotiation. If unresolved, disputes shall be settled through binding arbitration in the State of Georgia under the rules of the American Arbitration Association. These Terms are governed by Georgia law.</p>
+  </div>
+
+  <div class="section" id="changes">
+    <h2>11 // Changes to These Terms</h2>
+    <p>Mr. Geek LLC may update these Terms at any time. The "Last Updated" date above reflects the most recent revision. Continued use of services after changes constitutes acceptance. Active subscription clients will receive 14 days advance notice of material changes.</p>
+  </div>
+
+  <div class="section" id="contact">
+    <h2>12 // Contact Information</h2>
+    <p>Questions about these Terms? Contact us via the website.</p>
+    <ul>
+      <li>Company: Mr. Geek LLC</li>
+      <li>State of Formation: Georgia, United States</li>
+      <li>Primary Service Area: Houston, TX (Westchase)</li>
+      <li>Response Time: Within 24 business hours</li>
+    </ul>
+    <p style="margin-top:1rem"><a href="contact.html" style="color:var(--ac)">Contact Us →</a></p>
+  </div>
+</div>
+
 <footer>
-  <div class="footer-logo">MR.GEEK LLC</div>
-  <div class="footer-copy">© 2024–2026 Mr. Geek LLC. All rights reserved.</div>
-  <ul class="footer-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="pay.html">Pay</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+  <span>MR.GEEK LLC © 2024–2026 · Houston, TX</span>
+  <div class="fl"><a href="index.html">Home</a><a href="services.html">Services</a><a href="pay.html">Pay</a><a href="contact.html">Contact</a></div>
 </footer>
-<script src="main.js"></script>
+<script>const ham=document.getElementById('ham'),mm=document.getElementById('mmenu');ham.addEventListener('click',()=>{ham.classList.toggle('open');mm.classList.toggle('open');});</script>
 </body>
 </html>
