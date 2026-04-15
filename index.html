@@ -105,13 +105,36 @@
     .tp{color:var(--ac);}.tc{color:#ccc;}.to{color:var(--mu);}.tv{color:var(--ac2);}.tw{color:var(--ac3);}
     .cur{display:inline-block;width:7px;height:13px;background:var(--ac);animation:bl 1s step-end infinite;vertical-align:text-bottom;}
     @keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
-    /* TESTIMONIALS */
-    .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-    .tc2{background:var(--sf);border:1px solid var(--bd);padding:1.75rem;}
-    .st2{color:var(--ac);font-size:.72rem;letter-spacing:.1em;margin-bottom:.7rem;}
-    .tt2{font-size:.8rem;color:#888;line-height:1.75;font-weight:300;font-style:italic;margin-bottom:1rem;}
-    .ta{font-family:var(--mo);font-size:.6rem;color:var(--mu);letter-spacing:.06em;}
-    .ta strong{color:var(--tx);display:block;margin-bottom:.12rem;font-size:.65rem;}
+    /* REVIEWS */
+    .rv-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+    .rv-badge{font-family:var(--mo);font-size:.55rem;background:var(--ac3);color:#000;padding:.25rem .7rem;letter-spacing:.12em;font-weight:700;display:inline-block;margin-bottom:1rem;}
+    .rv-h{font-family:var(--mo);font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:700;line-height:1.15;margin-bottom:1rem;}
+    .rv-h span{color:var(--ac);}
+    .rv-p{font-size:.83rem;color:#777;line-height:1.85;font-weight:300;margin-bottom:1.5rem;}
+    .rv-offer{background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--ac);padding:1.1rem 1.25rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;}
+    .rv-offer-val{font-family:var(--mo);font-size:1.4rem;font-weight:700;color:var(--ac);flex-shrink:0;}
+    .rv-offer-desc{font-size:.78rem;color:#888;line-height:1.6;font-weight:300;}
+    .rv-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem;}
+    .rv-btn-primary{font-family:var(--mo);font-size:.68rem;background:var(--ac);color:#000;padding:.8rem 1.4rem;font-weight:700;letter-spacing:.08em;display:inline-block;cursor:pointer;transition:opacity .2s;}
+    .rv-btn-primary:hover{opacity:.85;}
+    .rv-btn-ghost{font-family:var(--mo);font-size:.68rem;border:1px solid var(--bd2);color:#777;padding:.8rem 1.4rem;letter-spacing:.08em;display:inline-block;transition:all .2s;}
+    .rv-btn-ghost:hover{border-color:#555;color:var(--tx);}
+    .rv-note{font-family:var(--mo);font-size:.58rem;color:var(--mu);line-height:1.7;letter-spacing:.03em;}
+    .rv-note a{color:var(--ac);}
+    .rv-counter-wrap{display:flex;flex-direction:column;gap:2px;}
+    .rv-counter{background:var(--sf);border:1px solid var(--bd);padding:2rem;}
+    .rv-c-label{font-family:var(--mo);font-size:.58rem;color:var(--mu);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.75rem;}
+    .rv-c-num{font-family:var(--mo);font-size:3.5rem;font-weight:700;color:var(--ac);line-height:1;margin-bottom:.35rem;}
+    .rv-c-sub{font-size:.75rem;color:var(--mu);font-weight:300;margin-bottom:1rem;}
+    .rv-c-bar{height:4px;background:var(--bd2);margin-bottom:.75rem;}
+    .rv-c-fill{height:100%;background:var(--ac);transition:width .5s;}
+    .rv-c-status{font-family:var(--mo);font-size:.62rem;color:var(--ac);letter-spacing:.08em;}
+    .rv-platforms{background:var(--sf);border:1px solid var(--bd);padding:1.5rem;}
+    .rv-plat-label{font-family:var(--mo);font-size:.58rem;color:var(--mu);letter-spacing:.18em;text-transform:uppercase;margin-bottom:1rem;}
+    .rv-plat-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--bd);}
+    .rv-plat-row:last-child{border-bottom:none;}
+    .rv-plat{font-size:.8rem;color:var(--tx);}
+    .rv-plat-tag{font-family:var(--mo);font-size:.55rem;color:var(--ac);border:1px solid rgba(0,255,136,.3);padding:.15rem .5rem;letter-spacing:.08em;}
     /* AREA */
     .ag{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
     .ac2{background:var(--sf);border:1px solid var(--bd);padding:1.5rem;}
@@ -138,7 +161,7 @@
       .nl{display:none;}.hbg{display:flex;}
       .sg{grid-template-columns:1fr;}
       .wi{grid-template-columns:1fr;gap:3rem;}
-      .tg{grid-template-columns:1fr;}
+      .rv-wrap{grid-template-columns:1fr;}
       .ag{grid-template-columns:1fr 1fr;}
       .mstk{display:block;}
       body{padding-bottom:68px;}
@@ -257,11 +280,38 @@
 </div>
 
 <section class="sec">
-  <div class="sl">// Client Reviews</div>
-  <div class="tg">
-    <div class="tc2"><div class="st2">★★★★★</div><p class="tt2">"My laptop was practically unusable — running hot and freezing constantly. He showed up same day, had it running like new in under an hour. Didn't try to upsell me anything."</p><div class="ta"><strong>Marcus T.</strong>Westchase · PC Tune-Up</div></div>
-    <div class="tc2"><div class="st2">★★★★★</div><p class="tt2">"Helped me build my first gaming PC. Walked me through every part choice, came to my apartment and built it same weekend. Extremely knowledgeable and patient."</p><div class="ta"><strong>Destiny R.</strong>Energy Corridor · Custom Build</div></div>
-    <div class="tc2"><div class="st2">★★★★★</div><p class="tt2">"Our office network was a mess — printers down, Wi-Fi dropping constantly. Fixed everything in one remote session. We're on the monthly plan now. 10/10."</p><div class="ta"><strong>James O.</strong>Briar Grove · Business Plan</div></div>
+  <div class="sl">// Reviews</div>
+  <div class="rv-wrap">
+    <div class="rv-left">
+      <div class="rv-badge">LIMITED OFFER</div>
+      <h2 class="rv-h">Be One of Our<br><span>First 100 Reviewers_</span></h2>
+      <p class="rv-p">Mr. Geek LLC is just getting started in Westchase. If you've had a service done, your honest review helps the next customer make a confident decision — and we'll thank you for it with a real discount on your next visit.</p>
+      <div class="rv-offer">
+        <div class="rv-offer-val">10% OFF</div>
+        <div class="rv-offer-desc">your next service when you leave a verified review on Google. Valid for the first 100 reviewers only.</div>
+      </div>
+      <div class="rv-actions">
+        <a class="rv-btn-primary" href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review" target="_blank" rel="noopener">⭐ Leave a Google Review</a>
+        <a class="rv-btn-ghost" href="reviews.html">View Review Archive →</a>
+      </div>
+      <p class="rv-note">// All reviews displayed on our <a href="reviews.html">archive page</a> are verified and unedited. Discount applied manually — just show your review at time of next booking.</p>
+    </div>
+    <div class="rv-counter-wrap">
+      <div class="rv-counter">
+        <div class="rv-c-label">// Spots Remaining</div>
+        <div class="rv-c-num">100</div>
+        <div class="rv-c-sub">of 100 discount slots available</div>
+        <div class="rv-c-bar"><div class="rv-c-fill" style="width:100%"></div></div>
+        <div class="rv-c-status">🟢 Offer Active</div>
+      </div>
+      <div class="rv-platforms">
+        <div class="rv-plat-label">// Accepted Platforms</div>
+        <div class="rv-plat-row"><span class="rv-plat">Google Reviews</span><span class="rv-plat-tag">Primary</span></div>
+        <div class="rv-plat-row"><span class="rv-plat">Yelp</span><span class="rv-plat-tag">Accepted</span></div>
+        <div class="rv-plat-row"><span class="rv-plat">Facebook</span><span class="rv-plat-tag">Accepted</span></div>
+        <div class="rv-plat-row"><span class="rv-plat">Nextdoor</span><span class="rv-plat-tag">Accepted</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -285,7 +335,7 @@
 
 <footer>
   <span>MR.GEEK LLC © 2024–2026 · Houston, TX</span>
-  <div class="fl"><a href="services.html">Services</a><a href="about.html">About</a><a href="process.html">Process</a><a href="contact.html">Contact</a><a href="pay.html">Pay</a><a href="tos.html">Terms</a></div>
+  <div class="fl"><a href="services.html">Services</a><a href="about.html">About</a><a href="process.html">Process</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact</a><a href="pay.html">Pay</a><a href="tos.html">Terms</a></div>
 </footer>
 <div class="mstk"><button data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service — Same Day Available</button></div>
 

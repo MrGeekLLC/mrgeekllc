@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Client Reviews — Mr. Geek LLC | Houston Westchase</title>
+  <meta name="description" content="Verified client reviews for Mr. Geek LLC. Leave a Google review and get 10% off your next service. First 100 reviewers only."/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0a0a'/><text y='.9em' font-size='80' x='10'>🖥</text></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#090909;--sf:#111;--bd:#1e1e1e;--bd2:#2d2d2d;--ac:#00ff88;--ac2:#0099ff;--ac3:#ff6b35;--tx:#e8e8e8;--mu:#555;--mo:'Space Mono',monospace;--sa:'DM Sans',sans-serif;--nh:60px;}
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--tx);font-family:var(--sa);overflow-x:hidden;}a{text-decoration:none;color:inherit;}
+    nav{position:fixed;top:0;width:100%;z-index:500;height:var(--nh);background:rgba(9,9,9,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;gap:1rem;}
+    .logo{font-family:var(--mo);font-size:.85rem;color:var(--ac);letter-spacing:.18em;}
+    .nl{display:flex;gap:1.75rem;list-style:none;}
+    .nl a{font-family:var(--mo);font-size:.63rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;transition:color .2s;}
+    .nl a:hover,.nl a.on{color:var(--ac);}
+    .nr{display:flex;align-items:center;gap:.75rem;}
+    .nb{font-family:var(--mo);font-size:.65rem;background:var(--ac);color:#000;padding:.45rem 1.1rem;font-weight:700;letter-spacing:.1em;cursor:pointer;border:none;}
+    .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.3rem;}
+    .hbg span{display:block;width:22px;height:2px;background:var(--mu);transition:all .3s;}
+    .hbg.open span:first-child{transform:translateY(7px) rotate(45deg);}
+    .hbg.open span:nth-child(2){opacity:0;}
+    .hbg.open span:last-child{transform:translateY(-7px) rotate(-45deg);}
+    .mm{display:none;position:fixed;top:var(--nh);left:0;right:0;background:rgba(9,9,9,.98);border-bottom:1px solid var(--bd);z-index:499;padding:1.5rem 2rem 2rem;flex-direction:column;gap:.75rem;}
+    .mm.open{display:flex;}
+    .mm a{font-family:var(--mo);font-size:.72rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;padding:.75rem 0;border-bottom:1px solid var(--bd);}
+    .mm .mb{width:100%;margin-top:.75rem;font-family:var(--mo);font-size:.75rem;background:var(--ac);color:#000;padding:.9rem;font-weight:700;cursor:pointer;border:none;}
+
+    /* HERO */
+    .hero{margin-top:var(--nh);padding:5rem 2rem 3.5rem;border-bottom:1px solid var(--bd);background:radial-gradient(ellipse at 50% 0%,rgba(0,255,136,.05),transparent 60%);}
+    .ey{font-family:var(--mo);font-size:.62rem;color:var(--ac);letter-spacing:.28em;text-transform:uppercase;margin-bottom:1.25rem;}
+    h1{font-family:var(--mo);font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.05;margin-bottom:.9rem;}
+    h1 span{color:var(--ac);}
+    .hs{font-size:.95rem;color:#888;max-width:520px;line-height:1.8;font-weight:300;margin-bottom:2rem;}
+    .hero-stats{display:flex;gap:0;border:1px solid var(--bd);display:inline-flex;}
+    .hstat{padding:.9rem 1.5rem;border-right:1px solid var(--bd);text-align:center;}
+    .hstat:last-child{border-right:none;}
+    .hstat-val{font-family:var(--mo);font-size:1.1rem;font-weight:700;color:var(--ac);display:block;}
+    .hstat-label{font-family:var(--mo);font-size:.56rem;color:var(--mu);letter-spacing:.1em;margin-top:.15rem;display:block;}
+
+    /* OFFER BANNER */
+    .offer-banner{background:rgba(0,255,136,.05);border-top:1px solid rgba(0,255,136,.15);border-bottom:1px solid rgba(0,255,136,.15);}
+    .ob-inner{max-width:1080px;margin:0 auto;padding:2.5rem 2rem;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;}
+    .ob-badge{font-family:var(--mo);font-size:.55rem;background:var(--ac3);color:#000;padding:.22rem .65rem;letter-spacing:.12em;font-weight:700;display:inline-block;margin-bottom:.75rem;}
+    .ob-title{font-family:var(--mo);font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.5rem;}
+    .ob-title span{color:var(--ac);}
+    .ob-desc{font-size:.82rem;color:#888;line-height:1.7;font-weight:300;max-width:540px;}
+    .ob-right{display:flex;flex-direction:column;align-items:center;gap:1rem;flex-shrink:0;}
+    .ob-counter{background:var(--bg);border:1px solid var(--bd);padding:1.5rem 2rem;text-align:center;min-width:160px;}
+    .ob-num{font-family:var(--mo);font-size:2.5rem;font-weight:700;color:var(--ac);line-height:1;}
+    .ob-numlabel{font-family:var(--mo);font-size:.58rem;color:var(--mu);letter-spacing:.1em;margin-top:.3rem;}
+    .ob-bar{width:100%;height:4px;background:var(--bd2);margin-top:.75rem;}
+    .ob-bar-fill{height:100%;background:var(--ac);}
+    .ob-status{font-family:var(--mo);font-size:.6rem;color:var(--ac);margin-top:.5rem;}
+    .ob-btn{font-family:var(--mo);font-size:.7rem;background:var(--ac);color:#000;padding:.85rem 1.5rem;font-weight:700;letter-spacing:.08em;cursor:pointer;border:none;white-space:nowrap;transition:opacity .2s;text-align:center;display:block;width:100%;}
+    .ob-btn:hover{opacity:.85;}
+
+    /* HOW IT WORKS */
+    .hiw{max-width:1080px;margin:0 auto;padding:4rem 2rem;}
+    .sl{font-family:var(--mo);font-size:.6rem;color:var(--mu);letter-spacing:.22em;text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;gap:1rem;}
+    .sl::after{content:'';flex:1;height:1px;background:var(--bd);}
+    .hiw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+    .hiw-card{background:var(--sf);border:1px solid var(--bd);padding:1.75rem;position:relative;}
+    .hiw-n{font-family:var(--mo);font-size:2rem;font-weight:700;color:var(--bd2);margin-bottom:.75rem;}
+    .hiw-t{font-family:var(--mo);font-size:.8rem;font-weight:700;color:#fff;margin-bottom:.4rem;}
+    .hiw-d{font-size:.78rem;color:#666;line-height:1.65;font-weight:300;}
+
+    /* PLATFORMS */
+    .platforms{background:var(--sf);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);}
+    .pl-inner{max-width:1080px;margin:0 auto;padding:3.5rem 2rem;}
+    .pl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+    .pl-card{background:var(--bg);border:1px solid var(--bd);padding:1.5rem;text-align:center;transition:border-color .2s;}
+    .pl-card:hover{border-color:var(--bd2);}
+    .pl-card.primary{border-color:rgba(0,255,136,.25);}
+    .pl-ico{font-size:1.4rem;margin-bottom:.6rem;}
+    .pl-name{font-family:var(--mo);font-size:.78rem;font-weight:700;color:#fff;margin-bottom:.25rem;}
+    .pl-tag{font-family:var(--mo);font-size:.55rem;letter-spacing:.1em;padding:.15rem .5rem;border:1px solid var(--bd);color:var(--mu);}
+    .pl-card.primary .pl-tag{border-color:rgba(0,255,136,.3);color:var(--ac);}
+    .pl-link{font-family:var(--mo);font-size:.62rem;color:var(--ac2);margin-top:.75rem;display:block;transition:opacity .2s;}
+    .pl-link:hover{opacity:.75;}
+
+    /* ARCHIVE */
+    .archive{max-width:1080px;margin:0 auto;padding:4rem 2rem 5rem;}
+    .archive-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;}
+    .archive-count{font-family:var(--mo);font-size:.65rem;color:var(--mu);letter-spacing:.1em;}
+    .archive-count span{color:var(--ac);}
+    /* EMPTY STATE */
+    .empty{background:var(--sf);border:1px solid var(--bd);padding:4rem 2rem;text-align:center;}
+    .empty-ico{font-size:2.5rem;margin-bottom:1rem;}
+    .empty-title{font-family:var(--mo);font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.5rem;}
+    .empty-desc{font-size:.82rem;color:#666;line-height:1.7;font-weight:300;max-width:440px;margin:0 auto 1.75rem;}
+    .empty-cta{font-family:var(--mo);font-size:.7rem;background:var(--ac);color:#000;padding:.85rem 1.75rem;font-weight:700;letter-spacing:.08em;display:inline-block;cursor:pointer;transition:opacity .2s;}
+    .empty-cta:hover{opacity:.85;}
+    .empty-note{font-family:var(--mo);font-size:.58rem;color:var(--mu);margin-top:1rem;letter-spacing:.05em;}
+    /* REVIEW CARDS (for when reviews come in) */
+    .rv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;display:none;}/* hidden until reviews exist */
+    .rv-card{background:var(--sf);border:1px solid var(--bd);padding:1.75rem;}
+    .rv-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;}
+    .rv-stars{color:var(--ac);font-size:.72rem;letter-spacing:.08em;}
+    .rv-platform{font-family:var(--mo);font-size:.55rem;color:var(--mu);border:1px solid var(--bd);padding:.15rem .5rem;letter-spacing:.08em;}
+    .rv-text{font-size:.8rem;color:#888;line-height:1.75;font-style:italic;margin-bottom:1rem;font-weight:300;}
+    .rv-author{font-family:var(--mo);font-size:.62rem;color:var(--mu);}
+    .rv-author strong{color:var(--tx);display:block;font-size:.65rem;margin-bottom:.1rem;}
+    .rv-verified{font-family:var(--mo);font-size:.55rem;color:var(--ac);margin-top:.5rem;display:flex;align-items:center;gap:.35rem;}
+
+    /* TRANSPARENCY NOTE */
+    .transparency{max-width:1080px;margin:0 auto;padding:0 2rem 5rem;}
+    .tp-box{background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--ac2);padding:1.5rem 1.75rem;}
+    .tp-title{font-family:var(--mo);font-size:.7rem;color:var(--ac2);letter-spacing:.12em;margin-bottom:.75rem;text-transform:uppercase;}
+    .tp-text{font-size:.8rem;color:#777;line-height:1.8;font-weight:300;}
+    .tp-text strong{color:var(--tx);font-weight:500;}
+
+    /* CTA */
+    .ctas{background:var(--sf);border-top:1px solid var(--bd);padding:4rem 2rem;text-align:center;}
+    .ctas h2{font-family:var(--mo);font-size:clamp(1.3rem,3vw,2rem);margin-bottom:.75rem;}
+    .ctas h2 span{color:var(--ac);}
+    .ctas p{font-size:.86rem;color:#666;margin-bottom:2rem;}
+    .cb{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;}
+    .bp{font-family:var(--mo);font-size:.7rem;background:var(--ac);color:#000;padding:.9rem 1.75rem;font-weight:700;cursor:pointer;border:none;transition:opacity .2s;}
+    .bp:hover{opacity:.85;}
+    .bg{font-family:var(--mo);font-size:.7rem;border:1px solid var(--bd2);color:#777;padding:.9rem 1.75rem;transition:all .2s;display:inline-block;}
+    .bg:hover{border-color:#555;color:var(--tx);}
+    footer{border-top:1px solid var(--bd);padding:1.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;font-family:var(--mo);font-size:.58rem;color:var(--mu);}
+    .fl{display:flex;gap:1.5rem;flex-wrap:wrap;}
+    .fl a{color:var(--mu);transition:color .2s;}
+    .fl a:hover{color:var(--tx);}
+    .mstk{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(9,9,9,.97);border-top:1px solid var(--bd);padding:.9rem 1.5rem;}
+    .mstk button{width:100%;font-family:var(--mo);font-size:.73rem;background:var(--ac);color:#000;padding:.85rem;font-weight:700;cursor:pointer;border:none;}
+
+    @media(max-width:900px){
+      .nl{display:none;}.hbg{display:flex;}
+      .ob-inner{grid-template-columns:1fr;}
+      .ob-right{align-items:flex-start;}
+      .hiw-grid{grid-template-columns:1fr;}
+      .pl-grid{grid-template-columns:repeat(2,1fr);}
+      .rv-grid{grid-template-columns:1fr;}
+      .mstk{display:block;}body{padding-bottom:68px;}
+    }
+    @media(max-width:540px){
+      .pl-grid{grid-template-columns:1fr 1fr;}
+      .hero-stats{flex-wrap:wrap;}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="index.html">MR.GEEK</a>
+  <ul class="nl">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="reviews.html" class="on">Reviews</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nr">
+    <button class="nb" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">Book Now</button>
+    <button class="hbg" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mm" id="mmenu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="process.html">How It Works</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="contact.html">Contact</a>
+  <a href="pay.html">Pay Invoice</a>
+  <button class="mb" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="ey">// Verified Client Reviews</p>
+  <h1>Real Reviews.<br><span>No Exceptions._</span></h1>
+  <p class="hs">Every review on this page comes directly from a verified third-party platform — Google, Yelp, Facebook, or Nextdoor. Nothing is written, edited, or curated by Mr. Geek LLC.</p>
+  <div class="hero-stats">
+    <div class="hstat"><span class="hstat-val" id="total-reviews">0</span><span class="hstat-label">Verified Reviews</span></div>
+    <div class="hstat"><span class="hstat-val">—</span><span class="hstat-label">Avg. Rating</span></div>
+    <div class="hstat"><span class="hstat-val" id="spots-left">100</span><span class="hstat-label">Discount Spots Left</span></div>
+  </div>
+</section>
+
+<!-- OFFER BANNER -->
+<div class="offer-banner">
+  <div class="ob-inner">
+    <div>
+      <span class="ob-badge">LIMITED — FIRST 100 ONLY</span>
+      <h2 class="ob-title">Leave a Review,<br><span>Get 10% Off._</span></h2>
+      <p class="ob-desc">Mr. Geek LLC is new to Westchase. If you've had a service done, your honest review — good or bad — helps the next person make a confident decision. As a thank you, the first 100 reviewers get 10% off their next service. No strings attached.</p>
+    </div>
+    <div class="ob-right">
+      <div class="ob-counter">
+        <div class="ob-num" id="counter-num">100</div>
+        <div class="ob-numlabel">Spots Remaining</div>
+        <div class="ob-bar"><div class="ob-bar-fill" id="bar-fill" style="width:100%"></div></div>
+        <div class="ob-status">🟢 Offer Active</div>
+      </div>
+      <!-- SITE OWNER: Replace YOUR_GOOGLE_REVIEW_LINK with your actual Google Business review URL -->
+      <!-- Get it from: Google Business Profile → Share review form -->
+      <a class="ob-btn" href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review" target="_blank" rel="noopener">⭐ Leave a Google Review →</a>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="hiw">
+  <div class="sl">// How the Discount Works</div>
+  <div class="hiw-grid">
+    <div class="hiw-card">
+      <div class="hiw-n">01</div>
+      <h3 class="hiw-t">Get a Service Done</h3>
+      <p class="hiw-d">Book and complete any Mr. Geek LLC service — on-site, remote, or add-on. Any service qualifies.</p>
+    </div>
+    <div class="hiw-card">
+      <div class="hiw-n">02</div>
+      <h3 class="hiw-t">Leave an Honest Review</h3>
+      <p class="hiw-d">Post a review on Google, Yelp, Facebook, or Nextdoor. It can be any rating — honesty is what matters, not stars.</p>
+    </div>
+    <div class="hiw-card">
+      <div class="hiw-n">03</div>
+      <h3 class="hiw-t">Show It at Your Next Booking</h3>
+      <p class="hiw-d">When you book your next service, show the review on your phone. 10% is deducted from your total. Simple as that.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PLATFORMS -->
+<div class="platforms">
+  <div class="pl-inner">
+    <div class="sl">// Where to Leave a Review</div>
+    <div class="pl-grid">
+      <div class="pl-card primary">
+        <div class="pl-ico">🔍</div>
+        <div class="pl-name">Google Reviews</div>
+        <span class="pl-tag">Preferred</span>
+        <!-- SITE OWNER: Replace YOUR_GOOGLE_REVIEW_LINK below -->
+        <a class="pl-link" href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review" target="_blank" rel="noopener">Leave a Review →</a>
+      </div>
+      <div class="pl-card">
+        <div class="pl-ico">⭐</div>
+        <div class="pl-name">Yelp</div>
+        <span class="pl-tag">Accepted</span>
+        <!-- SITE OWNER: Replace with your Yelp business URL -->
+        <a class="pl-link" href="https://www.yelp.com/biz/YOUR_YELP_HANDLE" target="_blank" rel="noopener">Leave a Review →</a>
+      </div>
+      <div class="pl-card">
+        <div class="pl-ico">📘</div>
+        <div class="pl-name">Facebook</div>
+        <span class="pl-tag">Accepted</span>
+        <!-- SITE OWNER: Replace with your Facebook business page review URL -->
+        <a class="pl-link" href="https://www.facebook.com/YOUR_PAGE/reviews" target="_blank" rel="noopener">Leave a Review →</a>
+      </div>
+      <div class="pl-card">
+        <div class="pl-ico">🏘️</div>
+        <div class="pl-name">Nextdoor</div>
+        <span class="pl-tag">Accepted</span>
+        <!-- SITE OWNER: Nextdoor doesn't have direct review links — guide customers to search Mr. Geek LLC on Nextdoor -->
+        <a class="pl-link" href="https://nextdoor.com" target="_blank" rel="noopener">Find on Nextdoor →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEW ARCHIVE -->
+<section class="archive">
+  <div class="archive-header">
+    <div class="sl" style="margin-bottom:0;flex:1">// Review Archive</div>
+    <div class="archive-count">Showing <span id="showing">0</span> verified reviews</div>
+  </div>
+
+  <!-- EMPTY STATE — shown until reviews are added -->
+  <div class="empty" id="empty-state">
+    <div class="empty-ico">📭</div>
+    <h3 class="empty-title">No Reviews Yet — Be the First</h3>
+    <p class="empty-desc">This archive is live and ready. As soon as the first verified review comes in, it will appear here — unedited and with a link to the original source.</p>
+    <a class="empty-cta" href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review" target="_blank" rel="noopener">⭐ Leave the First Review</a>
+    <p class="empty-note">// Discount offer active · 100 spots remaining · All ratings welcome</p>
+  </div>
+
+  <!-- REVIEWS GRID — uncomment and populate as reviews come in -->
+  <!--
+  <div class="rv-grid" id="rv-grid">
+
+    TEMPLATE — copy this block for each new review:
+
+    <div class="rv-card">
+      <div class="rv-head">
+        <div class="rv-stars">★★★★★</div>
+        <span class="rv-platform">Google</span>
+      </div>
+      <p class="rv-text">"Paste the exact review text here, word for word."</p>
+      <div class="rv-author"><strong>First Name L.</strong>Service Type · Month Year</div>
+      <div class="rv-verified">✓ Verified via Google — <a href="LINK_TO_ORIGINAL_REVIEW" target="_blank" style="color:var(--ac2)">View original →</a></div>
+    </div>
+
+  </div>
+  -->
+
+</section>
+
+<!-- TRANSPARENCY NOTE -->
+<div class="transparency">
+  <div class="tp-box">
+    <div class="tp-title">// Our Review Policy</div>
+    <p class="tp-text">Mr. Geek LLC does not write, edit, or selectively display reviews. Every review shown on this page is copied verbatim from the original platform and linked to its source so you can verify it yourself. <strong>We display all ratings including negative ones.</strong> If a review is removed from this page, it's because the original was deleted by the reviewer on the source platform — not by us.</p>
+  </div>
+</div>
+
+<div class="ctas">
+  <h2>Had a Service Done?<span> Tell Us._</span></h2>
+  <p>Your honest review helps the next customer and earns you 10% off. First 100 only.</p>
+  <div class="cb">
+    <a class="bp" href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review" target="_blank" rel="noopener">⭐ Leave a Review</a>
+    <button class="bg" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service</button>
+  </div>
+</div>
+
+<footer>
+  <span>MR.GEEK LLC © 2024–2026 · Houston, TX</span>
+  <div class="fl">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="process.html">Process</a>
+    <a href="contact.html">Contact</a>
+    <a href="pay.html">Pay</a>
+    <a href="tos.html">Terms</a>
+  </div>
+</footer>
+<div class="mstk"><button data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service — Same Day Available</button></div>
+
+<script type="text/javascript">(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");Cal("init",{origin:"https://cal.com"});Cal("ui",{"theme":"dark"});</script>
+<script>
+const ham=document.getElementById('ham'),mm=document.getElementById('mmenu');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mm.classList.toggle('open');});
+
+// ── SITE OWNER: Update these values as reviews come in ──────────────────
+const REVIEWS_RECEIVED = 0;   // increment when reviews are added to the archive
+const SPOTS_REMAINING  = 100; // decrement as discount is claimed
+// ────────────────────────────────────────────────────────────────────────
+
+document.getElementById('total-reviews').textContent = REVIEWS_RECEIVED;
+document.getElementById('spots-left').textContent     = SPOTS_REMAINING;
+document.getElementById('counter-num').textContent    = SPOTS_REMAINING;
+document.getElementById('showing').textContent        = REVIEWS_RECEIVED;
+document.getElementById('bar-fill').style.width       = (SPOTS_REMAINING) + '%';
+
+if(REVIEWS_RECEIVED > 0){
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('rv-grid').style.display     = 'grid';
+}
+if(SPOTS_REMAINING === 0){
+  document.querySelector('.ob-status').textContent = '🔴 Offer Closed';
+  document.querySelector('.ob-status').style.color = 'var(--ac3)';
+}
+</script>
+</body>
+</html>
