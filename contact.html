@@ -1,199 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Mr. Geek LLC — Book a Service | Houston Westchase</title>
-  <meta name="description" content="Book a computer repair, PC build, or tech support service. Mr. Geek LLC serves Westchase Houston 77042/77077. Same-day available. Responds within the hour."/>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0a0a'/><text y='.9em' font-size='80' x='10'>🖥</text></svg>"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    :root{--bg:#090909;--sf:#111;--bd:#1e1e1e;--bd2:#2d2d2d;--ac:#00ff88;--ac2:#0099ff;--ac3:#ff6b35;--tx:#e8e8e8;--mu:#555;--mo:'Space Mono',monospace;--sa:'DM Sans',sans-serif;--nh:60px;}
-    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--tx);font-family:var(--sa);overflow-x:hidden;}a{text-decoration:none;color:inherit;}
-    nav{position:fixed;top:0;width:100%;z-index:500;height:var(--nh);background:rgba(9,9,9,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;gap:1rem;}
-    .logo{font-family:var(--mo);font-size:.85rem;color:var(--ac);letter-spacing:.18em;}
-    .nl{display:flex;gap:1.75rem;list-style:none;}
-    .nl a{font-family:var(--mo);font-size:.63rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;transition:color .2s;}
-    .nl a:hover,.nl a.on{color:var(--ac);}
-    .nr{display:flex;align-items:center;gap:.75rem;}
-    .nb{font-family:var(--mo);font-size:.65rem;background:var(--ac);color:#000;padding:.45rem 1.1rem;font-weight:700;letter-spacing:.1em;cursor:pointer;border:none;}
-    .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.3rem;}
-    .hbg span{display:block;width:22px;height:2px;background:var(--mu);transition:all .3s;}
-    .hbg.open span:first-child{transform:translateY(7px) rotate(45deg);}
-    .hbg.open span:nth-child(2){opacity:0;}
-    .hbg.open span:last-child{transform:translateY(-7px) rotate(-45deg);}
-    .mm{display:none;position:fixed;top:var(--nh);left:0;right:0;background:rgba(9,9,9,.98);border-bottom:1px solid var(--bd);z-index:499;padding:1.5rem 2rem 2rem;flex-direction:column;gap:.75rem;}
-    .mm.open{display:flex;}
-    .mm a{font-family:var(--mo);font-size:.72rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;padding:.75rem 0;border-bottom:1px solid var(--bd);}
-    .mm .mb{width:100%;margin-top:.75rem;font-family:var(--mo);font-size:.75rem;background:var(--ac);color:#000;padding:.9rem;font-weight:700;cursor:pointer;border:none;}
-    .hero{margin-top:var(--nh);padding:5rem 2rem 4rem;border-bottom:1px solid var(--bd);background:radial-gradient(ellipse at 40% 0%,rgba(255,107,53,.05),transparent 60%);}
-    .ey{font-family:var(--mo);font-size:.62rem;color:var(--ac3);letter-spacing:.28em;text-transform:uppercase;margin-bottom:1.25rem;}
-    h1{font-family:var(--mo);font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.05;margin-bottom:.9rem;}
-    h1 span{color:var(--ac3);}
-    .hs{font-size:.95rem;color:#888;max-width:500px;line-height:1.8;font-weight:300;}
-    /* QUICK BOOK BAR */
-    .qb{background:rgba(0,255,136,.05);border-top:1px solid rgba(0,255,136,.15);border-bottom:1px solid rgba(0,255,136,.15);padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
-    .qb-txt{font-family:var(--mo);font-size:.68rem;color:rgba(0,255,136,.8);letter-spacing:.08em;}
-    .qb-btn{font-family:var(--mo);font-size:.68rem;background:var(--ac);color:#000;padding:.55rem 1.25rem;font-weight:700;letter-spacing:.08em;cursor:pointer;border:none;white-space:nowrap;}
-    /* MAIN GRID */
-    .main{max-width:1080px;margin:0 auto;padding:5rem 2rem;display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start;}
-    /* INFO */
-    .iblock{display:flex;flex-direction:column;gap:2px;}
-    .ir{background:var(--sf);border:1px solid var(--bd);padding:1.4rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color .2s;}
-    .ir:hover{border-color:var(--bd2);}
-    .iico{font-size:1rem;flex-shrink:0;margin-top:.1rem;}
-    .it{font-family:var(--mo);font-size:.72rem;font-weight:700;color:#fff;margin-bottom:.25rem;}
-    .iv{font-size:.78rem;color:var(--mu);font-weight:300;line-height:1.6;}
-    .iv a{color:var(--ac);}
-    .hours{border:1px solid var(--bd);background:var(--sf);margin-top:2px;}
-    .hr{display:flex;justify-content:space-between;padding:.7rem 1.25rem;border-bottom:1px solid var(--bd);font-size:.75rem;}
-    .hr:last-child{border-bottom:none;}
-    .hday{font-family:var(--mo);font-size:.62rem;color:var(--mu);}
-    .htime{font-family:var(--mo);font-size:.62rem;color:var(--ac);}
-    /* FORM */
-    .fw{background:var(--sf);border:1px solid var(--bd);padding:2.25rem;}
-    .fl2{font-family:var(--mo);font-size:.6rem;color:var(--mu);letter-spacing:.22em;text-transform:uppercase;margin-bottom:1.75rem;display:flex;align-items:center;gap:1rem;}
-    .fl2::after{content:'';flex:1;height:1px;background:var(--bd);}
-    .frow{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem;}
-    .fg{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.75rem;}
-    .fg label{font-family:var(--mo);font-size:.6rem;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;}
-    .fg input,.fg select,.fg textarea{background:var(--bg);border:1px solid var(--bd);color:var(--tx);font-family:var(--sa);font-size:.82rem;padding:.75rem .9rem;outline:none;transition:border-color .2s;width:100%;font-weight:300;}
-    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--ac);}
-    .fg select{appearance:none;cursor:pointer;}
-    .fg textarea{resize:vertical;min-height:110px;}
-    .fg input::placeholder,.fg textarea::placeholder{color:#2d2d2d;}
-    .fsub{width:100%;font-family:var(--mo);font-size:.72rem;background:var(--ac);color:#000;padding:1rem;border:none;cursor:pointer;font-weight:700;letter-spacing:.1em;margin-top:.25rem;transition:opacity .2s;}
-    .fsub:hover{opacity:.85;}
-    .fnote{font-family:var(--mo);font-size:.57rem;color:var(--mu);margin-top:.65rem;text-align:center;letter-spacing:.05em;}
-    .fspree-note{background:rgba(0,153,255,.07);border:1px solid rgba(0,153,255,.2);padding:1rem 1.25rem;margin-bottom:1.5rem;font-family:var(--mo);font-size:.6rem;color:rgba(0,153,255,.8);line-height:1.8;}
-    .fspree-note a{color:var(--ac2);}
-    .suc{display:none;background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.25);padding:1.25rem;margin-top:.75rem;font-family:var(--mo);font-size:.72rem;color:var(--ac);text-align:center;letter-spacing:.05em;}
-    .ctas{background:var(--sf);border-top:1px solid var(--bd);padding:4rem 2rem;text-align:center;}
-    .ctas h2{font-family:var(--mo);font-size:clamp(1.3rem,3vw,2rem);margin-bottom:.75rem;}
-    .ctas h2 span{color:var(--ac);}
-    .ctas p{font-size:.86rem;color:#666;margin-bottom:2rem;}
-    .cb{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;}
-    .bp{font-family:var(--mo);font-size:.7rem;background:var(--ac);color:#000;padding:.9rem 1.75rem;font-weight:700;cursor:pointer;border:none;}
-    .bg{font-family:var(--mo);font-size:.7rem;border:1px solid var(--bd2);color:#777;padding:.9rem 1.75rem;transition:all .2s;}
-    .bg:hover{border-color:#555;color:var(--tx);}
-    footer{border-top:1px solid var(--bd);padding:1.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;font-family:var(--mo);font-size:.58rem;color:var(--mu);}
-    .flinks{display:flex;gap:1.5rem;flex-wrap:wrap;}
-    .flinks a{color:var(--mu);transition:color .2s;}
-    .flinks a:hover{color:var(--tx);}
-    .mstk{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(9,9,9,.97);border-top:1px solid var(--bd);padding:.9rem 1.5rem;}
-    .mstk button{width:100%;font-family:var(--mo);font-size:.73rem;background:var(--ac);color:#000;padding:.85rem;font-weight:700;cursor:pointer;border:none;}
-    @media(max-width:900px){
-      .nl{display:none;}.hbg{display:flex;}
-      .main{grid-template-columns:1fr;gap:2.5rem;}
-      .frow{grid-template-columns:1fr;}
-      .qb{flex-direction:column;align-items:flex-start;}
-      .mstk{display:block;}body{padding-bottom:68px;}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Mr. Geek LLC</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* CONTACT GRID */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:2px;}
+.contact-left{background:var(--card);border:1px solid var(--border);padding:64px 56px;display:flex;flex-direction:column;justify-content:space-between;}
+.contact-right{background:var(--surface);border:1px solid var(--border);padding:64px 56px;}
+.contact-detail{display:flex;align-items:flex-start;gap:16px;margin-bottom:32px;}
+.contact-icon{width:48px;height:48px;background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.contact-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+.contact-value{font-size:15px;color:var(--text);line-height:1.5;}
+.form-group{margin-bottom:20px;}
+.form-label{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;display:block;margin-bottom:8px;}
+.form-input,.form-select,.form-textarea{width:100%;background:var(--card);border:1px solid var(--border);color:var(--text);font-family:var(--sans);font-size:15px;padding:14px 18px;outline:none;transition:border-color 0.2s;-webkit-appearance:none;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--accent);}
+.form-textarea{height:130px;resize:none;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-submit{width:100%;font-family:var(--mono);font-size:13px;color:var(--bg);background:var(--accent);border:none;padding:18px;letter-spacing:2px;text-transform:uppercase;cursor:none;transition:all 0.2s;clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);margin-top:8px;}
+.form-submit:hover{background:var(--accent2);}
+.success-msg{display:none;background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.3);padding:20px;text-align:center;font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:1px;margin-top:16px;}
+
+/* SCHEDULING SECTION */
+.schedule-section{margin-top:2px;}
+.schedule-header{background:var(--card);border:1px solid var(--border);padding:48px 56px;display:flex;justify-content:space-between;align-items:center;gap:40px;}
+.schedule-header-text h2{font-size:32px;font-weight:800;letter-spacing:-1px;margin-bottom:12px;line-height:1.1;}
+.schedule-header-text p{font-size:15px;color:var(--muted);line-height:1.7;max-width:500px;}
+.schedule-tag{font-family:var(--mono);font-size:11px;color:var(--accent);border:1px solid rgba(0,255,136,0.3);padding:8px 20px;letter-spacing:2px;white-space:nowrap;flex-shrink:0;}
+
+/* CAL EMBED WRAPPER */
+.cal-wrapper{background:var(--surface);border:1px solid var(--border);border-top:none;position:relative;overflow:hidden;}
+.cal-wrapper::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,255,136,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,0.02) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
+
+/* Cal.com overrides to match dark theme */
+.cal-wrapper #cal-inline{
+  position:relative;
+  z-index:1;
+  min-height:700px;
+  width:100%;
+  border:none;
+}
+
+/* Loading state */
+.cal-loading{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:400px;
+  gap:16px;
+  position:relative;
+  z-index:1;
+}
+.cal-loading-spinner{
+  width:40px;height:40px;
+  border:2px solid var(--border);
+  border-top:2px solid var(--accent);
+  border-radius:50%;
+  animation:spin 0.8s linear infinite;
+}
+.cal-loading-text{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--muted);
+  letter-spacing:2px;
+}
+
+/* HOW IT WORKS */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2px;}
+.how-card{background:var(--card);border:1px solid var(--border);padding:36px 32px;text-align:center;}
+.how-num{font-family:var(--mono);font-size:36px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:12px;}
+.how-title{font-size:16px;font-weight:700;margin-bottom:8px;}
+.how-desc{font-size:13px;color:var(--muted);line-height:1.7;}
+
+@media(max-width:768px){
+  .contact-grid{grid-template-columns:1fr;}
+  .contact-left,.contact-right{padding:40px 28px;}
+  .form-row{grid-template-columns:1fr;}
+  .schedule-header{flex-direction:column;padding:36px 28px;}
+  .how-grid{grid-template-columns:1fr;}
+}
+</style>
 </head>
 <body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 <nav>
-  <a class="logo" href="index.html">MR.GEEK</a>
-  <ul class="nl">
-    <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li>
-    <li><a href="about.html">About</a></li><li><a href="process.html">Process</a></li>
-    <li><a href="contact.html" class="on">Contact</a></li>
+  <a href="index.html" class="nav-logo">MR.<span>GEEK</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
   </ul>
-  <div class="nr">
-    <a class="nb" href="pay.html">Pay Invoice</a>
-    <button class="hbg" id="ham"><span></span><span></span><span></span></button>
-  </div>
+  <a href="pay.html" class="nav-cta">Pay Now</a>
 </nav>
-<div class="mm" id="mmenu">
-  <a href="index.html">Home</a><a href="services.html">Services</a>
-  <a href="about.html">About</a><a href="process.html">How It Works</a>
-  <a href="contact.html">Contact</a><a href="pay.html">Pay Invoice</a>
-  <button class="mb" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service</button>
+
+<div class="page-hero">
+  <div class="page-hero-tag">Let's Connect</div>
+  <h1>Get In <span class="accent">Touch<span class="blink">_</span></span></h1>
+  <p>Send us a message or book a free consultation directly on our calendar — we'll only show times we're actually available.</p>
 </div>
 
-<section class="hero">
-  <p class="ey">// Get In Touch</p>
-  <h1>Book a<br><span>Service._</span></h1>
-  <p class="hs">Fill out the form or book directly via the calendar. I'll confirm within the hour — most Westchase jobs are same-day.</p>
-</section>
-
-<div class="qb">
-  <span class="qb-txt">📅 Skip the form — book a time slot directly on the calendar</span>
-  <button class="qb-btn" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">Open Calendar →</button>
-</div>
-
-<section class="main">
-  <div>
-    <div class="iblock">
-      <div class="ir"><span class="iico">📍</span><div><div class="it">Service Area</div><div class="iv">Westchase, Houston TX<br>77042 · 77077 · Surrounding Areas<br>Remote: Nationwide</div></div></div>
-      <div class="ir"><span class="iico">⚡</span><div><div class="it">Response Time</div><div class="iv">Within 1 hour during business hours.<br>Same-day on-site available most days.</div></div></div>
-      <div class="ir"><span class="iico">💳</span><div><div class="it">Payment</div><div class="iv">Card, Venmo, Zelle, Cash App, or <a href="pay.html">pay via invoice →</a></div></div></div>
-      <div class="ir"><span class="iico">🛡️</span><div><div class="it">Guarantee</div><div class="iv">No fix = no labor fee. Always.</div></div></div>
-    </div>
-    <div class="hours">
-      <div class="hr"><span class="hday">MON – FRI</span><span class="htime">9:00 AM – 8:00 PM</span></div>
-      <div class="hr"><span class="hday">SATURDAY</span><span class="htime">10:00 AM – 6:00 PM</span></div>
-      <div class="hr"><span class="hday">SUNDAY</span><span class="htime">By Request</span></div>
-      <div class="hr"><span class="hday">AFTER HOURS</span><span class="htime">+$20 fee applies</span></div>
-    </div>
-  </div>
-
-  <div class="fw">
-    <p class="fl2">// Send a Message</p>
-    <!-- FORMSPREE: Replace YOUR_FORM_ID below with your Formspree endpoint ID from formspree.io -->
-    <div class="fspree-note">
-      ⚙️ <strong>Site owner:</strong> Replace <code>YOUR_FORM_ID</code> in the form action below with your Formspree ID from <a href="https://formspree.io" target="_blank">formspree.io</a> to receive form submissions by email.
-    </div>
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <div class="frow">
-        <div class="fg"><label>First Name *</label><input type="text" name="first_name" placeholder="John" required/></div>
-        <div class="fg"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith"/></div>
+<!-- CONTACT FORM -->
+<section class="section">
+  <div class="contact-grid reveal">
+    <div class="contact-left">
+      <div>
+        <div class="section-label">Contact Info</div>
+        <h2 style="font-size:32px;font-weight:800;letter-spacing:-1px;margin-bottom:32px;line-height:1.1;">Let's Build<br>Something Great.</h2>
+        <div class="contact-detail">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Georgia, USA<br>Serving Clients Nationwide</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">⚡</div>
+          <div>
+            <div class="contact-label">Response Time</div>
+            <div class="contact-value">Within 24 Business Hours</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <div class="contact-label">Service Area</div>
+            <div class="contact-value">United States · Remote Available</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">📅</div>
+          <div>
+            <div class="contact-label">Free Consultation</div>
+            <div class="contact-value">Book directly on our<br><a href="#booking" style="color:var(--accent);text-decoration:none;">live calendar below →</a></div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">💳</div>
+          <div>
+            <div class="contact-label">Payments</div>
+            <div class="contact-value">Secure billing via <a href="pay.html" style="color:var(--accent);text-decoration:none;">Stripe →</a></div>
+          </div>
+        </div>
       </div>
-      <div class="fg"><label>Email Address *</label><input type="email" name="email" placeholder="you@email.com" required/></div>
-      <div class="fg"><label>Phone (optional)</label><input type="tel" name="phone" placeholder="(713) 000-0000"/></div>
-      <div class="fg"><label>Service Needed *</label>
-        <select name="service" required>
+      <div>
+        <div style="height:1px;background:var(--border);margin-bottom:32px;"></div>
+        <p style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;letter-spacing:0.5px;">Professional · Scientific · Technical Services</p>
+        <p style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:0.5px;">Mr. Geek LLC · Georgia Registered LLC</p>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="section-label">Send a Message</div>
+      <h3 style="font-size:24px;font-weight:700;margin-bottom:32px;">Tell Us About Your Project</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-input" placeholder="John">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-input" placeholder="Smith">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="john@company.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Company / Organization</label>
+        <input type="text" class="form-input" placeholder="Optional">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Service Needed</label>
+        <select class="form-select">
           <option value="" disabled selected>Select a service...</option>
-          <option>PC Repair & Diagnostics</option>
-          <option>Custom PC Build</option>
-          <option>Device Setup & Troubleshooting</option>
-          <option>Remote Tech Support</option>
-          <option>Small Business Monthly Plan</option>
-          <option>Add-On Service</option>
-          <option>Not sure yet</option>
+          <option>IT Support</option>
+          <option>Technology Consulting</option>
+          <option>Digital Marketing</option>
+          <option>Scientific Research</option>
+          <option>Engineering Solutions</option>
+          <option>Multiple Services</option>
+          <option>Not Sure Yet</option>
         </select>
       </div>
-      <div class="fg"><label>Describe Your Issue *</label><textarea name="message" placeholder="What's going on? Include device model, symptoms, and what you've already tried..." required></textarea></div>
-      <input type="hidden" name="_subject" value="New booking request — Mr. Geek LLC"/>
-      <input type="text" name="_gotcha" style="display:none"/>
-      <button type="submit" class="fsub">Send Message →</button>
-    </form>
-    <p class="fnote">✦ No commitment. I'll confirm availability and quote before anything is scheduled.</p>
-    <div class="suc" id="suc">✦ Message received! I'll be in touch within the hour.</div>
+      <div class="form-group">
+        <label class="form-label">Project Details</label>
+        <textarea class="form-textarea" placeholder="Describe your challenge, goals, and any relevant details..."></textarea>
+      </div>
+      <button class="form-submit" id="submitBtn">Send Message →</button>
+      <div class="success-msg" id="successMsg">✦ Message received! We'll be in touch within 24 hours.</div>
+    </div>
   </div>
 </section>
 
-<div class="ctas">
-  <h2>Prefer to<span> Book Directly?_</span></h2>
-  <p>Skip the form — pick a time slot on the calendar and I'll see it instantly.</p>
-  <div class="cb">
-    <button class="bp" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Open Booking Calendar</button>
-    <a class="bg" href="services.html">View Pricing →</a>
+<!-- BOOKING SECTION -->
+<section class="section section-alt" id="booking">
+  <div class="schedule-section reveal">
+
+    <!-- HEADER -->
+    <div class="schedule-header">
+      <div class="schedule-header-text">
+        <h2>Book a Free<br><span style="color:var(--accent);">Consultation</span></h2>
+        <p>Select a time that works for you. Our calendar only shows times we're genuinely available — no back-and-forth needed. Confirmations are sent automatically.</p>
+      </div>
+      <div class="schedule-tag">⚡ Instant Confirmation</div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">01</div>
+        <div class="how-title">Pick a Time</div>
+        <p class="how-desc">Choose any available slot on the calendar. Unavailable times are automatically blocked.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02</div>
+        <div class="how-title">Enter Your Details</div>
+        <p class="how-desc">Tell us your name, email, and a brief description of what you need help with.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03</div>
+        <div class="how-title">Get Confirmed</div>
+        <p class="how-desc">You'll receive an instant confirmation email with all the details and a calendar invite.</p>
+      </div>
+    </div>
+
+    <!-- CAL.COM EMBED -->
+    <div class="cal-wrapper">
+      <div class="cal-loading" id="calLoading">
+        <div class="cal-loading-spinner"></div>
+        <div class="cal-loading-text">Loading availability...</div>
+      </div>
+      <div id="cal-inline" style="display:none;"></div>
+    </div>
+
   </div>
-</div>
+</section>
 
 <footer>
-  <span>MR.GEEK LLC © 2024–2026 · Houston, TX</span>
-  <div class="flinks"><a href="services.html">Services</a><a href="about.html">About</a><a href="process.html">Process</a><a href="pay.html">Pay</a><a href="tos.html">Terms</a></div>
+  <div class="footer-logo">MR.GEEK LLC</div>
+  <div class="footer-copy">© 2024–2026 Mr. Geek LLC. All rights reserved.</div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="pay.html">Pay</a></li>
+    <li><a href="tos.html">Terms</a></li>
+  </ul>
 </footer>
-<div class="mstk"><button data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service — Same Day Available</button></div>
 
-<script type="text/javascript">(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");Cal("init",{origin:"https://cal.com"});Cal("ui",{"theme":"dark"});</script>
+<script src="main.js"></script>
+
+<!-- FORM SUBMIT -->
 <script>
-const ham=document.getElementById('ham'),mm=document.getElementById('mmenu');ham.addEventListener('click',()=>{ham.classList.toggle('open');mm.classList.toggle('open');});
-// Show success if Formspree redirects back with ?success
-if(window.location.search.includes('success')){document.getElementById('suc').style.display='block';}
+document.getElementById('submitBtn').addEventListener('click',function(){
+  this.textContent='Sending...';
+  setTimeout(()=>{
+    this.style.display='none';
+    document.getElementById('successMsg').style.display='block';
+  },1000);
+});
 </script>
+
+<!-- CAL.COM EMBED -->
+<script>
+(function(C,A,L){
+  let p=function(a,ar){a.q.push(ar);};
+  let d=C.document;
+  C.Cal=C.Cal||function(){
+    let cal=C.Cal;let ar=arguments;
+    if(!cal.loaded){
+      cal.ns={};cal.q=cal.q||[];
+      d.head.appendChild(d.createElement("script")).src=A;
+      cal.loaded=true;
+    }
+    if(ar[0]===L){
+      const api=function(){p(api,arguments);};
+      const namespace=ar[1];
+      api.q=api.q||[];
+      typeof namespace==="string"&&(cal.ns[namespace]=api)&&p(api,ar);
+      p(cal,ar);return;
+    }
+    p(cal,ar);
+  };
+})(window,"https://app.cal.com/embed/embed.js","init");
+
+Cal("init", {origin:"https://cal.com"});
+
+Cal("inline", {
+  elementOrSelector: "#cal-inline",
+  calLink: "mrgeekllc",
+  layout: "month_view",
+  theme: "dark",
+  styles: {
+    branding: {
+      brandColor: "#00ff88"
+    }
+  }
+});
+
+// Show calendar once loaded, hide spinner
+Cal("on", {
+  action: "linkReady",
+  callback: function() {
+    document.getElementById('calLoading').style.display = 'none';
+    document.getElementById('cal-inline').style.display = 'block';
+  }
+});
+</script>
+
 </body>
 </html>
