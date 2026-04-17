@@ -91,7 +91,8 @@
       .cab{width:100%;}
       .mstk{display:block;}body{padding-bottom:68px;}
     }
-    @media(max-width:540px){.tr{grid-template-columns:repeat(2,1fr);}}</style>
+    @media(max-width:540px){.tr{grid-template-columns:repeat(2,1fr);}}
+  </style>
 </head>
 <body>
 <nav>
@@ -121,7 +122,7 @@
 
 <section class="sec">
   <div class="sl">// Payment Options</div>
-  <div class="stripe-note">⚙️ <strong>Site owner:</strong> Replace the <code>href="https://dashboard.stripe.com"</code> links on the buttons below with your actual Stripe Payment Link URLs from <a href="https://stripe.com" target="_blank">stripe.com</a> → Dashboard → Payment Links.</div>
+  <div class="stripe-note">⚙️ <strong>For the site owner:</strong> Replace the button links below with your actual Stripe Payment Link URLs from <a href="https://dashboard.stripe.com/payment-links" target="_blank">Stripe Dashboard → Payment Links</a>. Create a one‑time payment link for invoices and a subscription link for the monthly plan.</div>
   <div class="pg">
     <div class="pc">
       <div class="pico">💳</div>
@@ -134,7 +135,8 @@
         <li>Receipt sent to your email</li>
         <li>256-bit SSL encryption</li>
       </ul>
-      <a class="pbtn" href="https://dashboard.stripe.com" target="_blank">Pay Invoice →</a>
+      <!-- REPLACE href WITH YOUR STRIPE PAYMENT LINK -->
+      <a class="pbtn" href="https://buy.stripe.com/fZu00i8oV02O95oeKs3ZK00" target="_blank">Pay Invoice →</a>
     </div>
     <div class="pc feat">
       <span class="pbadge">Monthly</span>
@@ -148,16 +150,18 @@
         <li>Cancel anytime, no contracts</li>
         <li>Unused sessions roll over</li>
       </ul>
-      <a class="pbtn" href="https://dashboard.stripe.com" target="_blank">Subscribe — $79/mo →</a>
+      <!-- REPLACE href WITH YOUR STRIPE SUBSCRIPTION LINK -->
+      <a class="pbtn" href="https://buy.stripe.com/28E00iax38zk81k6dW3ZK01" target="_blank">Subscribe — $79/mo →</a>
     </div>
   </div>
   <div class="ca">
     <h3 class="cat">Custom Amount</h3>
-    <p class="cad">Have a specific invoice total? Enter it below and proceed to Stripe checkout.</p>
+    <p class="cad">Need to pay a different amount? Enter the total below and we'll email you a secure Stripe invoice.</p>
     <div class="car">
-      <div class="caf"><span>$</span><input type="number" id="amt" placeholder="0.00" min="1" step="0.01"/></div>
-      <button class="cab" onclick="goPay()">Proceed to Payment →</button>
+      <div class="caf"><span>$</span><input type="number" id="customAmount" placeholder="0.00" min="1" step="0.01"/></div>
+      <button class="cab" id="requestInvoiceBtn">Request Invoice →</button>
     </div>
+    <div id="invoiceMessage" style="margin-top:1rem; font-size:.75rem; color:var(--ac2); display:none;"></div>
   </div>
   <div class="tr">
     <div class="ti"><div class="tii">🔒</div><div class="til">SSL Encrypted</div></div>
@@ -173,7 +177,7 @@
     <div class="sl">// Also Accepted In-Person</div>
     <div class="mg">
       <div class="mc"><div class="mn">Venmo</div><div class="mn2">@MrGeekLLC</div></div>
-      <div class="mc"><div class="mn">Zelle</div><div class="mn2">Via phone #</div></div>
+      <div class="mc"><div class="mn">Zelle</div><div class="mn2">(Ask for number)</div></div>
       <div class="mc"><div class="mn">Cash App</div><div class="mn2">$MrGeekLLC</div></div>
       <div class="mc"><div class="mn">Cash</div><div class="mn2">On-site only</div></div>
       <div class="mc"><div class="mn">Card</div><div class="mn2">Tap or swipe</div></div>
@@ -189,7 +193,30 @@
 
 <script type="text/javascript">(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");Cal("init",{origin:"https://cal.com"});Cal("ui",{"theme":"dark"});</script>
 <script>
-function goPay(){const a=parseFloat(document.getElementById('amt').value);if(!a||a<1){alert('Please enter a valid amount ($1.00 minimum).');return;}window.open('https://dashboard.stripe.com','_blank');}
+// Custom amount invoice request (sends email via Formspree or mailto)
+const requestBtn = document.getElementById('requestInvoiceBtn');
+const amountInput = document.getElementById('customAmount');
+const invoiceMessage = document.getElementById('invoiceMessage');
+
+requestBtn.addEventListener('click', function() {
+  const amount = parseFloat(amountInput.value);
+  if (!amount || amount < 1) {
+    invoiceMessage.style.display = 'block';
+    invoiceMessage.style.color = '#ff6b35';
+    invoiceMessage.innerHTML = '❌ Please enter a valid amount ($1 minimum).';
+    setTimeout(() => { invoiceMessage.style.display = 'none'; }, 3000);
+    return;
+  }
+  // Open a mailto link with pre-filled subject and body
+  const subject = `Invoice Request - $${amount.toFixed(2)}`;
+  const body = `I would like to request a Stripe invoice for $${amount.toFixed(2)}.\n\nPlease send the payment link to my email address.`;
+  window.location.href = `mailto:Activemrgeek@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  invoiceMessage.style.display = 'block';
+  invoiceMessage.style.color = '#00ff88';
+  invoiceMessage.innerHTML = '📧 Your email client has opened. Please send the request — we will reply with a secure Stripe invoice.';
+});
+</script>
+<script>
 const ham=document.getElementById('ham'),mm=document.getElementById('mmenu');ham.addEventListener('click',()=>{ham.classList.toggle('open');mm.classList.toggle('open');});
 </script>
 </body>
