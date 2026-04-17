@@ -193,27 +193,40 @@
 
 <script type="text/javascript">(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");Cal("init",{origin:"https://cal.com"});Cal("ui",{"theme":"dark"});</script>
 <script>
-// Custom amount invoice request (sends email via Formspree or mailto)
-const requestBtn = document.getElementById('requestInvoiceBtn');
-const amountInput = document.getElementById('customAmount');
-const invoiceMessage = document.getElementById('invoiceMessage');
+// Custom amount: redirect to Stripe Payment Link with pre‑fill (optional)
+// Replace this URL with your actual Stripe Payment Link that has "Customers choose what to pay"
+// The prefill parameter ?__prefilled_amount=xxxx works for standard Payment Links.
+// If your link supports customer‑chosen price, you can either:
+//   a) Link directly to the Stripe page (customer enters amount there)
+//   b) Use prefill to suggest an amount (still editable by customer)
+const CUSTOM_PAYMENT_LINK_BASE = "https://buy.stripe.com/fZu00i8oV02O95oeKs3ZK00";
 
-requestBtn.addEventListener('click', function() {
+const customPayBtn = document.getElementById('customPayBtn');
+const amountInput = document.getElementById('customAmount');
+const messageDiv = document.getElementById('customAmountMessage');
+
+customPayBtn.addEventListener('click', function() {
   const amount = parseFloat(amountInput.value);
   if (!amount || amount < 1) {
-    invoiceMessage.style.display = 'block';
-    invoiceMessage.style.color = '#ff6b35';
-    invoiceMessage.innerHTML = '❌ Please enter a valid amount ($1 minimum).';
-    setTimeout(() => { invoiceMessage.style.display = 'none'; }, 3000);
+    messageDiv.style.display = 'block';
+    messageDiv.style.color = '#ff6b35';
+    messageDiv.innerHTML = '❌ Please enter a valid amount ($1 minimum).';
+    setTimeout(() => { messageDiv.style.display = 'none'; }, 3000);
     return;
   }
-  // Open a mailto link with pre-filled subject and body
-  const subject = `Invoice Request - $${amount.toFixed(2)}`;
-  const body = `I would like to request a Stripe invoice for $${amount.toFixed(2)}.\n\nPlease send the payment link to my email address.`;
-  window.location.href = `mailto:Activemrgeek@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  invoiceMessage.style.display = 'block';
-  invoiceMessage.style.color = '#00ff88';
-  invoiceMessage.innerHTML = '📧 Your email client has opened. Please send the request — we will reply with a secure Stripe invoice.';
+  
+  // Convert dollars to cents for prefill (optional)
+  const amountInCents = Math.round(amount * 100);
+  // Append prefill parameter (Stripe will pre‑fill the amount but customer can change it)
+  const paymentUrl = `${CUSTOM_PAYMENT_LINK_BASE}?__prefilled_amount=${amountInCents}`;
+  
+  // Open Stripe payment page in new tab
+  window.open(paymentUrl, '_blank');
+  
+  messageDiv.style.display = 'block';
+  messageDiv.style.color = '#00ff88';
+  messageDiv.innerHTML = '🔗 Redirecting to Stripe secure checkout...';
+  setTimeout(() => { messageDiv.style.display = 'none'; }, 2000);
 });
 </script>
 <script>
