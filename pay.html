@@ -122,7 +122,8 @@
 
 <section class="sec">
   <div class="sl">// Payment Options</div>
-  <div class="stripe-note">⚙️ <strong>For the site owner:</strong> Replace the button links below with your actual Stripe Payment Link URLs from <a href="https://dashboard.stripe.com/payment-links" target="_blank">Stripe Dashboard → Payment Links</a>. Create a one‑time payment link for invoices and a subscription link for the monthly plan.</div>
+  <div class="stripe-note">⚙️ <strong>For the site owner:</strong> Replace the button links below with your actual Stripe Payment Link URLs from <a href="https://dashboard.stripe.com/payment-links" target="_blank">Stripe Dashboard → Payment Links</a>.<br>
+  → For the <strong>custom amount</strong> section, create a Payment Link with pricing model <strong>"Customers choose what to pay"</strong> and paste its URL below.</div>
   <div class="pg">
     <div class="pc">
       <div class="pico">💳</div>
@@ -135,7 +136,7 @@
         <li>Receipt sent to your email</li>
         <li>256-bit SSL encryption</li>
       </ul>
-      <!-- REPLACE href WITH YOUR STRIPE PAYMENT LINK -->
+      <!-- REPLACE href WITH YOUR STRIPE PAYMENT LINK (fixed amount or any amount) -->
       <a class="pbtn" href="https://buy.stripe.com/fZu00i8oV02O95oeKs3ZK00" target="_blank">Pay Invoice →</a>
     </div>
     <div class="pc feat">
@@ -155,13 +156,13 @@
     </div>
   </div>
   <div class="ca">
-    <h3 class="cat">Custom Amount</h3>
-    <p class="cad">Need to pay a different amount? Enter the total below and we'll email you a secure Stripe invoice.</p>
+    <h3 class="cat">Pay a Custom Amount</h3>
+    <p class="cad">Enter the exact amount you need to pay (minimum $1). You'll be taken to a secure Stripe page where you can complete the payment with any card.</p>
     <div class="car">
       <div class="caf"><span>$</span><input type="number" id="customAmount" placeholder="0.00" min="1" step="0.01"/></div>
-      <button class="cab" id="requestInvoiceBtn">Request Invoice →</button>
+      <button class="cab" id="customPayBtn">Pay with Stripe →</button>
     </div>
-    <div id="invoiceMessage" style="margin-top:1rem; font-size:.75rem; color:var(--ac2); display:none;"></div>
+    <div id="customAmountMessage" style="margin-top:1rem; font-size:.75rem; color:var(--ac2); display:none;"></div>
   </div>
   <div class="tr">
     <div class="ti"><div class="tii">🔒</div><div class="til">SSL Encrypted</div></div>
