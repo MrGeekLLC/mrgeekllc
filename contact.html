@@ -20,9 +20,9 @@
 .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--accent);}
 .form-textarea{height:130px;resize:none;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.form-submit{width:100%;font-family:var(--mono);font-size:13px;color:var(--bg);background:var(--accent);border:none;padding:18px;letter-spacing:2px;text-transform:uppercase;cursor:none;transition:all 0.2s;clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);margin-top:8px;}
+.form-submit{width:100%;font-family:var(--mono);font-size:13px;color:var(--bg);background:var(--accent);border:none;padding:18px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);margin-top:8px;}
 .form-submit:hover{background:var(--accent2);}
-.success-msg{display:none;background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.3);padding:20px;text-align:center;font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:1px;margin-top:16px;}
+.form-submit:disabled{opacity:0.5;cursor:not-allowed;}
 
 /* SCHEDULING SECTION */
 .schedule-section{margin-top:2px;}
@@ -35,39 +35,10 @@
 .cal-wrapper{background:var(--surface);border:1px solid var(--border);border-top:none;position:relative;overflow:hidden;}
 .cal-wrapper::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,255,136,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,0.02) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
 
-/* Cal.com overrides to match dark theme */
-.cal-wrapper #cal-inline{
-  position:relative;
-  z-index:1;
-  min-height:700px;
-  width:100%;
-  border:none;
-}
-
-/* Loading state */
-.cal-loading{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  min-height:400px;
-  gap:16px;
-  position:relative;
-  z-index:1;
-}
-.cal-loading-spinner{
-  width:40px;height:40px;
-  border:2px solid var(--border);
-  border-top:2px solid var(--accent);
-  border-radius:50%;
-  animation:spin 0.8s linear infinite;
-}
-.cal-loading-text{
-  font-family:var(--mono);
-  font-size:12px;
-  color:var(--muted);
-  letter-spacing:2px;
-}
+.cal-wrapper #cal-inline{position:relative;z-index:1;min-height:700px;width:100%;border:none;}
+.cal-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:400px;gap:16px;position:relative;z-index:1;}
+.cal-loading-spinner{width:40px;height:40px;border:2px solid var(--border);border-top:2px solid var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;}
+.cal-loading-text{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:2px;}
 
 /* HOW IT WORKS */
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2px;}
@@ -117,7 +88,7 @@
           <div class="contact-icon">📍</div>
           <div>
             <div class="contact-label">Location</div>
-            <div class="contact-value">Georgia, USA<br>Serving Clients Nationwide</div>
+            <div class="contact-value">Houston, Texas (Westchase)<br>Serving the Greater Houston Area</div>
           </div>
         </div>
         <div class="contact-detail">
@@ -131,7 +102,7 @@
           <div class="contact-icon">🌐</div>
           <div>
             <div class="contact-label">Service Area</div>
-            <div class="contact-value">United States · Remote Available</div>
+            <div class="contact-value">Westchase (77042, 77077) + surrounding<br>Remote support available nationwide</div>
           </div>
         </div>
         <div class="contact-detail">
@@ -152,49 +123,63 @@
       <div>
         <div style="height:1px;background:var(--border);margin-bottom:32px;"></div>
         <p style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;letter-spacing:0.5px;">Professional · Scientific · Technical Services</p>
-        <p style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:0.5px;">Mr. Geek LLC · Georgia Registered LLC</p>
+        <p style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:0.5px;">Mr. Geek LLC · Houston, TX</p>
       </div>
     </div>
     <div class="contact-right">
       <div class="section-label">Send a Message</div>
       <h3 style="font-size:24px;font-weight:700;margin-bottom:32px;">Tell Us About Your Project</h3>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">First Name</label>
-          <input type="text" class="form-input" placeholder="John">
+      <form id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-input" name="firstname" data-fs-field required>
+            <span data-fs-error="firstname" style="font-size:12px;color:#ff6b35;"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-input" name="lastname" data-fs-field required>
+            <span data-fs-error="lastname" style="font-size:12px;color:#ff6b35;"></span>
+          </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Last Name</label>
-          <input type="text" class="form-input" placeholder="Smith">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" name="email" data-fs-field required>
+          <span data-fs-error="email" style="font-size:12px;color:#ff6b35;"></span>
         </div>
+        <div class="form-group">
+          <label class="form-label">Company / Organization</label>
+          <input type="text" class="form-input" name="company" data-fs-field>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Service Needed</label>
+          <select class="form-select" name="service" data-fs-field>
+            <option value="" disabled selected>Select a service...</option>
+            <option>PC Repair & Diagnostics</option>
+            <option>Custom PC Building</option>
+            <option>Device Setup & Troubleshooting</option>
+            <option>Remote Tech Support</option>
+            <option>Small Business Plan</option>
+            <option>Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Project Details</label>
+          <textarea class="form-textarea" name="message" data-fs-field required placeholder="Describe your challenge, goals, and any relevant details..."></textarea>
+          <span data-fs-error="message" style="font-size:12px;color:#ff6b35;"></span>
+        </div>
+        <!-- Honeypot spam protection -->
+        <input type="text" name="_gotcha" style="display:none !important;">
+        <button type="submit" class="form-submit" data-fs-submit-btn>Send Message →</button>
+      </form>
+
+      <!-- Success & error containers (Formspree will fill these) -->
+      <div data-fs-success style="display:none; background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.3); padding:20px; text-align:center; font-family:var(--mono); font-size:13px; color:var(--accent); letter-spacing:1px; margin-top:16px;">
+        ✦ Message received! We'll be in touch within 24 hours.
       </div>
-      <div class="form-group">
-        <label class="form-label">Email Address</label>
-        <input type="email" class="form-input" placeholder="john@company.com">
+      <div data-fs-error style="display:none; background:rgba(255,107,53,0.1); border:1px solid rgba(255,107,53,0.3); padding:20px; text-align:center; font-family:var(--mono); font-size:13px; color:#ff6b35; letter-spacing:1px; margin-top:16px;">
+        ✦ Something went wrong. Please try again or contact us directly.
       </div>
-      <div class="form-group">
-        <label class="form-label">Company / Organization</label>
-        <input type="text" class="form-input" placeholder="Optional">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Service Needed</label>
-        <select class="form-select">
-          <option value="" disabled selected>Select a service...</option>
-          <option>IT Support</option>
-          <option>Technology Consulting</option>
-          <option>Digital Marketing</option>
-          <option>Scientific Research</option>
-          <option>Engineering Solutions</option>
-          <option>Multiple Services</option>
-          <option>Not Sure Yet</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Project Details</label>
-        <textarea class="form-textarea" placeholder="Describe your challenge, goals, and any relevant details..."></textarea>
-      </div>
-      <button class="form-submit" id="submitBtn">Send Message →</button>
-      <div class="success-msg" id="successMsg">✦ Message received! We'll be in touch within 24 hours.</div>
     </div>
   </div>
 </section>
@@ -258,17 +243,6 @@
 
 <script src="main.js"></script>
 
-<!-- FORM SUBMIT -->
-<script>
-document.getElementById('submitBtn').addEventListener('click',function(){
-  this.textContent='Sending...';
-  setTimeout(()=>{
-    this.style.display='none';
-    document.getElementById('successMsg').style.display='block';
-  },1000);
-});
-</script>
-
 <!-- CAL.COM EMBED -->
 <script>
 (function(C,A,L){
@@ -315,6 +289,13 @@ Cal("on", {
   }
 });
 </script>
+
+<!-- Formspree AJAX -->
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'mbdqgblz' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 </html>
