@@ -20,7 +20,7 @@ body {
   color: var(--text);
   font-family: var(--sans);
   overflow-x: hidden;
-  cursor: none;
+  ;
 }
 
 /* Grid background */
