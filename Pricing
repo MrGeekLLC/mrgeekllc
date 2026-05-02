@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Mr. Geek LLC</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* TABS */
+.tab-bar{display:flex;gap:2px;margin-bottom:2px;position:sticky;top:81px;z-index:50;background:var(--bg);padding:12px 0;}
+.tab-btn{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 28px;border:1px solid var(--border);background:var(--card);color:var(--muted);cursor:none;transition:all 0.2s;white-space:nowrap;}
+.tab-btn.active,.tab-btn:hover{background:var(--accent);color:var(--bg);border-color:var(--accent);}
+
+/* CATEGORY SECTION */
+.category{display:none;animation:fadeUp 0.4s ease;}
+.category.active{display:block;}
+
+/* PRICE TABLE */
+.price-table{width:100%;border-collapse:collapse;margin-bottom:2px;}
+.price-table th{font-family:var(–mono);font-size:11px;color:var(–accent);letter-spacing:3px;text-transform:uppercase;padding:16px 24px;text-align:left;border-bottom:1px solid var(–border);background:var(–card);}
+.price-table th:last-child,.price-table td:last-child{text-align:right;}
+.price-table tr{border-bottom:1px solid var(–border);transition:background 0.2s;}
+.price-table tr:hover td{background:rgba(0,255,136,0.03);}
+.price-table td{padding:18px 24px;font-size:15px;color:var(–text);background:var(–surface);}
+.price-table td.service-name{font-weight:600;}
+.price-table td.service-desc{font-size:13px;color:var(–muted);line-height:1.5;}
+.price-table td.price{font-family:var(–mono);font-size:16px;font-weight:700;color:var(–accent);white-space:nowrap;}
+.price-table td.price-remote{font-family:var(–mono);font-size:14px;color:var(–accent2);white-space:nowrap;}
+.price-tag{display:inline-block;font-family:var(–mono);font-size:10px;padding:3px 10px;letter-spacing:1px;border-radius:0;}
+.tag-free{background:rgba(0,255,136,0.1);color:var(–accent);border:1px solid rgba(0,255,136,0.2);}
+.tag-popular{background:rgba(0,200,255,0.1);color:var(–accent2);border:1px solid rgba(0,200,255,0.2);}
+.tag-new{background:rgba(255,165,0,0.1);color:#ffa500;border:1px solid rgba(255,165,0,0.2);}
+
+/* WEBSITE DESIGN PACKAGES */
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px;}
+.package-card{background:var(–card);border:1px solid var(–border);padding:48px 40px;position:relative;transition:all 0.3s;}
+.package-card.featured{border-color:rgba(0,255,136,0.4);background:linear-gradient(135deg,rgba(0,255,136,0.05) 0%,var(–card) 100%);}
+.package-card.featured::before{content:‘MOST POPULAR’;position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(–accent);color:var(–bg);font-family:var(–mono);font-size:10px;padding:4px 16px;letter-spacing:2px;white-space:nowrap;}
+.pkg-name{font-family:var(–mono);font-size:13px;color:var(–muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
+.pkg-price{font-size:52px;font-weight:800;letter-spacing:-2px;line-height:1;margin-bottom:4px;}
+.pkg-price span{font-size:22px;font-weight:400;color:var(–muted);}
+.pkg-price .accent{color:var(–accent);}
+.pkg-timeline{font-family:var(–mono);font-size:11px;color:var(–muted);letter-spacing:2px;margin-bottom:32px;}
+.pkg-features{list-style:none;margin-bottom:36px;}
+.pkg-features li{font-size:14px;color:var(–muted);padding:10px 0;border-bottom:1px solid var(–border);display:flex;align-items:center;gap:10px;line-height:1.5;}
+.pkg-features li.included{color:var(–text);}
+.pkg-features li.included::before{content:‘✦’;color:var(–accent);font-size:9px;flex-shrink:0;}
+.pkg-features li.excluded::before{content:’—’;color:var(–border);flex-shrink:0;}
+
+/* DEPOSIT & POLICY BOX */
+.policy-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.policy-box{background:var(–card);border:1px solid var(–border);padding:48px 40px;}
+.policy-box h3{font-size:22px;font-weight:700;margin-bottom:24px;letter-spacing:-0.5px;}
+.policy-table{width:100%;border-collapse:collapse;}
+.policy-table tr{border-bottom:1px solid var(–border);}
+.policy-table td{padding:14px 0;font-size:14px;}
+.policy-table td:first-child{color:var(–muted);}
+.policy-table td:last-child{font-family:var(–mono);font-size:13px;color:var(–text);text-align:right;}
+.policy-table td.penalty{color:#ff6b6b;font-family:var(–mono);font-size:13px;text-align:right;}
+.policy-table td.ok{color:var(–accent);font-family:var(–mono);font-size:13px;text-align:right;}
+
+/* NOTICE */
+.notice-bar{background:rgba(0,255,136,0.06);border:1px solid rgba(0,255,136,0.2);padding:20px 32px;display:flex;align-items:center;gap:16px;margin-bottom:2px;}
+.notice-bar p{font-family:var(–mono);font-size:12px;color:var(–muted);letter-spacing:0.5px;line-height:1.7;}
+.notice-bar p strong{color:var(–accent);}
+
+/* EMERGENCY */
+.emergency-bar{background:rgba(255,107,107,0.06);border:1px solid rgba(255,107,107,0.2);padding:20px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:2px;}
+.emergency-bar p{font-family:var(–mono);font-size:12px;color:var(–muted);letter-spacing:0.5px;}
+.emergency-bar p strong{color:#ff6b6b;}
+.emergency-tag{font-family:var(–mono);font-size:11px;color:#ff6b6b;border:1px solid rgba(255,107,107,0.3);padding:6px 16px;letter-spacing:2px;white-space:nowrap;}
+
+@media(max-width:768px){
+.tab-bar{overflow-x:auto;top:64px;padding:8px 0;}
+.tab-btn{padding:10px 18px;font-size:11px;}
+.packages-grid{grid-template-columns:1fr;}
+.policy-grid{grid-template-columns:1fr;}
+.price-table th:nth-child(2),.price-table td:nth-child(2){display:none;}
+}
+</style>
+
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav>
+  <a href="index.html" class="nav-logo">MR.<span>GEEK</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="pay.html" class="nav-cta">Pay Now</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-tag">Transparent Pricing</div>
+  <h1>Simple, Flat <span class="accent">Rates<span class="blink">_</span></span></h1>
+  <p>No hourly surprises. No hidden fees. You know exactly what you'll pay before we start — guaranteed.</p>
+</div>
+
+<section class="section">
+
+  <!-- NOTICE -->
+
+  <div class="notice-bar reveal">
+    <span style="font-size:20px;">ℹ️</span>
+    <p><strong>Diagnostic fee is FREE</strong> when you proceed with the repair. A <strong>$49 flat diagnostic fee</strong> applies only if you want a report without proceeding. All on-site services include a travel fee of <strong>$25–$50</strong> based on distance.</p>
+  </div>
+
+  <!-- EMERGENCY -->
+
+  <div class="emergency-bar reveal">
+    <p><strong>🚨 Emergency / Same-Day Service:</strong> Add <strong>+$50 (remote)</strong> or <strong>+$75 (on-site)</strong> to any service rate for same-day priority scheduling.</p>
+    <div class="emergency-tag">Rush Available</div>
+  </div>
+
+  <!-- TABS -->
+
+  <div class="tab-bar reveal">
+    <button class="tab-btn active" onclick="showTab('pc')">💻 PC Repair</button>
+    <button class="tab-btn" onclick="showTab('consulting')">🧠 Consulting</button>
+    <button class="tab-btn" onclick="showTab('marketing')">📡 Marketing</button>
+    <button class="tab-btn" onclick="showTab('research')">🔬 Research</button>
+    <button class="tab-btn" onclick="showTab('engineering')">⚙️ Engineering</button>
+    <button class="tab-btn" onclick="showTab('web')">🌐 Web Design</button>
+  </div>
+
+  <!-- PC REPAIR -->
+
+  <div class="category active" id="tab-pc">
+    <table class="price-table reveal">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Description</th>
+          <th>Remote</th>
+          <th>On-Site</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="service-name">Diagnostics Only <span class="price-tag tag-free">FREE w/ Repair</span></td>
+          <td class="service-desc">Full system diagnostic report with findings and recommendations</td>
+          <td class="price-remote">$49</td>
+          <td class="price">$75</td>
+        </tr>
+        <tr>
+          <td class="service-name">Virus & Malware Removal <span class="price-tag tag-popular">Popular</span></td>
+          <td class="service-desc">Full system scan, malware removal, and security hardening</td>
+          <td class="price-remote">$89</td>
+          <td class="price">$119</td>
+        </tr>
+        <tr>
+          <td class="service-name">Windows Reinstall / OS Repair</td>
+          <td class="service-desc">Clean OS install or repair, driver setup, and system configuration</td>
+          <td class="price-remote">$99</td>
+          <td class="price">$129</td>
+        </tr>
+        <tr>
+          <td class="service-name">Software Install & Setup</td>
+          <td class="service-desc">Installation and configuration of software, apps, and drivers</td>
+          <td class="price-remote">$69</td>
+          <td class="price">$99</td>
+        </tr>
+        <tr>
+          <td class="service-name">Speed Optimization & Cleanup <span class="price-tag tag-popular">Popular</span></td>
+          <td class="service-desc">Startup optimization, junk removal, registry cleanup, and performance tuning</td>
+          <td class="price-remote">$79</td>
+          <td class="price">$109</td>
+        </tr>
+        <tr>
+          <td class="service-name">Data Backup & Transfer</td>
+          <td class="service-desc">Secure backup and transfer of files, documents, and media</td>
+          <td class="price-remote">$99</td>
+          <td class="price">$129</td>
+        </tr>
+        <tr>
+          <td class="service-name">PC Setup & Configuration</td>
+          <td class="service-desc">New PC setup, account creation, software install, and personalization</td>
+          <td class="price-remote">$89</td>
+          <td class="price">$119</td>
+        </tr>
+        <tr>
+          <td class="service-name">Hardware Troubleshooting</td>
+          <td class="service-desc">Identify and resolve hardware conflicts, connectivity, and peripheral issues</td>
+          <td class="price-remote">$99</td>
+          <td class="price">$149</td>
+        </tr>
+        <tr>
+          <td class="service-name">Network Setup & Troubleshooting</td>
+          <td class="service-desc">WiFi, router, and network configuration for home or small office</td>
+          <td class="price-remote">$89</td>
+          <td class="price">$129</td>
+        </tr>
+        <tr>
+          <td class="service-name">Custom PC Build Consultation</td>
+          <td class="service-desc">Parts selection, budget planning, and build guidance for custom PCs</td>
+          <td class="price-remote">$149</td>
+          <td class="price">$199</td>
+        </tr>
+        <tr>
+          <td class="service-name">Data Recovery <span class="price-tag tag-popular">Quote Required</span></td>
+          <td class="service-desc">Recovery of deleted, corrupted, or inaccessible files — complexity-based pricing</td>
+          <td class="price-remote">From $149</td>
+          <td class="price">From $199</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="background:var(--card);border:1px solid var(--border);padding:20px 24px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:0.5px;line-height:1.8;">
+      ✦ All repairs include a <strong style="color:var(--text);">30-day service warranty</strong> &nbsp;·&nbsp; Parts quoted separately &nbsp;·&nbsp; On-site travel fee: $25–$50 &nbsp;·&nbsp; Payment required before or at time of service
+    </div>
+  </div>
+
+  <!-- CONSULTING -->
+
+  <div class="category" id="tab-consulting">
+    <table class="price-table reveal">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Description</th>
+          <th>Remote</th>
+          <th>On-Site</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="service-name">Initial Strategy Session <span class="price-tag tag-free">FREE</span></td>
+          <td class="service-desc">30-minute discovery call to assess your needs and goals</td>
+          <td class="price-remote">$0</td>
+          <td class="price">$0</td>
+        </tr>
+        <tr>
+          <td class="service-name">Technology Assessment</td>
+          <td class="service-desc">Full audit of your current tech stack with recommendations report</td>
+          <td class="price-remote">$199</td>
+          <td class="price">$249</td>
+        </tr>
+        <tr>
+          <td class="service-name">Digital Transformation Roadmap</td>
+          <td class="service-desc">Custom 90-day transformation plan with prioritized action items</td>
+          <td class="price-remote">$349</td>
+          <td class="price">$449</td>
+        </tr>
+        <tr>
+          <td class="service-name">Vendor Selection Consulting</td>
+          <td class="service-desc">Research, compare, and recommend the right tools and vendors for your business</td>
+          <td class="price-remote">$249</td>
+          <td class="price">$299</td>
+        </tr>
+        <tr>
+          <td class="service-name">Monthly Retainer <span class="price-tag tag-popular">Popular</span></td>
+          <td class="service-desc">Ongoing consulting support — up to 4 sessions/month plus email access</td>
+          <td class="price-remote">$499/mo</td>
+          <td class="price">$699/mo</td>
+        </tr>
+        <tr>
+          <td class="service-name">Process Automation Strategy</td>
+          <td class="service-desc">Identify and plan automation opportunities to save time and reduce costs</td>
+          <td class="price-remote">$299</td>
+          <td class="price">$399</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MARKETING -->
+
+  <div class="category" id="tab-marketing">
+    <table class="price-table reveal">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Description</th>
+          <th>One-Time</th>
+          <th>Monthly</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="service-name">SEO Audit & Report</td>
+          <td class="service-desc">Full site SEO analysis with prioritized recommendations</td>
+          <td class="price-remote">$199</td>
+          <td class="price">—</td>
+        </tr>
+        <tr>
+          <td class="service-name">SEO Management <span class="price-tag tag-popular">Popular</span></td>
+          <td class="service-desc">Ongoing on-page SEO, keyword strategy, and monthly reporting</td>
+          <td class="price-remote">—</td>
+          <td class="price">$399/mo</td>
+        </tr>
+        <tr>
+          <td class="service-name">Social Media Setup</td>
+          <td class="service-desc">Profile creation, branding, and initial content strategy for up to 3 platforms</td>
+          <td class="price-remote">$249</td>
+          <td class="price">—</td>
+        </tr>
+        <tr>
+          <td class="service-name">Social Media Management</td>
+          <td class="service-desc">Content creation and posting for up to 3 platforms — 3x/week</td>
+          <td class="price-remote">—</td>
+          <td class="price">$499/mo</td>
+        </tr>
+        <tr>
+          <td class="service-name">Google Ads Setup & Management</td>
+          <td class="service-desc">Campaign creation, targeting, and monthly optimization (ad spend separate)</td>
+          <td class="price-remote">$299 setup</td>
+          <td class="price">$299/mo</td>
+        </tr>
+        <tr>
+          <td class="service-name">Email Marketing Campaign</td>
+          <td class="service-desc">Template design, copy, list setup, and send for up to 2,500 subscribers</td>
+          <td class="price-remote">$199</td>
+          <td class="price">$299/mo</td>
+        </tr>
+        <tr>
+          <td class="service-name">Full Digital Marketing Package <span class="price-tag tag-popular">Best Value</span></td>
+          <td class="service-desc">SEO + Social + Email management — all three channels included</td>
+          <td class="price-remote">—</td>
+          <td class="price">$999/mo</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- RESEARCH -->
+
+  <div class="category" id="tab-research">
+    <table class="price-table reveal">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Description</th>
+          <th>Starting At</th>
+          <th>Timeline</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="service-name">Market Research Report</td>
+          <td class="service-desc">Industry analysis, competitor landscape, and opportunity assessment</td>
+          <td class="price-remote">$299</td>
+          <td class="price">5–7 days</td>
+        </tr>
+        <tr>
+          <td class="service-name">Competitive Analysis</td>
+          <td class="service-desc">Deep-dive analysis of up to 5 competitors with strategic insights</td>
+          <td class="price-remote">$249</td>
+          <td class="price">3–5 days</td>
+        </tr>
+        <tr>
+          <td class="service-name">Feasibility Study</td>
+          <td class="service-desc">Research-backed assessment of product, service, or business idea viability</td>
+          <td class="price-remote">$399</td>
+          <td class="price">7–10 days</td>
+        </tr>
+        <tr>
+          <td class="service-name">Data Analysis & Reporting</td>
+          <td class="service-desc">Statistical analysis of your data with visual reporting and key findings</td>
+          <td class="price-remote">$299</td>
+          <td class="price">3–7 days</td>
+        </tr>
+        <tr>
+          <td class="service-name">Technical Documentation</td>
+          <td class="service-desc">Professional documentation of systems, processes, or technical specifications</td>
+          <td class="price-remote">$199</td>
+          <td class="price">3–5 days</td>
+        </tr>
+        <tr>
+          <td class="service-name">Custom Research Project <span class="price-tag tag-popular">Quote Required</span></td>
+          <td class="service-desc">Complex or multi-phase research engagements — scoped per project</td>
+          <td class="price-remote">Custom</td>
+          <td class="price">TBD</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ENGINEERING -->
+
+  <div class="category" id="tab-engineering">
+    <table class="price-table reveal">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Description</th>
+          <th>Starting At</th>
+          <th>Timeline</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="service-name">Systems Design Consultation</td>
+          <td class="service-desc">Architecture review and recommendations for technical systems</td>
+          <td class="price-remote">$299</td>
+          <td class="price">3–5 days</td>
+        </tr>
+        <tr>
+          <td class="service-name">Process Optimization Analysis</td>
+          <td class="service-desc">Workflow review and optimization recommendations with implementation plan</td>
+          <td class="price-remote">$349</td>
+          <td class="price">5–7 days</td>
+        </tr>
+        <tr>
+          <td class="service-name">Technical Specifications</td>
+          <td class="service-desc">Detailed technical specs and documentation for systems or projects</td>
+          <td class="price-remote">$249</td>
+          <td class="price">3–5 days</td>
+        </tr>
+        <tr>
+          <td class="service-name">Systems Integration Planning</td>
+          <td class="service-desc">Planning and documentation for integrating multiple systems or platforms</td>
+          <td class="price-remote">$399</td>
+          <td class="price">5–10 days</td>
+        </tr>
+        <tr>
+          <td class="service-name">Custom Engineering Project <span class="price-tag tag-popular">Quote Required</span></td>
+          <td class="service-desc">Complex multi-phase engineering engagements — scoped per project</td>
+          <td class="price-remote">Custom</td>
+          <td class="price">TBD</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- WEB DESIGN -->
+
+  <div class="category" id="tab-web">
+    <div class="notice-bar reveal" style="margin-bottom:2px;">
+      <span style="font-size:20px;">🌐</span>
+      <p><strong>All packages include:</strong> Mobile-responsive design · GitHub Pages or Netlify hosting setup · Contact form · Basic SEO setup · 30 days post-launch support · <strong>Delivered in 5–21 business days</strong></p>
+    </div>
+
+```
+<div class="packages-grid reveal">
+  <!-- STARTER -->
+  <div class="package-card">
+    <div class="pkg-name">Starter</div>
+    <div class="pkg-price">$<span class="accent">599</span></div>
+    <div class="pkg-timeline">⚡ 5–7 Business Days</div>
+    <ul class="pkg-features">
+      <li class="included">Up to 3 pages (Home, About, Contact)</li>
+      <li class="included">Mobile-responsive design</li>
+      <li class="included">Contact form integration</li>
+      <li class="included">Basic SEO setup</li>
+      <li class="included">Free hosting setup (GitHub/Netlify)</li>
+      <li class="included">1 round of revisions</li>
+      <li class="included">30-day post-launch support</li>
+      <li class="excluded">Payment integration</li>
+      <li class="excluded">Booking system</li>
+      <li class="excluded">Custom animations</li>
+    </ul>
+    <a href="contact.html" class="btn-outline" style="display:block;text-align:center;">Get Started</a>
+  </div>
+
+  <!-- PROFESSIONAL -->
+  <div class="package-card featured">
+    <div class="pkg-name">Professional</div>
+    <div class="pkg-price">$<span class="accent">999</span></div>
+    <div class="pkg-timeline">⚡ 10–14 Business Days</div>
+    <ul class="pkg-features">
+      <li class="included">Up to 6 pages — fully custom</li>
+      <li class="included">Mobile-responsive design</li>
+      <li class="included">Contact form + Cal.com booking</li>
+      <li class="included">Stripe payment integration</li>
+      <li class="included">On-page SEO optimization</li>
+      <li class="included">Free hosting setup (GitHub/Netlify)</li>
+      <li class="included">Custom animations & interactions</li>
+      <li class="included">2 rounds of revisions</li>
+      <li class="included">30-day post-launch support</li>
+      <li class="excluded">E-commerce / product catalog</li>
+    </ul>
+    <a href="contact.html" class="btn-primary" style="display:block;text-align:center;">Get Started</a>
+  </div>
+
+  <!-- PREMIUM -->
+  <div class="package-card">
+    <div class="pkg-name">Premium <span class="price-tag tag-new">New</span></div>
+    <div class="pkg-price">$<span class="accent">1,799</span></div>
+    <div class="pkg-timeline">⚡ 14–21 Business Days</div>
+    <ul class="pkg-features">
+      <li class="included">Unlimited pages — fully custom</li>
+      <li class="included">Mobile-responsive design</li>
+      <li class="included">Contact form + Cal.com booking</li>
+      <li class="included">Full Stripe payment integration</li>
+      <li class="included">Advanced SEO + sitemap</li>
+      <li class="included">Free hosting setup (GitHub/Netlify)</li>
+      <li class="included">Advanced animations & interactions</li>
+      <li class="included">E-commerce / product catalog</li>
+      <li class="included">3 rounds of revisions</li>
+      <li class="included">60-day post-launch support</li>
+    </ul>
+    <a href="contact.html" class="btn-outline" style="display:block;text-align:center;">Get Started</a>
+  </div>
+</div>
+
+<!-- ADD-ONS -->
+<table class="price-table reveal">
+  <thead>
+    <tr>
+      <th>Add-On Service</th>
+      <th>Description</th>
+      <th colspan="2">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="service-name">Logo Design</td>
+      <td class="service-desc">Custom logo with 2 concepts and 2 revision rounds</td>
+      <td class="price" colspan="2">$299</td>
+    </tr>
+    <tr>
+      <td class="service-name">Monthly Maintenance</td>
+      <td class="service-desc">Updates, backups, security checks, and minor content changes</td>
+      <td class="price" colspan="2">$99/mo</td>
+    </tr>
+    <tr>
+      <td class="service-name">Additional Pages</td>
+      <td class="service-desc">Extra pages added to any package</td>
+      <td class="price" colspan="2">$99/page</td>
+    </tr>
+    <tr>
+      <td class="service-name">Rush Delivery</td>
+      <td class="service-desc">Priority turnaround — 50% faster than standard timeline</td>
+      <td class="price" colspan="2">+$200</td>
+    </tr>
+    <tr>
+      <td class="service-name">Copywriting</td>
+      <td class="service-desc">Professional website copy written for all pages</td>
+      <td class="price" colspan="2">$149/page</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+  </div>
+
+  <!-- DEPOSIT & CANCELLATION POLICY -->
+
+  <div style="margin-top:40px;">
+    <div class="section-label reveal">Policies</div>
+    <h2 class="section-title reveal">Deposit & Cancellation</h2>
+    <div class="policy-grid reveal">
+      <div class="policy-box">
+        <h3>💳 Deposit Requirements</h3>
+        <table class="policy-table">
+          <tr><td>Remote service under $100</td><td class="ok">Full payment upfront</td></tr>
+          <tr><td>Remote service $100–$300</td><td class="ok">50% deposit upfront</td></tr>
+          <tr><td>On-site any amount</td><td class="ok">Full payment upfront</td></tr>
+          <tr><td>Web design — Starter</td><td class="ok">50% deposit, 50% at launch</td></tr>
+          <tr><td>Web design — Pro/Premium</td><td class="ok">50% deposit, 50% at launch</td></tr>
+          <tr><td>Monthly retainers</td><td class="ok">First month upfront</td></tr>
+          <tr><td>Custom/complex projects</td><td class="ok">50% upfront, 50% on delivery</td></tr>
+        </table>
+      </div>
+      <div class="policy-box">
+        <h3>📅 Cancellation & Rescheduling</h3>
+        <table class="policy-table">
+          <tr><td>Cancel 24+ hours before</td><td class="ok">Full refund</td></tr>
+          <tr><td>Cancel under 24 hours</td><td class="penalty">Deposit forfeited</td></tr>
+          <tr><td>No-show</td><td class="penalty">Full session fee charged</td></tr>
+          <tr><td>Reschedule 24+ hours before</td><td class="ok">Free — unlimited</td></tr>
+          <tr><td>Reschedule under 24 hours</td><td class="penalty">$25 fee</td></tr>
+          <tr><td>On-site cancellation after arrival</td><td class="penalty">$50 trip fee</td></tr>
+          <tr><td>Subscription cancellation</td><td class="ok">End of billing period</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+
+  <div style="background:var(--card);border:1px solid var(--border);padding:64px;text-align:center;margin-top:2px;" class="reveal">
+    <h2 style="font-size:36px;font-weight:800;letter-spacing:-1px;margin-bottom:16px;">Not sure which service you need?</h2>
+    <p style="color:var(--muted);font-size:16px;margin-bottom:36px;">Book a free 30-minute consultation and we'll figure it out together.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html#booking" class="btn-primary">Book Free Consultation</a>
+      <a href="contact.html" class="btn-outline">Send a Message</a>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-logo">MR.GEEK LLC</div>
+  <div class="footer-copy">© 2024–2026 Mr. Geek LLC. All rights reserved.</div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="pay.html">Pay</a></li>
+    <li><a href="tos.html">Terms</a></li>
+  </ul>
+</footer>
+<script src="main.js"></script>
+<script>
+function showTab(id) {
+  document.querySelectorAll('.category').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
