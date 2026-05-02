@@ -15,7 +15,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); overflow-x: hidden; cursor: none; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); overflow-x: hidden; }
 
 body::before {
   content: '';
