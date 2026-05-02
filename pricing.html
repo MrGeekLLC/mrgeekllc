@@ -8,7 +8,7 @@
 <style>
 /* TABS */
 .tab-bar{display:flex;gap:2px;margin-bottom:2px;position:sticky;top:81px;z-index:50;background:var(--bg);padding:12px 0;}
-.tab-btn{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 28px;border:1px solid var(--border);background:var(--card);color:var(--muted);cursor:none;transition:all 0.2s;white-space:nowrap;}
+.tab-btn{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 28px;border:1px solid var(--border);background:var(--card);color:var(--muted);transition:all 0.2s;white-space:nowrap;}
 .tab-btn.active,.tab-btn:hover{background:var(--accent);color:var(--bg);border-color:var(--accent);}
 
 /* CATEGORY SECTION */
@@ -80,19 +80,36 @@
 </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+
 <nav>
   <a href="index.html" class="nav-logo">MR.<span>GEEK</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
+    <li><a href="pricing.html" class="active">Pricing</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="process.html">Process</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="pay.html" class="nav-cta">Pay Now</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="about.html">About</a>
+  <a href="process.html">Process</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <a href="pay.html" class="mobile-cta">Pay Now</a>
+</div>
+
+<a href="contact.html#booking" class="sticky-book-bar">📅 Book a Free Consultation</a>
 
 <div class="page-hero">
   <div class="page-hero-tag">Transparent Pricing</div>
@@ -127,81 +144,19 @@
   <!-- PC REPAIR -->
   <div class="category active" id="tab-pc">
     <table class="price-table reveal">
-      <thead>
-        <tr>
-          <th>Service</th>
-          <th>Description</th>
-          <th>Remote</th>
-          <th>On-Site</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Service</th><th>Description</th><th>Remote</th><th>On-Site</th></tr></thead>
       <tbody>
-        <tr>
-          <td class="service-name">Diagnostics Only <span class="price-tag tag-free">FREE w/ Repair</span></td>
-          <td class="service-desc">Full system diagnostic report with findings and recommendations</td>
-          <td class="price-remote">$49</td>
-          <td class="price">$75</td>
-        </tr>
-        <tr>
-          <td class="service-name">Virus & Malware Removal <span class="price-tag tag-popular">Popular</span></td>
-          <td class="service-desc">Full system scan, malware removal, and security hardening</td>
-          <td class="price-remote">$89</td>
-          <td class="price">$119</td>
-        </tr>
-        <tr>
-          <td class="service-name">Windows Reinstall / OS Repair</td>
-          <td class="service-desc">Clean OS install or repair, driver setup, and system configuration</td>
-          <td class="price-remote">$99</td>
-          <td class="price">$129</td>
-        </tr>
-        <tr>
-          <td class="service-name">Software Install & Setup</td>
-          <td class="service-desc">Installation and configuration of software, apps, and drivers</td>
-          <td class="price-remote">$69</td>
-          <td class="price">$99</td>
-        </tr>
-        <tr>
-          <td class="service-name">Speed Optimization & Cleanup <span class="price-tag tag-popular">Popular</span></td>
-          <td class="service-desc">Startup optimization, junk removal, registry cleanup, and performance tuning</td>
-          <td class="price-remote">$79</td>
-          <td class="price">$109</td>
-        </tr>
-        <tr>
-          <td class="service-name">Data Backup & Transfer</td>
-          <td class="service-desc">Secure backup and transfer of files, documents, and media</td>
-          <td class="price-remote">$99</td>
-          <td class="price">$129</td>
-        </tr>
-        <tr>
-          <td class="service-name">PC Setup & Configuration</td>
-          <td class="service-desc">New PC setup, account creation, software install, and personalization</td>
-          <td class="price-remote">$89</td>
-          <td class="price">$119</td>
-        </tr>
-        <tr>
-          <td class="service-name">Hardware Troubleshooting</td>
-          <td class="service-desc">Identify and resolve hardware conflicts, connectivity, and peripheral issues</td>
-          <td class="price-remote">$99</td>
-          <td class="price">$149</td>
-        </tr>
-        <tr>
-          <td class="service-name">Network Setup & Troubleshooting</td>
-          <td class="service-desc">WiFi, router, and network configuration for home or small office</td>
-          <td class="price-remote">$89</td>
-          <td class="price">$129</td>
-        </tr>
-        <tr>
-          <td class="service-name">Custom PC Build Consultation</td>
-          <td class="service-desc">Parts selection, budget planning, and build guidance for custom PCs</td>
-          <td class="price-remote">$149</td>
-          <td class="price">$199</td>
-        </tr>
-        <tr>
-          <td class="service-name">Data Recovery <span class="price-tag tag-popular">Quote Required</span></td>
-          <td class="service-desc">Recovery of deleted, corrupted, or inaccessible files — complexity-based pricing</td>
-          <td class="price-remote">From $149</td>
-          <td class="price">From $199</td>
-        </tr>
+        <tr><td class="service-name">Diagnostics Only <span class="price-tag tag-free">FREE w/ Repair</span></td><td class="service-desc">Full system diagnostic report with findings and recommendations</td><td class="price-remote">$49</td><td class="price">$75</td></tr>
+        <tr><td class="service-name">Virus & Malware Removal <span class="price-tag tag-popular">Popular</span></td><td class="service-desc">Full system scan, malware removal, and security hardening</td><td class="price-remote">$89</td><td class="price">$119</td></tr>
+        <tr><td class="service-name">Windows Reinstall / OS Repair</td><td class="service-desc">Clean OS install or repair, driver setup, and system configuration</td><td class="price-remote">$99</td><td class="price">$129</td></tr>
+        <tr><td class="service-name">Software Install & Setup</td><td class="service-desc">Installation and configuration of software, apps, and drivers</td><td class="price-remote">$69</td><td class="price">$99</td></tr>
+        <tr><td class="service-name">Speed Optimization & Cleanup <span class="price-tag tag-popular">Popular</span></td><td class="service-desc">Startup optimization, junk removal, registry cleanup, and performance tuning</td><td class="price-remote">$79</td><td class="price">$109</td></tr>
+        <tr><td class="service-name">Data Backup & Transfer</td><td class="service-desc">Secure backup and transfer of files, documents, and media</td><td class="price-remote">$99</td><td class="price">$129</td></tr>
+        <tr><td class="service-name">PC Setup & Configuration</td><td class="service-desc">New PC setup, account creation, software install, and personalization</td><td class="price-remote">$89</td><td class="price">$119</td></tr>
+        <tr><td class="service-name">Hardware Troubleshooting</td><td class="service-desc">Identify and resolve hardware conflicts, connectivity, and peripheral issues</td><td class="price-remote">$99</td><td class="price">$149</td></tr>
+        <tr><td class="service-name">Network Setup & Troubleshooting</td><td class="service-desc">WiFi, router, and network configuration for home or small office</td><td class="price-remote">$89</td><td class="price">$129</td></tr>
+        <tr><td class="service-name">Custom PC Build Consultation</td><td class="service-desc">Parts selection, budget planning, and build guidance for custom PCs</td><td class="price-remote">$149</td><td class="price">$199</td></tr>
+        <tr><td class="service-name">Data Recovery <span class="price-tag tag-popular">Quote Required</span></td><td class="service-desc">Recovery of deleted, corrupted, or inaccessible files — complexity-based pricing</td><td class="price-remote">From $149</td><td class="price">From $199</td></tr>
       </tbody>
     </table>
     <div style="background:var(--card);border:1px solid var(--border);padding:20px 24px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:0.5px;line-height:1.8;">
@@ -212,51 +167,14 @@
   <!-- CONSULTING -->
   <div class="category" id="tab-consulting">
     <table class="price-table reveal">
-      <thead>
-        <tr>
-          <th>Service</th>
-          <th>Description</th>
-          <th>Remote</th>
-          <th>On-Site</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Service</th><th>Description</th><th>Remote</th><th>On-Site</th></tr></thead>
       <tbody>
-        <tr>
-          <td class="service-name">Initial Strategy Session <span class="price-tag tag-free">FREE</span></td>
-          <td class="service-desc">30-minute discovery call to assess your needs and goals</td>
-          <td class="price-remote">$0</td>
-          <td class="price">$0</td>
-        </tr>
-        <tr>
-          <td class="service-name">Technology Assessment</td>
-          <td class="service-desc">Full audit of your current tech stack with recommendations report</td>
-          <td class="price-remote">$199</td>
-          <td class="price">$249</td>
-        </tr>
-        <tr>
-          <td class="service-name">Digital Transformation Roadmap</td>
-          <td class="service-desc">Custom 90-day transformation plan with prioritized action items</td>
-          <td class="price-remote">$349</td>
-          <td class="price">$449</td>
-        </tr>
-        <tr>
-          <td class="service-name">Vendor Selection Consulting</td>
-          <td class="service-desc">Research, compare, and recommend the right tools and vendors for your business</td>
-          <td class="price-remote">$249</td>
-          <td class="price">$299</td>
-        </tr>
-        <tr>
-          <td class="service-name">Monthly Retainer <span class="price-tag tag-popular">Popular</span></td>
-          <td class="service-desc">Ongoing consulting support — up to 4 sessions/month plus email access</td>
-          <td class="price-remote">$499/mo</td>
-          <td class="price">$699/mo</td>
-        </tr>
-        <tr>
-          <td class="service-name">Process Automation Strategy</td>
-          <td class="service-desc">Identify and plan automation opportunities to save time and reduce costs</td>
-          <td class="price-remote">$299</td>
-          <td class="price">$399</td>
-        </tr>
+        <tr><td class="service-name">Initial Strategy Session <span class="price-tag tag-free">FREE</span></td><td class="service-desc">30-minute discovery call to assess your needs and goals</td><td class="price-remote">$0</td><td class="price">$0</td></tr>
+        <tr><td class="service-name">Technology Assessment</td><td class="service-desc">Full audit of your current tech stack with recommendations report</td><td class="price-remote">$199</td><td class="price">$249</td></tr>
+        <tr><td class="service-name">Digital Transformation Roadmap</td><td class="service-desc">Custom 90-day transformation plan with prioritized action items</td><td class="price-remote">$349</td><td class="price">$449</td></tr>
+        <tr><td class="service-name">Vendor Selection Consulting</td><td class="service-desc">Research, compare, and recommend the right tools and vendors for your business</td><td class="price-remote">$249</td><td class="price">$299</td></tr>
+        <tr><td class="service-name">Monthly Retainer <span class="price-tag tag-popular">Popular</span></td><td class="service-desc">Ongoing consulting support — up to 4 sessions/month plus email access</td><td class="price-remote">$499/mo</td><td class="price">$699/mo</td></tr>
+        <tr><td class="service-name">Process Automation Strategy</td><td class="service-desc">Identify and plan automation opportunities to save time and reduce costs</td><td class="price-remote">$299</td><td class="price">$399</td></tr>
       </tbody>
     </table>
   </div>
@@ -264,57 +182,15 @@
   <!-- MARKETING -->
   <div class="category" id="tab-marketing">
     <table class="price-table reveal">
-      <thead>
-        <tr>
-          <th>Service</th>
-          <th>Description</th>
-          <th>One-Time</th>
-          <th>Monthly</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Service</th><th>Description</th><th>One-Time</th><th>Monthly</th></tr></thead>
       <tbody>
-        <tr>
-          <td class="service-name">SEO Audit & Report</td>
-          <td class="service-desc">Full site SEO analysis with prioritized recommendations</td>
-          <td class="price-remote">$199</td>
-          <td class="price">—</td>
-        </tr>
-        <tr>
-          <td class="service-name">SEO Management <span class="price-tag tag-popular">Popular</span></td>
-          <td class="service-desc">Ongoing on-page SEO, keyword strategy, and monthly reporting</td>
-          <td class="price-remote">—</td>
-          <td class="price">$399/mo</td>
-        </tr>
-        <tr>
-          <td class="service-name">Social Media Setup</td>
-          <td class="service-desc">Profile creation, branding, and initial content strategy for up to 3 platforms</td>
-          <td class="price-remote">$249</td>
-          <td class="price">—</td>
-        </tr>
-        <tr>
-          <td class="service-name">Social Media Management</td>
-          <td class="service-desc">Content creation and posting for up to 3 platforms — 3x/week</td>
-          <td class="price-remote">—</td>
-          <td class="price">$499/mo</td>
-        </tr>
-        <tr>
-          <td class="service-name">Google Ads Setup & Management</td>
-          <td class="service-desc">Campaign creation, targeting, and monthly optimization (ad spend separate)</td>
-          <td class="price-remote">$299 setup</td>
-          <td class="price">$299/mo</td>
-        </tr>
-        <tr>
-          <td class="service-name">Email Marketing Campaign</td>
-          <td class="service-desc">Template design, copy, list setup, and send for up to 2,500 subscribers</td>
-          <td class="price-remote">$199</td>
-          <td class="price">$299/mo</td>
-        </tr>
-        <tr>
-          <td class="service-name">Full Digital Marketing Package <span class="price-tag tag-popular">Best Value</span></td>
-          <td class="service-desc">SEO + Social + Email management — all three channels included</td>
-          <td class="price-remote">—</td>
-          <td class="price">$999/mo</td>
-        </tr>
+        <tr><td class="service-name">SEO Audit & Report</td><td class="service-desc">Full site SEO analysis with prioritized recommendations</td><td class="price-remote">$199</td><td class="price">—</td></tr>
+        <tr><td class="service-name">SEO Management <span class="price-tag tag-popular">Popular</span></td><td class="service-desc">Ongoing on-page SEO, keyword strategy, and monthly reporting</td><td class="price-remote">—</td><td class="price">$399/mo</td></tr>
+        <tr><td class="service-name">Social Media Setup</td><td class="service-desc">Profile creation, branding, and initial content strategy for up to 3 platforms</td><td class="price-remote">$249</td><td class="price">—</td></tr>
+        <tr><td class="service-name">Social Media Management</td><td class="service-desc">Content creation and posting for up to 3 platforms — 3x/week</td><td class="price-remote">—</td><td class="price">$499/mo</td></tr>
+        <tr><td class="service-name">Google Ads Setup & Management</td><td class="service-desc">Campaign creation, targeting, and monthly optimization (ad spend separate)</td><td class="price-remote">$299 setup</td><td class="price">$299/mo</td></tr>
+        <tr><td class="service-name">Email Marketing Campaign</td><td class="service-desc">Template design, copy, list setup, and send for up to 2,500 subscribers</td><td class="price-remote">$199</td><td class="price">$299/mo</td></tr>
+        <tr><td class="service-name">Full Digital Marketing Package <span class="price-tag tag-popular">Best Value</span></td><td class="service-desc">SEO + Social + Email management — all three channels included</td><td class="price-remote">—</td><td class="price">$999/mo</td></tr>
       </tbody>
     </table>
   </div>
@@ -322,51 +198,14 @@
   <!-- RESEARCH -->
   <div class="category" id="tab-research">
     <table class="price-table reveal">
-      <thead>
-        <tr>
-          <th>Service</th>
-          <th>Description</th>
-          <th>Starting At</th>
-          <th>Timeline</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Service</th><th>Description</th><th>Starting At</th><th>Timeline</th></tr></thead>
       <tbody>
-        <tr>
-          <td class="service-name">Market Research Report</td>
-          <td class="service-desc">Industry analysis, competitor landscape, and opportunity assessment</td>
-          <td class="price-remote">$299</td>
-          <td class="price">5–7 days</td>
-        </tr>
-        <tr>
-          <td class="service-name">Competitive Analysis</td>
-          <td class="service-desc">Deep-dive analysis of up to 5 competitors with strategic insights</td>
-          <td class="price-remote">$249</td>
-          <td class="price">3–5 days</td>
-        </tr>
-        <tr>
-          <td class="service-name">Feasibility Study</td>
-          <td class="service-desc">Research-backed assessment of product, service, or business idea viability</td>
-          <td class="price-remote">$399</td>
-          <td class="price">7–10 days</td>
-        </tr>
-        <tr>
-          <td class="service-name">Data Analysis & Reporting</td>
-          <td class="service-desc">Statistical analysis of your data with visual reporting and key findings</td>
-          <td class="price-remote">$299</td>
-          <td class="price">3–7 days</td>
-        </tr>
-        <tr>
-          <td class="service-name">Technical Documentation</td>
-          <td class="service-desc">Professional documentation of systems, processes, or technical specifications</td>
-          <td class="price-remote">$199</td>
-          <td class="price">3–5 days</td>
-        </tr>
-        <tr>
-          <td class="service-name">Custom Research Project <span class="price-tag tag-popular">Quote Required</span></td>
-          <td class="service-desc">Complex or multi-phase research engagements — scoped per project</td>
-          <td class="price-remote">Custom</td>
-          <td class="price">TBD</td>
-        </tr>
+        <tr><td class="service-name">Market Research Report</td><td class="service-desc">Industry analysis, competitor landscape, and opportunity assessment</td><td class="price-remote">$299</td><td class="price">5–7 days</td></tr>
+        <tr><td class="service-name">Competitive Analysis</td><td class="service-desc">Deep-dive analysis of up to 5 competitors with strategic insights</td><td class="price-remote">$249</td><td class="price">3–5 days</td></tr>
+        <tr><td class="service-name">Feasibility Study</td><td class="service-desc">Research-backed assessment of product, service, or business idea viability</td><td class="price-remote">$399</td><td class="price">7–10 days</td></tr>
+        <tr><td class="service-name">Data Analysis & Reporting</td><td class="service-desc">Statistical analysis of your data with visual reporting and key findings</td><td class="price-remote">$299</td><td class="price">3–7 days</td></tr>
+        <tr><td class="service-name">Technical Documentation</td><td class="service-desc">Professional documentation of systems, processes, or technical specifications</td><td class="price-remote">$199</td><td class="price">3–5 days</td></tr>
+        <tr><td class="service-name">Custom Research Project <span class="price-tag tag-popular">Quote Required</span></td><td class="service-desc">Complex or multi-phase research engagements — scoped per project</td><td class="price-remote">Custom</td><td class="price">TBD</td></tr>
       </tbody>
     </table>
   </div>
@@ -374,45 +213,13 @@
   <!-- ENGINEERING -->
   <div class="category" id="tab-engineering">
     <table class="price-table reveal">
-      <thead>
-        <tr>
-          <th>Service</th>
-          <th>Description</th>
-          <th>Starting At</th>
-          <th>Timeline</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Service</th><th>Description</th><th>Starting At</th><th>Timeline</th></tr></thead>
       <tbody>
-        <tr>
-          <td class="service-name">Systems Design Consultation</td>
-          <td class="service-desc">Architecture review and recommendations for technical systems</td>
-          <td class="price-remote">$299</td>
-          <td class="price">3–5 days</td>
-        </tr>
-        <tr>
-          <td class="service-name">Process Optimization Analysis</td>
-          <td class="service-desc">Workflow review and optimization recommendations with implementation plan</td>
-          <td class="price-remote">$349</td>
-          <td class="price">5–7 days</td>
-        </tr>
-        <tr>
-          <td class="service-name">Technical Specifications</td>
-          <td class="service-desc">Detailed technical specs and documentation for systems or projects</td>
-          <td class="price-remote">$249</td>
-          <td class="price">3–5 days</td>
-        </tr>
-        <tr>
-          <td class="service-name">Systems Integration Planning</td>
-          <td class="service-desc">Planning and documentation for integrating multiple systems or platforms</td>
-          <td class="price-remote">$399</td>
-          <td class="price">5–10 days</td>
-        </tr>
-        <tr>
-          <td class="service-name">Custom Engineering Project <span class="price-tag tag-popular">Quote Required</span></td>
-          <td class="service-desc">Complex multi-phase engineering engagements — scoped per project</td>
-          <td class="price-remote">Custom</td>
-          <td class="price">TBD</td>
-        </tr>
+        <tr><td class="service-name">Systems Design Consultation</td><td class="service-desc">Architecture review and recommendations for technical systems</td><td class="price-remote">$299</td><td class="price">3–5 days</td></tr>
+        <tr><td class="service-name">Process Optimization Analysis</td><td class="service-desc">Workflow review and optimization recommendations with implementation plan</td><td class="price-remote">$349</td><td class="price">5–7 days</td></tr>
+        <tr><td class="service-name">Technical Specifications</td><td class="service-desc">Detailed technical specs and documentation for systems or projects</td><td class="price-remote">$249</td><td class="price">3–5 days</td></tr>
+        <tr><td class="service-name">Systems Integration Planning</td><td class="service-desc">Planning and documentation for integrating multiple systems or platforms</td><td class="price-remote">$399</td><td class="price">5–10 days</td></tr>
+        <tr><td class="service-name">Custom Engineering Project <span class="price-tag tag-popular">Quote Required</span></td><td class="service-desc">Complex multi-phase engineering engagements — scoped per project</td><td class="price-remote">Custom</td><td class="price">TBD</td></tr>
       </tbody>
     </table>
   </div>
@@ -488,39 +295,13 @@
 
     <!-- ADD-ONS -->
     <table class="price-table reveal">
-      <thead>
-        <tr>
-          <th>Add-On Service</th>
-          <th>Description</th>
-          <th colspan="2">Price</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Add-On Service</th><th>Description</th><th colspan="2">Price</th></tr></thead>
       <tbody>
-        <tr>
-          <td class="service-name">Logo Design</td>
-          <td class="service-desc">Custom logo with 2 concepts and 2 revision rounds</td>
-          <td class="price" colspan="2">$299</td>
-        </tr>
-        <tr>
-          <td class="service-name">Monthly Maintenance</td>
-          <td class="service-desc">Updates, backups, security checks, and minor content changes</td>
-          <td class="price" colspan="2">$99/mo</td>
-        </tr>
-        <tr>
-          <td class="service-name">Additional Pages</td>
-          <td class="service-desc">Extra pages added to any package</td>
-          <td class="price" colspan="2">$99/page</td>
-        </tr>
-        <tr>
-          <td class="service-name">Rush Delivery</td>
-          <td class="service-desc">Priority turnaround — 50% faster than standard timeline</td>
-          <td class="price" colspan="2">+$200</td>
-        </tr>
-        <tr>
-          <td class="service-name">Copywriting</td>
-          <td class="service-desc">Professional website copy written for all pages</td>
-          <td class="price" colspan="2">$149/page</td>
-        </tr>
+        <tr><td class="service-name">Logo Design</td><td class="service-desc">Custom logo with 2 concepts and 2 revision rounds</td><td class="price" colspan="2">$299</td></tr>
+        <tr><td class="service-name">Monthly Maintenance</td><td class="service-desc">Updates, backups, security checks, and minor content changes</td><td class="price" colspan="2">$99/mo</td></tr>
+        <tr><td class="service-name">Additional Pages</td><td class="service-desc">Extra pages added to any package</td><td class="price" colspan="2">$99/page</td></tr>
+        <tr><td class="service-name">Rush Delivery</td><td class="service-desc">Priority turnaround — 50% faster than standard timeline</td><td class="price" colspan="2">+$200</td></tr>
+        <tr><td class="service-name">Copywriting</td><td class="service-desc">Professional website copy written for all pages</td><td class="price" colspan="2">$149/page</td></tr>
       </tbody>
     </table>
   </div>
@@ -570,17 +351,26 @@
 </section>
 
 <footer>
-  <div class="footer-logo">MR.GEEK LLC</div>
-  <div class="footer-copy">© 2024–2026 Mr. Geek LLC. All rights reserved.</div>
-  <ul class="footer-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="process.html">Process</a></li>
-    <li><a href="pay.html">Pay</a></li>
-    <li><a href="tos.html">Terms</a></li>
-  </ul>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">MR.GEEK LLC</div>
+      <p>Professional IT support, PC repair, web design, and consulting services for businesses and individuals across the United States.</p>
+      <div class="footer-social" style="margin-top:20px;">
+        <a href="#">in</a>
+        <a href="#">f</a>
+        <a href="#">𝕏</a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html#pc">PC Repair</a></li><li><a href="services.html#cyber">Cybersecurity</a></li><li><a href="services.html#web">Web Design</a></li><li><a href="services.html#consulting">IT Consulting</a></li><li><a href="services.html#ai">AI Integration</a></li><li><a href="services.html#marketing">Digital Marketing</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="process.html">Our Process</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+    <div class="footer-col"><h4>Legal & Pay</h4><ul><li><a href="pay.html">Pay Invoice</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="contact.html#booking">Book a Session</a></li><li><a href="tos.html">Terms of Service</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024–2026 Mr. Geek LLC · Georgia Registered LLC · All rights reserved.</div>
+    <div class="footer-copy">Payments secured by Stripe · Scheduling via Cal.com</div>
+  </div>
 </footer>
+
 <script src="main.js"></script>
 <script>
 function showTab(id) {

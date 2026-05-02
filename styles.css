@@ -1,7 +1,3 @@
-html, body, * {
-  cursor: auto !important;
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap');
 
 :root {
@@ -27,6 +23,11 @@ body::before {
   background-image: linear-gradient(rgba(0,255,136,0.03) 1px,transparent 1px), linear-gradient(90deg,rgba(0,255,136,0.03) 1px,transparent 1px);
   background-size: 60px 60px;
   pointer-events: none; z-index: 0;
+}
+
+/* FORCE DEFAULT CURSOR ON ALL INTERACTIVE ELEMENTS */
+a, button, .card, [role="button"], input, select, textarea, .nav-links a, .nav-cta, .hamburger, .sticky-book-bar, .btn-primary, .btn-outline, .form-submit, .cookie-accept, .cookie-decline, .platform-btn, .newsletter-btn, .pbtn, .cab, .tab-btn, .package-card .btn-outline, .package-card .btn-primary, .service-mini-link, .post-card, .review-card a, .footer-links a, .footer-social a {
+  cursor: auto !important;
 }
 
 /* NAV */
