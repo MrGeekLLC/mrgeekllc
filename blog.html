@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Mr. Geek LLC</title>
+<meta name="description" content="Tech tips, IT guides, and business insights from Mr. Geek LLC. Learn how to protect your PC, grow your business online, and leverage technology.">
+<link rel="stylesheet" href="styles.css">
+<style>
+.blog-grid{display:grid;grid-template-columns:2fr 1fr;gap:2px;align-items:start;}
+.posts-list{display:flex;flex-direction:column;gap:2px;}
+.post-card{background:var(--card);border:1px solid var(--border);padding:40px;transition:all 0.3s;position:relative;text-decoration:none;display:block;color:var(--text);}
+.post-card:hover{border-color:rgba(0,255,136,0.3);transform:translateX(4px);}
+.post-card.featured{border-color:rgba(0,255,136,0.2);background:linear-gradient(135deg,rgba(0,255,136,0.05) 0%,var(--card) 100%);}
+.post-meta{display:flex;gap:16px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
+.post-tag{font-family:var(--mono);font-size:10px;color:var(--bg);background:var(--accent);padding:4px 12px;letter-spacing:2px;text-transform:uppercase;}
+.post-tag.blue{background:var(--accent2);}
+.post-tag.orange{background:#ffa500;color:var(--bg);}
+.post-date{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:1px;}
+.post-read{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:1px;}
+.post-title{font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-bottom:12px;line-height:1.3;}
+.post-excerpt{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:16px;}
+.post-arrow{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:1px;transition:letter-spacing 0.2s;}
+.post-card:hover .post-arrow{letter-spacing:3px;}
+.sidebar{display:flex;flex-direction:column;gap:2px;}
+.sidebar-box{background:var(--card);border:1px solid var(--border);padding:32px;}
+.sidebar-title{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;}
+.category-list{list-style:none;}
+.category-list li{border-bottom:1px solid var(--border);padding:10px 0;display:flex;justify-content:space-between;align-items:center;}
+.category-list li a{font-size:14px;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.category-list li a:hover{color:var(--accent);}
+.category-count{font-family:var(--mono);font-size:11px;color:var(--accent);}
+.popular-post{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border);}
+.popular-num{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--border);line-height:1;flex-shrink:0;transition:color 0.2s;}
+.popular-post:hover .popular-num{color:var(--accent);}
+.popular-title{font-size:13px;color:var(--muted);line-height:1.5;text-decoration:none;transition:color 0.2s;}
+.popular-post:hover .popular-title{color:var(--text);}
+.newsletter-box{background:linear-gradient(135deg,rgba(0,255,136,0.08) 0%,var(--card) 100%);border:1px solid rgba(0,255,136,0.2);padding:32px;}
+.newsletter-input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:13px;padding:12px 16px;outline:none;transition:border-color 0.2s;margin-bottom:8px;}
+.newsletter-input:focus{border-color:var(--accent);}
+.newsletter-btn{width:100%;font-family:var(--mono);font-size:11px;color:var(--bg);background:var(--accent);border:none;padding:12px;letter-spacing:2px;text-transform:uppercase;cursor:none;transition:background 0.2s;}
+.newsletter-btn:hover{background:var(--accent2);}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav>
+  <a href="index.html" class="nav-logo">MR.<span>GEEK</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="pay.html" class="nav-cta">Pay Now</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="process.html">Process</a><a href="reviews.html">Reviews</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+  <a href="pay.html" class="mobile-cta">Pay Now</a>
+</div>
+<a href="contact.html#booking" class="sticky-book-bar">📅 Book a Free Consultation</a>
+
+<div class="page-hero">
+  <div class="page-hero-tag">Knowledge Base</div>
+  <h1>The Mr. Geek <span class="accent">Blog<span class="blink">_</span></span></h1>
+  <p>Tech tips, IT guides, and business insights to help you get more from your technology.</p>
+</div>
+
+<section class="section">
+  <div class="blog-grid">
+
+    <!-- POSTS -->
+    <div class="posts-list">
+
+      <a class="post-card featured reveal" href="#">
+        <div class="post-meta">
+          <span class="post-tag">Featured</span>
+          <span class="post-tag blue">PC Repair</span>
+          <span class="post-date">May 2026</span>
+          <span class="post-read">5 min read</span>
+        </div>
+        <div class="post-title">Is Your PC Running Slow? Here Are 7 Things to Check First</div>
+        <p class="post-excerpt">Before you spend money on a new computer, try these seven proven fixes that restore speed and performance to aging PCs — many of which can be done in under an hour.</p>
+        <div class="post-arrow">Read Article →</div>
+      </a>
+
+      <a class="post-card reveal" href="#">
+        <div class="post-meta">
+          <span class="post-tag orange">Cybersecurity</span>
+          <span class="post-date">April 2026</span>
+          <span class="post-read">4 min read</span>
+        </div>
+        <div class="post-title">5 Signs Your Computer May Have a Virus (And What to Do)</div>
+        <p class="post-excerpt">Unexpected slowdowns, strange pop-ups, and programs opening on their own are red flags. Here's how to identify malware and when to call a professional.</p>
+        <div class="post-arrow">Read Article →</div>
+      </a>
+
+      <a class="post-card reveal" href="#">
+        <div class="post-meta">
+          <span class="post-tag blue">Web Design</span>
+          <span class="post-date">April 2026</span>
+          <span class="post-read">6 min read</span>
+        </div>
+        <div class="post-title">Why Every Small Business Needs a Website in 2026 (And What It Should Include)</div>
+        <p class="post-excerpt">Over 70% of customers research a business online before making contact. Here's what your website must have to turn visitors into clients in 2026.</p>
+        <div class="post-arrow">Read Article →</div>
+      </a>
+
+      <a class="post-card reveal" href="#">
+        <div class="post-meta">
+          <span class="post-tag orange">AI</span>
+          <span class="post-date">March 2026</span>
+          <span class="post-read">5 min read</span>
+        </div>
+        <div class="post-title">5 AI Tools That Can Save Your Small Business 10+ Hours Per Week</div>
+        <p class="post-excerpt">From automated customer responses to AI-powered scheduling, these tools are already helping small businesses operate leaner and faster — without hiring more staff.</p>
+        <div class="post-arrow">Read Article →</div>
+      </a>
+
+      <a class="post-card reveal" href="#">
+        <div class="post-meta">
+          <span class="post-tag">IT Tips</span>
+          <span class="post-date">March 2026</span>
+          <span class="post-read">3 min read</span>
+        </div>
+        <div class="post-title">Remote PC Repair: How It Works and When It's the Right Choice</div>
+        <p class="post-excerpt">Most computer problems can be diagnosed and fixed without a technician ever visiting your home. Here's exactly how remote repair works and what it can (and can't) fix.</p>
+        <div class="post-arrow">Read Article →</div>
+      </a>
+
+      <a class="post-card reveal" href="#">
+        <div class="post-meta">
+          <span class="post-tag blue">Consulting</span>
+          <span class="post-date">February 2026</span>
+          <span class="post-read">7 min read</span>
+        </div>
+        <div class="post-title">How to Build a Tech Stack for Your Small Business in 2026</div>
+        <p class="post-excerpt">From payment processing to project management, here's the essential toolkit that helps small businesses run efficiently without enterprise-level budgets.</p>
+        <div class="post-arrow">Read Article →</div>
+      </a>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sidebar-box reveal">
+        <div class="sidebar-title">Categories</div>
+        <ul class="category-list">
+          <li><a href="#">PC Repair & Diagnostics</a><span class="category-count">3</span></li>
+          <li><a href="#">Cybersecurity</a><span class="category-count">2</span></li>
+          <li><a href="#">Web Design</a><span class="category-count">2</span></li>
+          <li><a href="#">AI & Automation</a><span class="category-count">2</span></li>
+          <li><a href="#">IT Consulting</a><span class="category-count">3</span></li>
+          <li><a href="#">Digital Marketing</a><span class="category-count">1</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box reveal">
+        <div class="sidebar-title">Most Read</div>
+        <div class="popular-post">
+          <div class="popular-num">01</div>
+          <a class="popular-title" href="#">7 Things to Check When Your PC Runs Slow</a>
+        </div>
+        <div class="popular-post">
+          <div class="popular-num">02</div>
+          <a class="popular-title" href="#">5 Signs Your Computer Has a Virus</a>
+        </div>
+        <div class="popular-post">
+          <div class="popular-num">03</div>
+          <a class="popular-title" href="#">AI Tools Saving Small Businesses 10hrs/Week</a>
+        </div>
+        <div class="popular-post">
+          <div class="popular-num">04</div>
+          <a class="popular-title" href="#">How Remote PC Repair Works</a>
+        </div>
+      </div>
+
+      <div class="newsletter-box reveal">
+        <div class="sidebar-title">Stay Updated</div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:20px;">Get tech tips and Mr. Geek LLC updates delivered to your inbox. No spam — ever.</p>
+        <input type="email" class="newsletter-input" placeholder="your@email.com">
+        <button class="newsletter-btn" onclick="this.textContent='Subscribed ✓';this.style.background='var(--accent2)';">Subscribe →</button>
+      </div>
+
+      <div class="sidebar-box reveal" style="text-align:center;background:linear-gradient(135deg,rgba(0,255,136,0.06) 0%,var(--card) 100%);border-color:rgba(0,255,136,0.2);">
+        <div style="font-size:36px;margin-bottom:12px;">💻</div>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px;">Need tech help right now? Book a free 30-min consultation.</p>
+        <a href="contact.html#booking" class="btn-primary" style="font-size:12px;padding:12px 24px;display:inline-block;">Book Free Consult</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="footer-logo">MR.GEEK LLC</div><p>Professional IT support, PC repair, web design, and consulting services nationwide.</p><div class="footer-social" style="margin-top:20px;"><a href="#">in</a><a href="#">f</a><a href="#">𝕏</a></div></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html#pc">PC Repair</a></li><li><a href="services.html#cyber">Cybersecurity</a></li><li><a href="services.html#web">Web Design</a></li><li><a href="services.html#consulting">IT Consulting</a></li><li><a href="services.html#ai">AI Integration</a></li><li><a href="services.html#marketing">Digital Marketing</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="process.html">Our Process</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+    <div class="footer-col"><h4>Legal & Pay</h4><ul><li><a href="pay.html">Pay Invoice</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="contact.html#booking">Book a Session</a></li><li><a href="tos.html">Terms of Service</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024–2026 Mr. Geek LLC · Georgia Registered LLC · All rights reserved.</div>
+    <div class="footer-copy">Payments secured by Stripe · Scheduling via Cal.com</div>
+  </div>
+</footer>
+<div class="cookie-bar" id="cookieBar" style="display:none;">
+  <p>We use cookies to improve your experience. <a href="tos.html">Terms of Service</a>.</p>
+  <div class="cookie-bar-actions"><button class="cookie-accept" id="cookieAccept">Accept</button><button class="cookie-decline" id="cookieDecline">Decline</button></div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>

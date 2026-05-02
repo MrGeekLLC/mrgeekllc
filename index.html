@@ -1,350 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mr. Geek LLC — On-Site Computer Repair | Houston Westchase TX</title>
-  <meta name="description" content="Mobile computer repair, custom PC builds, and tech support serving Houston's Westchase (77042/77077). Flat rates. No fix, no fee. Same-day available."/>
-  <meta property="og:title" content="Mr. Geek LLC — On-Site Tech Services | Houston Westchase"/>
-  <meta property="og:description" content="Flat-rate computer repair and tech support that comes to you. Serving Westchase Houston. No fix, no fee."/>
-  <meta property="og:type" content="website"/>
-  <link rel="canonical" href="https://mrgeekllc.github.io/mrgeekllc/"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Mr. Geek LLC","description":"Mobile computer repair, custom PC builds, and tech support in Houston Westchase.","url":"https://mrgeekllc.github.io/mrgeekllc/","areaServed":["77042","77077","Westchase","Houston"],"priceRange":"$$","openingHours":["Mo-Fr 09:00-20:00","Sa 10:00-18:00"]}</script>
-  <style>
-    :root{--bg:#090909;--sf:#111;--sf2:#181818;--bd:#1e1e1e;--bd2:#2d2d2d;--ac:#00ff88;--ac2:#0099ff;--ac3:#ff6b35;--tx:#e8e8e8;--mu:#555;--mo:'Space Mono',monospace;--sa:'DM Sans',sans-serif;--nh:60px;}
-    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--tx);font-family:var(--sa);overflow-x:hidden;}a{text-decoration:none;color:inherit;}
-    /* NAV */
-    nav{position:fixed;top:0;width:100%;z-index:500;height:var(--nh);background:rgba(9,9,9,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;gap:1rem;}
-    .logo{font-family:var(--mo);font-size:.85rem;color:var(--ac);letter-spacing:.18em;}
-    .nl{display:flex;gap:1.75rem;list-style:none;}
-    .nl a{font-family:var(--mo);font-size:.63rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;transition:color .2s;}
-    .nl a:hover,.nl a.on{color:var(--ac);}
-    .nr{display:flex;align-items:center;gap:.75rem;}
-    .nb{font-family:var(--mo);font-size:.65rem;background:var(--ac);color:#000;padding:.45rem 1.1rem;font-weight:700;letter-spacing:.1em;cursor:pointer;border:none;transition:opacity .2s;}
-    .nb:hover{opacity:.85;}
-    .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.3rem;}
-    .hbg span{display:block;width:22px;height:2px;background:var(--mu);transition:all .3s;}
-    .hbg.open span:first-child{transform:translateY(7px) rotate(45deg);}
-    .hbg.open span:nth-child(2){opacity:0;}
-    .hbg.open span:last-child{transform:translateY(-7px) rotate(-45deg);}
-    .mm{display:none;position:fixed;top:var(--nh);left:0;right:0;background:rgba(9,9,9,.98);border-bottom:1px solid var(--bd);z-index:499;padding:1.5rem 2rem 2rem;flex-direction:column;gap:.75rem;}
-    .mm.open{display:flex;}
-    .mm a{font-family:var(--mo);font-size:.72rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;padding:.75rem 0;border-bottom:1px solid var(--bd);transition:color .2s;}
-    .mm a:hover{color:var(--ac);}
-    .mm .mb{width:100%;margin-top:.75rem;font-family:var(--mo);font-size:.75rem;background:var(--ac);color:#000;padding:.9rem;font-weight:700;letter-spacing:.1em;cursor:pointer;border:none;}
-    /* HERO */
-    .hero{margin-top:var(--nh);min-height:94vh;display:flex;align-items:center;padding:5rem 2rem 4rem;position:relative;overflow:hidden;border-bottom:1px solid var(--bd);}
-    .hg{position:absolute;inset:0;background-image:linear-gradient(var(--bd) 1px,transparent 1px),linear-gradient(90deg,var(--bd) 1px,transparent 1px);background-size:64px 64px;opacity:.22;}
-    .hgl{position:absolute;top:-20%;left:-10%;width:55%;height:55%;background:radial-gradient(ellipse,rgba(0,255,136,.07),transparent 65%);pointer-events:none;}
-    .hgl2{position:absolute;bottom:-10%;right:-5%;width:35%;height:35%;background:radial-gradient(ellipse,rgba(0,153,255,.05),transparent 65%);pointer-events:none;}
-    .hi{max-width:900px;width:100%;position:relative;z-index:1;}
-    .ey{font-family:var(--mo);font-size:.62rem;color:var(--ac);letter-spacing:.28em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem;}
-    .ey::before{content:'';width:1.5rem;height:1px;background:var(--ac);}
-    .dot-live{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ac);animation:pulse 2s ease-in-out infinite;}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-    h1{font-family:var(--mo);font-size:clamp(2.5rem,6.5vw,5.2rem);font-weight:700;line-height:.95;letter-spacing:-.02em;margin-bottom:1.5rem;}
-    .hl{color:var(--ac);}
-    .dim{color:var(--mu);font-size:.48em;display:block;margin-top:.6rem;letter-spacing:.02em;}
-    .hs{font-size:1.02rem;color:#888;max-width:460px;line-height:1.85;margin-bottom:2.5rem;font-weight:300;}
-    .hs strong{color:var(--tx);font-weight:500;}
-    .ha{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2.5rem;}
-    .bp{font-family:var(--mo);font-size:.7rem;background:var(--ac);color:#000;padding:.9rem 1.75rem;font-weight:700;letter-spacing:.1em;cursor:pointer;border:none;transition:opacity .2s;}
-    .bp:hover{opacity:.85;}
-    .bg{font-family:var(--mo);font-size:.7rem;border:1px solid var(--bd2);color:#777;padding:.9rem 1.75rem;letter-spacing:.1em;transition:all .2s;}
-    .bg:hover{border-color:#555;color:var(--tx);}
-    .pills{display:flex;gap:.45rem;flex-wrap:wrap;}
-    .p{font-family:var(--mo);font-size:.57rem;padding:.28rem .75rem;border:1px solid var(--bd2);color:var(--mu);letter-spacing:.07em;}
-    .p.lit{border-color:rgba(0,255,136,.35);color:rgba(0,255,136,.75);}
-    /* TICKER */
-    .tk{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);background:var(--sf);padding:.65rem 0;overflow:hidden;}
-    .tkt{display:flex;white-space:nowrap;animation:mq 24s linear infinite;}
-    .tkt:hover{animation-play-state:paused;}
-    .ti{font-family:var(--mo);font-size:.58rem;color:var(--mu);letter-spacing:.15em;text-transform:uppercase;padding:0 2rem;flex-shrink:0;}
-    .ti span{color:var(--ac);margin-right:.4rem;}
-    @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-    /* SECTION */
-    .sec{max-width:1080px;margin:0 auto;padding:5rem 2rem;}
-    .sl{font-family:var(--mo);font-size:.6rem;color:var(--mu);letter-spacing:.22em;text-transform:uppercase;margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem;}
-    .sl::after{content:'';flex:1;height:1px;background:var(--bd);}
-    /* SERVICE CARDS */
-    .sg{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
-    .sc{background:var(--sf);border:1px solid var(--bd);padding:2rem;position:relative;overflow:hidden;transition:border-color .25s;}
-    .sc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--ac);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
-    .sc:nth-child(2)::after{background:var(--ac2);}
-    .sc:nth-child(3)::after{background:var(--ac3);}
-    .sc:hover{border-color:var(--bd2);}
-    .sc:hover::after{transform:scaleX(1);}
-    .sn{font-family:var(--mo);font-size:.57rem;color:var(--mu);letter-spacing:.2em;margin-bottom:.75rem;}
-    .sico{font-size:1.35rem;margin-bottom:.55rem;}
-    .st{font-family:var(--mo);font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.4rem;}
-    .sd{font-size:.78rem;color:#777;line-height:1.7;font-weight:300;margin-bottom:1.1rem;}
-    .spr{font-family:var(--mo);font-size:.75rem;color:var(--ac);margin-bottom:.9rem;}
-    .sc:nth-child(2) .spr{color:var(--ac2);}
-    .sc:nth-child(3) .spr{color:var(--ac3);}
-    .sbk{font-family:var(--mo);font-size:.63rem;border:1px solid var(--bd2);color:var(--mu);padding:.5rem 1rem;cursor:pointer;background:none;letter-spacing:.08em;transition:all .2s;}
-    .sbk:hover{border-color:var(--ac);color:var(--ac);background:rgba(0,255,136,.04);}
-    /* WHY */
-    .wy{background:var(--sf);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);}
-    .wi{max-width:1080px;margin:0 auto;padding:5rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
-    .wh2{font-family:var(--mo);font-size:clamp(1.3rem,2.8vw,1.9rem);margin-bottom:1rem;line-height:1.2;}
-    .wh2 span{color:var(--ac);}
-    .wp{font-size:.83rem;color:#777;line-height:1.9;margin-bottom:1.25rem;font-weight:300;}
-    .cl{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
-    .cl li{font-size:.81rem;color:var(--tx);display:flex;gap:.65rem;align-items:flex-start;line-height:1.5;}
-    .cl li::before{content:'✓';color:var(--ac);font-family:var(--mo);font-size:.65rem;flex-shrink:0;margin-top:.18rem;}
-    .term{background:var(--bg);border:1px solid var(--bd);}
-    .tb{background:var(--sf);border-bottom:1px solid var(--bd);padding:.55rem 1rem;display:flex;align-items:center;gap:.38rem;}
-    .dd{width:9px;height:9px;border-radius:50%;}
-    .dr{background:#ff5f56;}.dy{background:#ffbd2e;}.dg{background:#27c93f;}
-    .tt{font-family:var(--mo);font-size:.58rem;color:var(--mu);margin:0 auto;}
-    .tbody{padding:1.2rem;font-family:var(--mo);font-size:.68rem;line-height:2.1;}
-    .tp{color:var(--ac);}.tc{color:#ccc;}.to{color:var(--mu);}.tv{color:var(--ac2);}.tw{color:var(--ac3);}
-    .cur{display:inline-block;width:7px;height:13px;background:var(--ac);animation:bl 1s step-end infinite;vertical-align:text-bottom;}
-    @keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
-    /* REVIEWS */
-    .rv-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
-    .rv-badge{font-family:var(--mo);font-size:.55rem;background:var(--ac3);color:#000;padding:.25rem .7rem;letter-spacing:.12em;font-weight:700;display:inline-block;margin-bottom:1rem;}
-    .rv-h{font-family:var(--mo);font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:700;line-height:1.15;margin-bottom:1rem;}
-    .rv-h span{color:var(--ac);}
-    .rv-p{font-size:.83rem;color:#777;line-height:1.85;font-weight:300;margin-bottom:1.5rem;}
-    .rv-offer{background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--ac);padding:1.1rem 1.25rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;}
-    .rv-offer-val{font-family:var(--mo);font-size:1.4rem;font-weight:700;color:var(--ac);flex-shrink:0;}
-    .rv-offer-desc{font-size:.78rem;color:#888;line-height:1.6;font-weight:300;}
-    .rv-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem;}
-    .rv-btn-primary{font-family:var(--mo);font-size:.68rem;background:var(--ac);color:#000;padding:.8rem 1.4rem;font-weight:700;letter-spacing:.08em;display:inline-block;cursor:pointer;transition:opacity .2s;}
-    .rv-btn-primary:hover{opacity:.85;}
-    .rv-btn-ghost{font-family:var(--mo);font-size:.68rem;border:1px solid var(--bd2);color:#777;padding:.8rem 1.4rem;letter-spacing:.08em;display:inline-block;transition:all .2s;}
-    .rv-btn-ghost:hover{border-color:#555;color:var(--tx);}
-    .rv-note{font-family:var(--mo);font-size:.58rem;color:var(--mu);line-height:1.7;letter-spacing:.03em;}
-    .rv-note a{color:var(--ac);}
-    .rv-counter-wrap{display:flex;flex-direction:column;gap:2px;}
-    .rv-counter{background:var(--sf);border:1px solid var(--bd);padding:2rem;}
-    .rv-c-label{font-family:var(--mo);font-size:.58rem;color:var(--mu);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.75rem;}
-    .rv-c-num{font-family:var(--mo);font-size:3.5rem;font-weight:700;color:var(--ac);line-height:1;margin-bottom:.35rem;}
-    .rv-c-sub{font-size:.75rem;color:var(--mu);font-weight:300;margin-bottom:1rem;}
-    .rv-c-bar{height:4px;background:var(--bd2);margin-bottom:.75rem;}
-    .rv-c-fill{height:100%;background:var(--ac);transition:width .5s;}
-    .rv-c-status{font-family:var(--mo);font-size:.62rem;color:var(--ac);letter-spacing:.08em;}
-    .rv-platforms{background:var(--sf);border:1px solid var(--bd);padding:1.5rem;}
-    .rv-plat-label{font-family:var(--mo);font-size:.58rem;color:var(--mu);letter-spacing:.18em;text-transform:uppercase;margin-bottom:1rem;}
-    .rv-plat-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--bd);}
-    .rv-plat-row:last-child{border-bottom:none;}
-    .rv-plat{font-size:.8rem;color:var(--tx);}
-    .rv-plat-tag{font-family:var(--mo);font-size:.55rem;color:var(--ac);border:1px solid rgba(0,255,136,.3);padding:.15rem .5rem;letter-spacing:.08em;}
-    /* AREA */
-    .ag{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-    .ac2{background:var(--sf);border:1px solid var(--bd);padding:1.5rem;}
-    .ai{font-size:1.1rem;margin-bottom:.55rem;}
-    .at{font-family:var(--mo);font-size:.73rem;font-weight:700;color:#fff;margin-bottom:.3rem;}
-    .ad{font-size:.76rem;color:#666;line-height:1.6;font-weight:300;}
-    .atg{margin-top:.55rem;font-family:var(--mo);font-size:.57rem;color:var(--ac);letter-spacing:.08em;}
-    /* CTA */
-    .ctas{background:var(--sf);border-top:1px solid var(--bd);padding:5rem 2rem;text-align:center;}
-    .ctas h2{font-family:var(--mo);font-size:clamp(1.4rem,3vw,2.1rem);margin-bottom:.75rem;}
-    .ctas h2 span{color:var(--ac);}
-    .ctas p{font-size:.86rem;color:#666;margin-bottom:2rem;}
-    .cb{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;}
-    /* FOOTER */
-    footer{border-top:1px solid var(--bd);padding:1.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;font-family:var(--mo);font-size:.58rem;color:var(--mu);}
-    .fl{display:flex;gap:1.5rem;flex-wrap:wrap;}
-    .fl a{color:var(--mu);transition:color .2s;}
-    .fl a:hover{color:var(--tx);}
-    /* MOBILE STICKY */
-    .mstk{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(9,9,9,.97);border-top:1px solid var(--bd);padding:.9rem 1.5rem;}
-    .mstk button{width:100%;font-family:var(--mo);font-size:.73rem;background:var(--ac);color:#000;padding:.85rem;font-weight:700;letter-spacing:.1em;cursor:pointer;border:none;}
-    /* RESPONSIVE */
-    @media(max-width:900px){
-      .nl{display:none;}.hbg{display:flex;}
-      .sg{grid-template-columns:1fr;}
-      .wi{grid-template-columns:1fr;gap:3rem;}
-      .rv-wrap{grid-template-columns:1fr;}
-      .ag{grid-template-columns:1fr 1fr;}
-      .mstk{display:block;}
-      body{padding-bottom:68px;}
-    }
-    @media(max-width:540px){
-      .ag{grid-template-columns:1fr;}
-      h1{font-size:2.3rem;}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr. Geek LLC — Professional Tech, IT & Consulting Services</title>
+<meta name="description" content="Mr. Geek LLC provides IT support, PC repair, web design, digital marketing, consulting, and engineering services to businesses and individuals nationwide.">
+<meta name="keywords" content="IT support, PC repair, tech consulting, web design, digital marketing, remote IT, Georgia LLC">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"Mr. Geek LLC",
+  "description":"Professional IT support, PC repair, web design, consulting, digital marketing, scientific research, and engineering services.",
+  "url":"https://mrgeekllc.github.io/mrgeekllc",
+  "areaServed":"United States",
+  "serviceType":["IT Support","PC Repair","Web Design","Technology Consulting","Digital Marketing","Engineering"],
+  "priceRange":"$$",
+  "address":{"@type":"PostalAddress","addressRegion":"GA","addressCountry":"US"}
+}
+</script>
+<style>
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px 60px 60px;overflow:hidden;}
+.hero-glow{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(0,255,136,0.07) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+.hero-glow2{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(0,200,255,0.05) 0%,transparent 70%);top:15%;right:8%;pointer-events:none;}
+.hero-content{position:relative;z-index:1;max-width:900px;}
+.hero-tag{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:4px;text-transform:uppercase;margin-bottom:24px;opacity:0;animation:fadeUp 0.8s ease 0.2s forwards;display:flex;align-items:center;gap:12px;}
+.hero-tag::before{content:'';display:block;width:40px;height:1px;background:var(--accent);}
+.hero-title{font-size:clamp(48px,7vw,96px);font-weight:800;line-height:1.0;letter-spacing:-2px;margin-bottom:32px;opacity:0;animation:fadeUp 0.8s ease 0.4s forwards;}
+.hero-title .line2{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.2);}
+.hero-title .accent{color:var(--accent);}
+.hero-desc{font-size:18px;color:var(--muted);line-height:1.7;max-width:560px;margin-bottom:48px;opacity:0;animation:fadeUp 0.8s ease 0.6s forwards;}
+.hero-actions{display:flex;gap:20px;align-items:center;opacity:0;animation:fadeUp 0.8s ease 0.8s forwards;flex-wrap:wrap;}
+.hero-trust{display:flex;gap:32px;margin-top:48px;opacity:0;animation:fadeUp 0.8s ease 1s forwards;flex-wrap:wrap;}
+.trust-item{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:1px;display:flex;align-items:center;gap:8px;}
+.trust-item::before{content:'✦';color:var(--accent);font-size:9px;}
+.btn-secondary{font-family:var(--mono);font-size:13px;color:var(--accent);text-decoration:none;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:gap 0.2s;}
+.btn-secondary:hover{gap:16px;}
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:2px;}
+.stat-box{background:var(--card);border:1px solid var(--border);padding:32px;text-align:center;}
+.stat-number{font-family:var(--mono);font-size:40px;font-weight:700;color:var(--accent);letter-spacing:-2px;line-height:1;margin-bottom:8px;}
+.stat-label{font-size:13px;color:var(--muted);letter-spacing:1px;}
+.services-preview{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;}
+.service-mini{background:var(--card);border:1px solid var(--border);padding:36px 32px;transition:all 0.3s;position:relative;overflow:hidden;}
+.service-mini::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,255,136,0.05) 0%,transparent 60%);opacity:0;transition:opacity 0.3s;}
+.service-mini:hover::before{opacity:1;}
+.service-mini:hover{border-color:rgba(0,255,136,0.3);transform:translateY(-4px);}
+.service-mini-icon{font-size:28px;margin-bottom:14px;}
+.service-mini-name{font-size:18px;font-weight:700;margin-bottom:10px;}
+.service-mini-desc{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px;}
+.service-mini-link{font-family:var(--mono);font-size:11px;color:var(--accent);text-decoration:none;letter-spacing:1px;}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.why-card{background:var(--card);border:1px solid var(--border);padding:40px 36px;}
+.why-icon{font-size:32px;margin-bottom:16px;}
+.why-title{font-size:18px;font-weight:700;margin-bottom:10px;}
+.why-desc{font-size:14px;color:var(--muted);line-height:1.7;}
+.cta-band{background:linear-gradient(135deg,rgba(0,255,136,0.08) 0%,var(--card) 100%);border:1px solid rgba(0,255,136,0.2);padding:80px 60px;display:flex;justify-content:space-between;align-items:center;gap:40px;}
+.cta-band h2{font-size:clamp(24px,3vw,40px);font-weight:800;letter-spacing:-1px;max-width:500px;line-height:1.1;}
+.cta-band h2 span{color:var(--accent);}
+.cta-actions{display:flex;gap:16px;flex-shrink:0;flex-wrap:wrap;}
+.reviews-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.review-card{background:var(--card);border:1px solid var(--border);padding:36px;}
+.review-stars{color:var(--accent);font-size:14px;margin-bottom:12px;letter-spacing:2px;}
+.review-text{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px;font-style:italic;}
+.review-author{font-family:var(--mono);font-size:11px;color:var(--text);letter-spacing:1px;}
+@media(max-width:900px){.hero{padding:100px 24px 60px;}.stat-strip{grid-template-columns:1fr 1fr;}.why-grid{grid-template-columns:1fr;}.cta-band{flex-direction:column;padding:48px 24px;}.reviews-strip{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
 <nav>
-  <a class="logo" href="index.html">MR.GEEK</a>
-  <ul class="nl">
-    <li><a href="index.html" class="on">Home</a></li>
+  <a href="index.html" class="nav-logo">MR.<span>GEEK</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
     <li><a href="services.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="process.html">Process</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <div class="nr">
-    <button class="nb" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">Book Now</button>
-    <button class="hbg" id="ham"><span></span><span></span><span></span></button>
-  </div>
+  <a href="pay.html" class="nav-cta">Pay Now</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="mm" id="mmenu">
-  <a href="index.html">Home</a><a href="services.html">Services</a>
-  <a href="about.html">About</a><a href="process.html">How It Works</a>
-  <a href="contact.html">Contact</a><a href="pay.html">Pay Invoice</a>
-  <button class="mb" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service</button>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="about.html">About</a>
+  <a href="process.html">Process</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <a href="pay.html" class="mobile-cta">Pay Now</a>
 </div>
 
+<!-- STICKY BOOK BAR (mobile) -->
+<a href="contact.html#booking" class="sticky-book-bar">📅 Book a Free Consultation</a>
+
+<!-- HERO -->
 <section class="hero">
-  <div class="hg"></div><div class="hgl"></div><div class="hgl2"></div>
-  <div class="hi">
-    <p class="ey"><span class="dot-live"></span>Now accepting bookings · Westchase Houston TX</p>
-    <h1>Your Tech.<br><span class="hl">Fixed Fast._</span><span class="dim">// We Come to You.</span></h1>
-    <p class="hs">On-site computer repair, custom PC builds, and device setup for <strong>homes and offices</strong> in Houston's Westchase corridor. Flat-rate pricing. Zero parts markup. No fix — no fee.</p>
-    <div class="ha">
-      <button class="bp" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service</button>
-      <a class="bg" href="services.html">View Pricing →</a>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Professional · Scientific · Technical</div>
+    <h1 class="hero-title">
+      We Solve<br>
+      <span class="line2">Complex</span><br>
+      <span class="accent">Problems<span class="blink">_</span></span>
+    </h1>
+    <p class="hero-desc">Mr. Geek LLC delivers IT support, PC repair, web design, digital marketing, consulting, and engineering solutions to businesses and individuals nationwide.</p>
+    <div class="hero-actions">
+      <a href="services.html" class="btn-primary">Explore Services</a>
+      <a href="pricing.html" class="btn-outline">View Pricing</a>
+      <a href="contact.html#booking" class="btn-secondary">Book Free Consult →</a>
     </div>
-    <div class="pills">
-      <span class="p lit">Same-Day Available</span>
-      <span class="p lit">No Fix = No Fee</span>
-      <span class="p">$0 Parts Markup</span>
-      <span class="p">On-Site & Remote</span>
-      <span class="p">77042 · 77077</span>
+    <div class="hero-trust">
+      <span class="trust-item">Georgia Registered LLC</span>
+      <span class="trust-item">2+ Years in Business</span>
+      <span class="trust-item">Remote & On-Site</span>
+      <span class="trust-item">Stripe Secured Payments</span>
     </div>
   </div>
 </section>
 
-<div class="tk" aria-hidden="true">
-  <div class="tkt">
-    <span class="ti"><span>→</span>PC Repair</span><span class="ti"><span>→</span>Custom Builds</span>
-    <span class="ti"><span>→</span>Virus Removal</span><span class="ti"><span>→</span>Device Setup</span>
-    <span class="ti"><span>→</span>Remote Support</span><span class="ti"><span>→</span>Data Recovery</span>
-    <span class="ti"><span>→</span>Network Setup</span><span class="ti"><span>→</span>Westchase Houston</span>
-    <span class="ti"><span>→</span>Flat-Rate Pricing</span><span class="ti"><span>→</span>No Fix No Fee</span>
-    <span class="ti"><span>→</span>PC Repair</span><span class="ti"><span>→</span>Custom Builds</span>
-    <span class="ti"><span>→</span>Virus Removal</span><span class="ti"><span>→</span>Device Setup</span>
-    <span class="ti"><span>→</span>Remote Support</span><span class="ti"><span>→</span>Data Recovery</span>
-    <span class="ti"><span>→</span>Network Setup</span><span class="ti"><span>→</span>Westchase Houston</span>
-    <span class="ti"><span>→</span>Flat-Rate Pricing</span><span class="ti"><span>→</span>No Fix No Fee</span>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">PC Repair</span><span class="ticker-item">IT Support</span><span class="ticker-item">Web Design</span><span class="ticker-item">Consulting</span><span class="ticker-item">Digital Marketing</span><span class="ticker-item">Cybersecurity</span><span class="ticker-item">AI Integration</span><span class="ticker-item">Engineering</span><span class="ticker-item">Scientific Research</span>
+    <span class="ticker-item">PC Repair</span><span class="ticker-item">IT Support</span><span class="ticker-item">Web Design</span><span class="ticker-item">Consulting</span><span class="ticker-item">Digital Marketing</span><span class="ticker-item">Cybersecurity</span><span class="ticker-item">AI Integration</span><span class="ticker-item">Engineering</span><span class="ticker-item">Scientific Research</span>
   </div>
 </div>
 
-<section class="sec">
-  <div class="sl">// What We Fix</div>
-  <div class="sg">
-    <div class="sc"><p class="sn">01</p><div class="sico">🖥️</div><h3 class="st">PC Repair & Diagnostics</h3><p class="sd">On-site hardware and software repair. Virus removal, OS reinstalls, blue screens, slow machines — diagnosed and fixed where you are.</p><p class="spr">From $35 diagnostic · $65/hr labor</p><button class="sbk" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">Book This →</button></div>
-    <div class="sc"><p class="sn">02</p><div class="sico">⚙️</div><h3 class="st">Custom PC Building</h3><p class="sd">You buy the parts. I build, test, and configure your machine. Gaming rigs, workstations, budget builds — labor only, zero markup.</p><p class="spr">From $100 labor-only</p><button class="sbk" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">Book This →</button></div>
-    <div class="sc"><p class="sn">03</p><div class="sico">📱</div><h3 class="st">Device Setup & Troubleshooting</h3><p class="sd">New laptop, router, smart TV, or printer — flat-rate visits. No hourly surprises while I figure things out.</p><p class="spr">From $50 flat rate</p><button class="sbk" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">Book This →</button></div>
-    <div class="sc"><p class="sn">04</p><div class="sico">🛰️</div><h3 class="st">Remote Tech Support</h3><p class="sd">Fix it from your couch. I connect to your machine in real time — software issues, slowdowns, account problems resolved fast.</p><p class="spr">From $30/session · $79/mo plans</p><button class="sbk" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">Book This →</button></div>
+<!-- STATS -->
+<section class="section">
+  <div class="stat-strip reveal">
+    <div class="stat-box"><div class="stat-number">2+</div><div class="stat-label">Years Established</div></div>
+    <div class="stat-box"><div class="stat-number">8+</div><div class="stat-label">Core Services</div></div>
+    <div class="stat-box"><div class="stat-number">24hr</div><div class="stat-label">Response Time</div></div>
+    <div class="stat-box"><div class="stat-number">US</div><div class="stat-label">Nationwide Service</div></div>
+  </div>
+
+  <!-- SERVICES PREVIEW -->
+  <div class="section-label" style="margin-top:48px;">What We Do</div>
+  <h2 class="section-title reveal">Everything Your<br>Business Needs</h2>
+  <div class="services-preview">
+    <div class="service-mini reveal">
+      <div class="service-mini-icon">💻</div>
+      <div class="service-mini-name">PC Repair & Diagnostics</div>
+      <p class="service-mini-desc">Remote and on-site repair, virus removal, OS reinstall, speed optimization, and more.</p>
+      <a href="services.html#pc" class="service-mini-link">From $49 →</a>
+    </div>
+    <div class="service-mini reveal">
+      <div class="service-mini-icon">🛡️</div>
+      <div class="service-mini-name">Cybersecurity</div>
+      <p class="service-mini-desc">Threat assessment, malware removal, firewall setup, and security hardening for your systems.</p>
+      <a href="services.html#cyber" class="service-mini-link">From $149 →</a>
+    </div>
+    <div class="service-mini reveal">
+      <div class="service-mini-icon">🌐</div>
+      <div class="service-mini-name">Web Design</div>
+      <p class="service-mini-desc">Custom, mobile-first websites with Stripe payments, booking systems, and SEO built in.</p>
+      <a href="pricing.html#web" class="service-mini-link">From $599 →</a>
+    </div>
+    <div class="service-mini reveal">
+      <div class="service-mini-icon">🧠</div>
+      <div class="service-mini-name">IT Consulting</div>
+      <p class="service-mini-desc">Technology strategy, digital transformation roadmaps, and vendor selection guidance.</p>
+      <a href="services.html#consulting" class="service-mini-link">From $199 →</a>
+    </div>
+    <div class="service-mini reveal">
+      <div class="service-mini-icon">🤖</div>
+      <div class="service-mini-name">AI Integration</div>
+      <p class="service-mini-desc">Identify and implement AI tools that automate tasks and increase your business efficiency.</p>
+      <a href="services.html#ai" class="service-mini-link">From $299 →</a>
+    </div>
+    <div class="service-mini reveal">
+      <div class="service-mini-icon">📡</div>
+      <div class="service-mini-name">Digital Marketing</div>
+      <p class="service-mini-desc">SEO, social media management, Google Ads, and email campaigns that drive results.</p>
+      <a href="services.html#marketing" class="service-mini-link">From $199 →</a>
+    </div>
+    <div class="service-mini reveal">
+      <div class="service-mini-icon">🔬</div>
+      <div class="service-mini-name">Scientific Research</div>
+      <p class="service-mini-desc">Market research, data analysis, feasibility studies, and technical documentation.</p>
+      <a href="services.html#research" class="service-mini-link">From $199 →</a>
+    </div>
+    <div class="service-mini reveal">
+      <div class="service-mini-icon">⚙️</div>
+      <div class="service-mini-name">Engineering Solutions</div>
+      <p class="service-mini-desc">Systems design, process optimization, and technical problem-solving across disciplines.</p>
+      <a href="services.html#engineering" class="service-mini-link">From $249 →</a>
+    </div>
+    <div class="service-mini reveal" style="background:linear-gradient(135deg,rgba(0,255,136,0.08) 0%,var(--card) 100%);border-color:rgba(0,255,136,0.2);display:flex;flex-direction:column;justify-content:center;">
+      <div class="service-mini-icon">🚀</div>
+      <div class="service-mini-name">Not Sure Where to Start?</div>
+      <p class="service-mini-desc">Book a free 30-minute consultation and we'll figure out exactly what you need.</p>
+      <a href="contact.html#booking" class="btn-primary" style="font-size:12px;padding:12px 24px;margin-top:8px;display:inline-block;">Book Free Consult</a>
+    </div>
   </div>
 </section>
 
-<div class="wy">
-  <div class="wi">
-    <div>
-      <h2 class="wh2">Why <span>Mr. Geek</span><br>Over a Shop?</h2>
-      <p class="wp">Every repair shop in Westchase wants you to drop off your device and wait. Mr. Geek shows up where you are and fixes it while you watch.</p>
-      <ul class="cl">
-        <li>No drop-off. No waiting room. No runaround.</li>
-        <li>Flat rate quoted before a single screw is touched</li>
-        <li>Parts sourced by you at cost — zero markup, ever</li>
-        <li>No fix means no labor fee, every single time</li>
-        <li>Same-day slots available most days in Westchase</li>
-        <li>Small business monthly plans with priority response</li>
+<!-- WHY US -->
+<section class="section section-alt">
+  <div class="section-label">Why Mr. Geek</div>
+  <h2 class="section-title reveal">What Sets Us Apart</h2>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">Fast Turnaround</div>
+      <p class="why-desc">Most remote sessions completed same day. On-site visits scheduled within 24–72 hours. Emergency same-day service available.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">💰</div>
+      <div class="why-title">Flat Rate Pricing</div>
+      <p class="why-desc">No hourly surprises. You know exactly what you'll pay before we start. Transparent pricing on every service we offer.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🌍</div>
+      <div class="why-title">Remote-First</div>
+      <p class="why-desc">Serving clients anywhere in the US. Our remote capabilities mean geography is never a barrier to getting expert help.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🛡️</div>
+      <div class="why-title">30-Day Warranty</div>
+      <p class="why-desc">Every repair comes with a 30-day service warranty. If the same issue returns, we'll fix it at no additional charge.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🤝</div>
+      <div class="why-title">No Tech Jargon</div>
+      <p class="why-desc">We explain everything in plain English. You'll always understand what's happening with your systems and why.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">📅</div>
+      <div class="why-title">Easy Scheduling</div>
+      <p class="why-desc">Book instantly on our live calendar. Only see times we're genuinely available. Automatic confirmations sent immediately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS STRIP -->
+<section class="section">
+  <div class="section-label">What Clients Say</div>
+  <h2 class="section-title reveal">Client Reviews</h2>
+  <div class="reviews-strip">
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Fast, professional, and explained everything clearly. My PC went from unusable to running like new in one session."</p>
+      <div class="review-author">— Remote Client · PC Repair</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Built us a professional website that we're proud to share. Stripe and booking integration worked flawlessly from day one."</p>
+      <div class="review-author">— Small Business Owner · Web Design</div>
+    </div>
+    <div class="review-card reveal" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(135deg,rgba(0,255,136,0.06) 0%,var(--card) 100%);border-color:rgba(0,255,136,0.2);">
+      <div style="font-size:32px;margin-bottom:12px;">⭐</div>
+      <p style="font-size:15px;color:var(--muted);margin-bottom:20px;">Had a great experience?<br>We'd love to hear from you.</p>
+      <a href="reviews.html" class="btn-primary" style="font-size:12px;padding:12px 24px;">Leave a Review</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="section section-alt">
+  <div class="cta-band reveal">
+    <h2>Ready to work with <span>Mr. Geek LLC?</span></h2>
+    <div class="cta-actions">
+      <a href="contact.html#booking" class="btn-primary">Book Free Consultation</a>
+      <a href="pay.html" class="btn-outline">Pay an Invoice</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">MR.GEEK LLC</div>
+      <p>Professional IT support, PC repair, web design, and consulting services for businesses and individuals across the United States.</p>
+      <div class="footer-social" style="margin-top:20px;">
+        <a href="#" title="LinkedIn">in</a>
+        <a href="#" title="Facebook">f</a>
+        <a href="#" title="X/Twitter">𝕏</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#pc">PC Repair</a></li>
+        <li><a href="services.html#cyber">Cybersecurity</a></li>
+        <li><a href="services.html#web">Web Design</a></li>
+        <li><a href="services.html#consulting">IT Consulting</a></li>
+        <li><a href="services.html#ai">AI Integration</a></li>
+        <li><a href="services.html#marketing">Digital Marketing</a></li>
       </ul>
     </div>
-    <div class="term">
-      <div class="tb"><div class="dd dr"></div><div class="dd dy"></div><div class="dd dg"></div><span class="tt">mrgeek — repair session</span></div>
-      <div class="tbody">
-        <div><span class="tp">$ </span><span class="tc">mrgeek diagnose --laptop</span></div>
-        <div class="to">→ Scanning hardware...</div>
-        <div class="to">→ Checking startup (47 items)...</div>
-        <div class="to">→ Running malware scan...</div>
-        <div>&nbsp;</div>
-        <div><span class="tw">! startup bloat: 47 processes</span></div>
-        <div><span class="tw">! temp files: 14.2 GB detected</span></div>
-        <div><span class="tw">! 3 malware items found</span></div>
-        <div>&nbsp;</div>
-        <div><span class="tp">$ </span><span class="tc">mrgeek repair --fix-all</span></div>
-        <div class="to">→ Cleaning startup... done</div>
-        <div class="to">→ Removing junk files... done</div>
-        <div class="to">→ Removing malware... done</div>
-        <div>&nbsp;</div>
-        <div><span class="tv">✓ Boot time: 38s → 6s</span></div>
-        <div><span class="tv">✓ Freed 14.2 GB space</span></div>
-        <div><span class="tv">✓ System clean. Job complete.</span></div>
-        <div><span class="tp">$ </span><span class="cur"></span></div>
-      </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="process.html">Our Process</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal & Pay</h4>
+      <ul>
+        <li><a href="pay.html">Pay Invoice</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="contact.html#booking">Book a Session</a></li>
+        <li><a href="tos.html">Terms of Service</a></li>
+        <li><a href="404.html">Sitemap</a></li>
+      </ul>
     </div>
   </div>
-</div>
-
-<section class="sec">
-  <div class="sl">// Reviews</div>
-  <div class="rv-wrap">
-    <div class="rv-left">
-      <div class="rv-badge">LIMITED OFFER</div>
-      <h2 class="rv-h">Be One of Our<br><span>First 100 Reviewers_</span></h2>
-      <p class="rv-p">Mr. Geek LLC is just getting started in Westchase. If you've had a service done, your honest review helps the next customer make a confident decision — and we'll thank you for it with a real discount on your next visit.</p>
-      <div class="rv-offer">
-        <div class="rv-offer-val">10% OFF</div>
-        <div class="rv-offer-desc">your next service when you leave a verified review on Google. Valid for the first 100 reviewers only.</div>
-      </div>
-      <div class="rv-actions">
-        <a class="rv-btn-primary" href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review" target="_blank" rel="noopener">⭐ Leave a Google Review</a>
-        <a class="rv-btn-ghost" href="reviews.html">View Review Archive →</a>
-      </div>
-      <p class="rv-note">// All reviews displayed on our <a href="reviews.html">archive page</a> are verified and unedited. Discount applied manually — just show your review at time of next booking.</p>
-    </div>
-    <div class="rv-counter-wrap">
-      <div class="rv-counter">
-        <div class="rv-c-label">// Spots Remaining</div>
-        <div class="rv-c-num">100</div>
-        <div class="rv-c-sub">of 100 discount slots available</div>
-        <div class="rv-c-bar"><div class="rv-c-fill" style="width:100%"></div></div>
-        <div class="rv-c-status">🟢 Offer Active</div>
-      </div>
-      <div class="rv-platforms">
-        <div class="rv-plat-label">// Accepted Platforms</div>
-        <div class="rv-plat-row"><span class="rv-plat">Google Reviews</span><span class="rv-plat-tag">Primary</span></div>
-        <div class="rv-plat-row"><span class="rv-plat">Yelp</span><span class="rv-plat-tag">Accepted</span></div>
-        <div class="rv-plat-row"><span class="rv-plat">Facebook</span><span class="rv-plat-tag">Accepted</span></div>
-        <div class="rv-plat-row"><span class="rv-plat">Nextdoor</span><span class="rv-plat-tag">Accepted</span></div>
-      </div>
-    </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024–2026 Mr. Geek LLC · Georgia Registered LLC · All rights reserved.</div>
+    <div class="footer-copy">Payments secured by Stripe · Scheduling via Cal.com</div>
   </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="sl">// Service Area</div>
-  <div class="ag">
-    <div class="ac2"><div class="ai">📍</div><h3 class="at">Westchase Core</h3><p class="ad">77042 and 77077 — home turf. Same-day on most requests, usually within 1–2 hours.</p><span class="atg">Primary Zone · No Travel Fee</span></div>
-    <div class="ac2"><div class="ai">🗺️</div><h3 class="at">Surrounding Areas</h3><p class="ad">Energy Corridor, Memorial, Briar Grove, Meyerland, Bellaire, Eldridge. Small travel fee may apply.</p><span class="atg">Extended Zone</span></div>
-    <div class="ac2"><div class="ai">🛰️</div><h3 class="at">Remote — Anywhere</h3><p class="ad">Software issues, slowdowns, account problems — handled remotely nationwide. No travel needed.</p><span class="atg">Nationwide</span></div>
-  </div>
-</section>
-
-<div class="ctas">
-  <h2>Ready to Get It<span> Fixed Today?_</span></h2>
-  <p>Pick a time, I'll handle the rest. Most Westchase jobs are same-day.</p>
-  <div class="cb">
-    <button class="bp" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service</button>
-    <a class="bg" href="services.html">View All Pricing →</a>
-  </div>
-</div>
-
-<footer>
-  <span>MR.GEEK LLC © 2024–2026 · Houston, TX</span>
-  <div class="fl"><a href="services.html">Services</a><a href="about.html">About</a><a href="process.html">Process</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact</a><a href="pay.html">Pay</a><a href="tos.html">Terms</a></div>
 </footer>
-<div class="mstk"><button data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service — Same Day Available</button></div>
 
-<script type="text/javascript">(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");Cal("init",{origin:"https://cal.com"});Cal("ui",{"theme":"dark","hideEventTypeDetails":false,"layout":"month_view"});</script>
+<!-- COOKIE BAR -->
+<div class="cookie-bar" id="cookieBar" style="display:none;">
+  <p>We use cookies to improve your experience. By continuing to use this site, you agree to our <a href="tos.html">Terms of Service</a>.</p>
+  <div class="cookie-bar-actions">
+    <button class="cookie-accept" id="cookieAccept">Accept</button>
+    <button class="cookie-decline" id="cookieDecline">Decline</button>
+  </div>
+</div>
+
+<!-- TAWK.TO LIVE CHAT -->
 <script>
-const ham=document.getElementById('ham'),mm=document.getElementById('mmenu');
-ham.addEventListener('click',()=>{ham.classList.toggle('open');mm.classList.toggle('open');});
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+// REPLACE the src below with your Tawk.to embed script from tawk.to dashboard
+// (function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+// s1.async=true;s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/YOUR_WIDGET_ID';
+// s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
 </script>
+
+<script src="main.js"></script>
 </body>
 </html>
