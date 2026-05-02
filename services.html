@@ -1,278 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Services & Pricing — Mr. Geek LLC | Houston Westchase</title>
-  <meta name="description" content="Flat-rate computer repair, custom PC builds, device setup, and remote tech support. Serving Houston Westchase 77042/77077. Book online instantly."/>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    :root{--bg:#090909;--sf:#111;--bd:#1e1e1e;--bd2:#2d2d2d;--ac:#00ff88;--ac2:#0099ff;--ac3:#ff6b35;--tx:#e8e8e8;--mu:#555;--mo:'Space Mono',monospace;--sa:'DM Sans',sans-serif;--nh:60px;}
-    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--tx);font-family:var(--sa);overflow-x:hidden;}a{text-decoration:none;color:inherit;}
-    nav{position:fixed;top:0;width:100%;z-index:500;height:var(--nh);background:rgba(9,9,9,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;gap:1rem;}
-    .logo{font-family:var(--mo);font-size:.85rem;color:var(--ac);letter-spacing:.18em;}
-    .nl{display:flex;gap:1.75rem;list-style:none;}
-    .nl a{font-family:var(--mo);font-size:.63rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;transition:color .2s;}
-    .nl a:hover,.nl a.on{color:var(--ac);}
-    .nr{display:flex;align-items:center;gap:.75rem;}
-    .nb{font-family:var(--mo);font-size:.65rem;background:var(--ac);color:#000;padding:.45rem 1.1rem;font-weight:700;letter-spacing:.1em;cursor:pointer;border:none;}
-    .nb:hover{opacity:.85;}
-    .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.3rem;}
-    .hbg span{display:block;width:22px;height:2px;background:var(--mu);transition:all .3s;}
-    .hbg.open span:first-child{transform:translateY(7px) rotate(45deg);}
-    .hbg.open span:nth-child(2){opacity:0;}
-    .hbg.open span:last-child{transform:translateY(-7px) rotate(-45deg);}
-    .mm{display:none;position:fixed;top:var(--nh);left:0;right:0;background:rgba(9,9,9,.98);border-bottom:1px solid var(--bd);z-index:499;padding:1.5rem 2rem 2rem;flex-direction:column;gap:.75rem;}
-    .mm.open{display:flex;}
-    .mm a{font-family:var(--mo);font-size:.72rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;padding:.75rem 0;border-bottom:1px solid var(--bd);}
-    .mm a:hover{color:var(--ac);}
-    .mm .mb{width:100%;margin-top:.75rem;font-family:var(--mo);font-size:.75rem;background:var(--ac);color:#000;padding:.9rem;font-weight:700;letter-spacing:.1em;cursor:pointer;border:none;}
-
-    /* HERO */
-    .hero{margin-top:var(--nh);padding:4rem 2rem 3.5rem;border-bottom:1px solid var(--bd);background:radial-gradient(ellipse at 50% 0%,rgba(0,255,136,.06),transparent 60%);}
-    .ey{font-family:var(--mo);font-size:.62rem;color:var(--ac);letter-spacing:.28em;text-transform:uppercase;margin-bottom:1.25rem;}
-    h1{font-family:var(--mo);font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.05;margin-bottom:.9rem;}
-    h1 span{color:var(--ac);}
-    .hs{font-size:.95rem;color:#888;max-width:520px;line-height:1.8;font-weight:300;}
-
-    /* GUARANTEE BAR */
-    .gbar{background:rgba(0,255,136,.06);border-top:1px solid rgba(0,255,136,.15);border-bottom:1px solid rgba(0,255,136,.15);padding:.85rem 2rem;display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;}
-    .gi{font-family:var(--mo);font-size:.6rem;color:rgba(0,255,136,.8);letter-spacing:.1em;display:flex;align-items:center;gap:.5rem;}
-    .gi::before{content:'✓';font-size:.65rem;}
-
-    /* SERVICE CARDS - BOOKING FIRST */
-    .sec{max-width:1080px;margin:0 auto;padding:4rem 2rem;}
-    .sl{font-family:var(--mo);font-size:.6rem;color:var(--mu);letter-spacing:.22em;text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;gap:1rem;}
-    .sl::after{content:'';flex:1;height:1px;background:var(--bd);}
-    .svcrow{display:grid;grid-template-columns:1fr auto;align-items:center;background:var(--sf);border:1px solid var(--bd);padding:1.75rem 2rem;gap:2rem;margin-bottom:2px;transition:border-color .2s;position:relative;overflow:hidden;}
-    .svcrow::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ac);opacity:0;transition:opacity .25s;}
-    .svcrow:nth-child(2)::before{background:var(--ac2);}
-    .svcrow:nth-child(3)::before{background:var(--ac3);}
-    .svcrow:nth-child(4)::before{background:var(--ac);}
-    .svcrow:hover{border-color:var(--bd2);}
-    .svcrow:hover::before{opacity:1;}
-    .srow-left{display:flex;align-items:center;gap:1.5rem;}
-    .sico{font-size:1.6rem;flex-shrink:0;}
-    .sinfo h3{font-family:var(--mo);font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.3rem;}
-    .sinfo p{font-size:.8rem;color:#777;font-weight:300;line-height:1.5;}
-    .srow-right{display:flex;flex-direction:column;align-items:flex-end;gap:.6rem;flex-shrink:0;}
-    .sprice{font-family:var(--mo);font-size:.9rem;color:var(--ac);font-weight:700;white-space:nowrap;}
-    .svcrow:nth-child(2) .sprice{color:var(--ac2);}
-    .svcrow:nth-child(3) .sprice{color:var(--ac3);}
-    .sbook{font-family:var(--mo);font-size:.65rem;background:var(--ac);color:#000;padding:.55rem 1.25rem;font-weight:700;letter-spacing:.08em;cursor:pointer;border:none;white-space:nowrap;transition:opacity .2s;}
-    .sbook:hover{opacity:.85;}
-    .svcrow:nth-child(2) .sbook{background:var(--ac2);}
-    .svcrow:nth-child(3) .sbook{background:var(--ac3);}
-    .svcrow:nth-child(4) .sbook{background:var(--ac);}
-
-    /* INLINE BOOKING */
-    .book-sec{max-width:1080px;margin:0 auto;padding:0 2rem 4rem;}
-    .book-hd{background:var(--sf);border:1px solid var(--bd);border-bottom:none;padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between;}
-    .book-hd h2{font-family:var(--mo);font-size:.85rem;font-weight:700;color:#fff;}
-    .book-hd p{font-size:.75rem;color:var(--mu);}
-    #cal-inline{background:var(--sf);border:1px solid var(--bd);min-height:600px;width:100%;}
-
-    /* ADD-ONS */
-    .addon-sec{background:var(--sf);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);}
-    .addon-inner{max-width:1080px;margin:0 auto;padding:4rem 2rem;}
-    .ao-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-    .ao{background:var(--bg);border:1px solid var(--bd);padding:1.5rem;transition:border-color .2s;}
-    .ao:hover{border-color:var(--bd2);}
-    .ao-ico{font-size:1.1rem;margin-bottom:.6rem;}
-    .ao-t{font-family:var(--mo);font-size:.75rem;font-weight:700;color:#fff;margin-bottom:.35rem;}
-    .ao-d{font-size:.76rem;color:#666;line-height:1.6;font-weight:300;margin-bottom:.6rem;}
-    .ao-p{font-family:var(--mo);font-size:.7rem;color:var(--ac);}
-
-    /* FAQ */
-    .faq-sec{max-width:800px;margin:0 auto;padding:4rem 2rem 5rem;}
-    .faq-item{border:1px solid var(--bd);margin-bottom:2px;background:var(--sf);}
-    .faq-q{font-family:var(--mo);font-size:.78rem;color:#fff;padding:1.1rem 1.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;transition:color .2s;}
-    .faq-q:hover{color:var(--ac);}
-    .arr{color:var(--mu);font-size:.65rem;transition:transform .25s;flex-shrink:0;margin-left:1rem;}
-    .faq-a{font-size:.8rem;color:#777;line-height:1.8;padding:0 1.5rem 1.1rem;font-weight:300;display:none;}
-    .faq-item.open .faq-a{display:block;}
-    .faq-item.open .arr{transform:rotate(180deg);color:var(--ac);}
-
-    /* CTA */
-    .ctas{background:var(--sf);border-top:1px solid var(--bd);padding:4rem 2rem;text-align:center;}
-    .ctas h2{font-family:var(--mo);font-size:clamp(1.3rem,3vw,2rem);margin-bottom:.75rem;}
-    .ctas h2 span{color:var(--ac);}
-    .ctas p{font-size:.86rem;color:#666;margin-bottom:2rem;}
-    .cb{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;}
-    .bp{font-family:var(--mo);font-size:.7rem;background:var(--ac);color:#000;padding:.9rem 1.75rem;font-weight:700;letter-spacing:.1em;cursor:pointer;border:none;}
-    .bp:hover{opacity:.85;}
-    .bg{font-family:var(--mo);font-size:.7rem;border:1px solid var(--bd2);color:#777;padding:.9rem 1.75rem;letter-spacing:.1em;transition:all .2s;}
-    .bg:hover{border-color:#555;color:var(--tx);}
-    footer{border-top:1px solid var(--bd);padding:1.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;font-family:var(--mo);font-size:.58rem;color:var(--mu);}
-    .fl{display:flex;gap:1.5rem;flex-wrap:wrap;}
-    .fl a{color:var(--mu);transition:color .2s;}
-    .fl a:hover{color:var(--tx);}
-    .mstk{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(9,9,9,.97);border-top:1px solid var(--bd);padding:.9rem 1.5rem;}
-    .mstk button{width:100%;font-family:var(--mo);font-size:.73rem;background:var(--ac);color:#000;padding:.85rem;font-weight:700;letter-spacing:.1em;cursor:pointer;border:none;}
-    @media(max-width:900px){
-      .nl{display:none;}.hbg{display:flex;}
-      .svcrow{grid-template-columns:1fr;gap:1.25rem;}
-      .srow-right{align-items:flex-start;flex-direction:row;align-items:center;}
-      .ao-grid{grid-template-columns:1fr 1fr;}
-      .mstk{display:block;}body{padding-bottom:68px;}
-    }
-    @media(max-width:540px){
-      .ao-grid{grid-template-columns:1fr;}
-      .srow-right{flex-direction:column;align-items:flex-start;}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Mr. Geek LLC</title>
+<meta name="description" content="Mr. Geek LLC offers PC repair, cybersecurity, web design, IT consulting, AI integration, digital marketing, research, and engineering services.">
+<link rel="stylesheet" href="styles.css">
+<style>
+.service-block{display:grid;grid-template-columns:1fr 1.6fr;gap:2px;margin-bottom:2px;}
+.service-block.flip{direction:rtl;}
+.service-block.flip>*{direction:ltr;}
+.service-label-box{background:var(--card);border:1px solid var(--border);padding:56px 48px;display:flex;flex-direction:column;justify-content:space-between;}
+.service-icon-lg{font-size:56px;margin-bottom:20px;}
+.service-num{font-family:var(--mono);font-size:72px;font-weight:700;color:transparent;-webkit-text-stroke:1px var(--border);line-height:1;transition:all 0.3s;}
+.service-block:hover .service-num{color:var(--accent);-webkit-text-stroke:1px var(--accent);}
+.service-detail-box{background:var(--surface);border:1px solid var(--border);padding:56px 48px;}
+.service-detail-box h2{font-size:28px;font-weight:800;letter-spacing:-0.5px;margin-bottom:12px;}
+.service-detail-box p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:20px;}
+.service-features{list-style:none;margin-bottom:28px;}
+.service-features li{font-family:var(--mono);font-size:12px;color:var(--text);padding:9px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;letter-spacing:0.5px;}
+.service-features li::before{content:'✦';color:var(--accent);font-size:9px;}
+.service-tags{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;}
+.service-tag{font-family:var(--mono);font-size:10px;color:var(--accent);border:1px solid rgba(0,255,136,0.3);padding:5px 14px;letter-spacing:2px;}
+.service-tag.blue{color:var(--accent2);border-color:rgba(0,200,255,0.3);}
+.new-badge{display:inline-block;font-family:var(--mono);font-size:9px;color:var(--bg);background:var(--accent2);padding:3px 10px;letter-spacing:2px;margin-left:8px;vertical-align:middle;}
+@media(max-width:900px){.service-block,.service-block.flip{grid-template-columns:1fr;direction:ltr;}.service-label-box,.service-detail-box{padding:36px 24px;}}
+</style>
 </head>
 <body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 <nav>
-  <a class="logo" href="index.html">MR.GEEK</a>
-  <ul class="nl">
-    <li><a href="index.html">Home</a></li><li><a href="services.html" class="on">Services</a></li>
-    <li><a href="about.html">About</a></li><li><a href="process.html">Process</a></li>
+  <a href="index.html" class="nav-logo">MR.<span>GEEK</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <div class="nr">
-    <button class="nb" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">Book Now</button>
-    <button class="hbg" id="ham"><span></span><span></span><span></span></button>
-  </div>
+  <a href="pay.html" class="nav-cta">Pay Now</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
-<div class="mm" id="mmenu">
-  <a href="index.html">Home</a><a href="services.html">Services</a>
-  <a href="about.html">About</a><a href="process.html">How It Works</a>
-  <a href="contact.html">Contact</a><a href="pay.html">Pay Invoice</a>
-  <button class="mb" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service</button>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="process.html">Process</a><a href="reviews.html">Reviews</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+  <a href="pay.html" class="mobile-cta">Pay Now</a>
+</div>
+<a href="contact.html#booking" class="sticky-book-bar">📅 Book a Free Consultation</a>
+
+<div class="page-hero">
+  <div class="page-hero-tag">What We Offer</div>
+  <h1>Our <span class="accent">Services<span class="blink">_</span></span></h1>
+  <p>Eight core disciplines. One mission — solving your most complex technical and strategic challenges with precision and transparency.</p>
 </div>
 
-<section class="hero">
-  <p class="ey">// Services & Pricing</p>
-  <h1>Pick a Service.<br><span>Book Instantly._</span></h1>
-  <p class="hs">Flat-rate pricing, no hidden fees. Every service ends with a working device or you pay nothing for labor.</p>
-</section>
-
-<div class="gbar">
-  <span class="gi">No Fix = No Fee</span>
-  <span class="gi">Flat Rates — No Hourly Surprises</span>
-  <span class="gi">Same-Day Available</span>
-  <span class="gi">$0 Parts Markup</span>
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">PC Repair</span><span class="ticker-item">Cybersecurity</span><span class="ticker-item">Web Design</span><span class="ticker-item">IT Consulting</span><span class="ticker-item">AI Integration</span><span class="ticker-item">Digital Marketing</span><span class="ticker-item">Research</span><span class="ticker-item">Engineering</span>
+    <span class="ticker-item">PC Repair</span><span class="ticker-item">Cybersecurity</span><span class="ticker-item">Web Design</span><span class="ticker-item">IT Consulting</span><span class="ticker-item">AI Integration</span><span class="ticker-item">Digital Marketing</span><span class="ticker-item">Research</span><span class="ticker-item">Engineering</span>
+  </div>
 </div>
 
-<!-- SERVICES -->
-<section class="sec">
-  <div class="sl">// Choose a Service</div>
-  <div class="svcrow">
-    <div class="srow-left">
-      <div class="sico">🖥️</div>
-      <div class="sinfo"><h3>PC Repair & Diagnostics</h3><p>Hardware failures, viruses, blue screens, OS issues — diagnosed and repaired on-site.</p></div>
+<section class="section" id="pc">
+  <div class="service-block reveal">
+    <div class="service-label-box">
+      <div><div class="service-icon-lg">💻</div><h3 style="font-size:22px;font-weight:800;margin-bottom:8px;">PC Repair & Diagnostics</h3><p style="color:var(--muted);font-size:14px;line-height:1.6;">Remote & on-site technical support.</p></div>
+      <div class="service-num">01</div>
     </div>
-    <div class="srow-right">
-      <span class="sprice">From $35</span>
-      <button class="sbook" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">Book Now</button>
-    </div>
-  </div>
-  <div class="svcrow">
-    <div class="srow-left">
-      <div class="sico">⚙️</div>
-      <div class="sinfo"><h3>Custom PC Building</h3><p>You source the parts, I build and configure. Gaming rigs, workstations, budget builds — labor only.</p></div>
-    </div>
-    <div class="srow-right">
-      <span class="sprice">From $100</span>
-      <button class="sbook" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">Book Now</button>
-    </div>
-  </div>
-  <div class="svcrow">
-    <div class="srow-left">
-      <div class="sico">📱</div>
-      <div class="sinfo"><h3>Device Setup & Troubleshooting</h3><p>Laptops, routers, smart TVs, printers — flat-rate visits with no hourly guessing.</p></div>
-    </div>
-    <div class="srow-right">
-      <span class="sprice">From $50</span>
-      <button class="sbook" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">Book Now</button>
-    </div>
-  </div>
-  <div class="svcrow">
-    <div class="srow-left">
-      <div class="sico">🛰️</div>
-      <div class="sinfo"><h3>Remote Tech Support</h3><p>I connect directly to your machine and resolve software issues in real time — no travel needed.</p></div>
-    </div>
-    <div class="srow-right">
-      <span class="sprice">From $30</span>
-      <button class="sbook" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">Book Now</button>
+    <div class="service-detail-box">
+      <h2>End-to-End PC Repair</h2>
+      <p>From virus removal to full OS reinstalls, we fix what's broken and optimize what's slow — remotely or at your location. Diagnostics are free when you proceed with the repair.</p>
+      <ul class="service-features">
+        <li>Virus & Malware Removal</li>
+        <li>Windows Reinstall & OS Repair</li>
+        <li>Speed Optimization & Cleanup</li>
+        <li>Data Backup & Transfer</li>
+        <li>Hardware Troubleshooting</li>
+        <li>Network Setup & Configuration</li>
+        <li>Custom PC Build Consultation</li>
+        <li>30-Day Service Warranty Included</li>
+      </ul>
+      <div class="service-tags"><span class="service-tag">Remote Available</span><span class="service-tag">On-Site Available</span><span class="service-tag">From $49</span></div>
+      <a href="pricing.html" class="btn-primary" style="font-size:12px;padding:12px 28px;">View Pricing</a>
     </div>
   </div>
 </section>
 
-<!-- INLINE CAL BOOKING -->
-<section class="book-sec">
-  <div class="book-hd">
-    <div><h2>📅 Pick Your Time Slot</h2></div>
-    <p>Synced with Apple & Google Calendar</p>
-  </div>
-  <div id="cal-inline"></div>
-</section>
-
-<!-- ADD-ONS -->
-<div class="addon-sec">
-  <div class="addon-inner">
-    <div class="sl">// Add-On Services</div>
-    <div class="ao-grid">
-      <div class="ao"><div class="ao-ico">🔒</div><h3 class="ao-t">Security Checkup</h3><p class="ao-d">Password audit, 2FA setup, browser cleanup, and phishing protection.</p><span class="ao-p">$40 flat</span></div>
-      <div class="ao"><div class="ao-ico">💾</div><h3 class="ao-t">Backup Setup</h3><p class="ao-d">Automatic cloud or external drive backup configured and verified.</p><span class="ao-p">$35 flat</span></div>
-      <div class="ao"><div class="ao-ico">🚀</div><h3 class="ao-t">PC Speed Tune-Up</h3><p class="ao-d">Startup cleanup, temp files cleared, background processes optimized.</p><span class="ao-p">$45 flat</span></div>
-      <div class="ao"><div class="ao-ico">🖨️</div><h3 class="ao-t">Printer Network Setup</h3><p class="ao-d">Connect your printer to every device on your network.</p><span class="ao-p">$40 flat</span></div>
-      <div class="ao"><div class="ao-ico">📦</div><h3 class="ao-t">Software Installation</h3><p class="ao-d">Licensed software, productivity suites, or creative tools — installed correctly.</p><span class="ao-p">$25/app</span></div>
-      <div class="ao"><div class="ao-ico">📋</div><h3 class="ao-t">1-on-1 Tech Lessons</h3><p class="ao-d">Learn your device at your pace. Great for seniors or anyone switching platforms.</p><span class="ao-p">$50/hr</span></div>
+<section class="section section-alt" id="cyber">
+  <div class="service-block flip reveal">
+    <div class="service-label-box">
+      <div><div class="service-icon-lg">🛡️</div><h3 style="font-size:22px;font-weight:800;margin-bottom:8px;">Cybersecurity <span class="new-badge">New</span></h3><p style="color:var(--muted);font-size:14px;line-height:1.6;">Protect your systems & data.</p></div>
+      <div class="service-num">02</div>
+    </div>
+    <div class="service-detail-box">
+      <h2>Cybersecurity Assessment & Hardening</h2>
+      <p>Proactive security is far cheaper than recovering from a breach. We assess your vulnerabilities, remove threats, and implement protections that keep your systems and data safe from modern attacks.</p>
+      <ul class="service-features">
+        <li>Security Vulnerability Assessment</li>
+        <li>Malware & Ransomware Removal</li>
+        <li>Firewall Setup & Configuration</li>
+        <li>Password Manager Implementation</li>
+        <li>Two-Factor Authentication Setup</li>
+        <li>Phishing Awareness Training</li>
+        <li>Backup & Disaster Recovery Planning</li>
+        <li>Ongoing Security Monitoring Retainer</li>
+      </ul>
+      <div class="service-tags"><span class="service-tag">Remote Available</span><span class="service-tag">On-Site Available</span><span class="service-tag">From $149</span></div>
+      <a href="pricing.html" class="btn-primary" style="font-size:12px;padding:12px 28px;">View Pricing</a>
     </div>
   </div>
-</div>
+</section>
 
-<!-- PRICING FAQ -->
-<section class="faq-sec">
-  <div class="sl">// Pricing FAQ</div>
-  <div class="faq-item">
-    <div class="faq-q">What's included in the $35 diagnostic fee? <span class="arr">▼</span></div>
-    <div class="faq-a">A full hardware and software inspection — I'll identify every issue, explain it plainly, and give you a flat-rate quote before touching anything. If you move forward with the repair, the $35 is credited toward your total.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">Do I really pay nothing if you can't fix it? <span class="arr">▼</span></div>
-    <div class="faq-a">Correct. If the device can't be repaired or I can't solve the problem, no labor fee is charged. The only exception is if significant diagnostic time was spent — in that case the $35 diagnostic fee stands, but that's it.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">Why do I buy my own parts for PC repairs and builds? <span class="arr">▼</span></div>
-    <div class="faq-a">It keeps your cost lower. Most shops add 20–40% markup on parts. When you buy directly from Amazon, Newegg, or Micro Center, you pay retail — not inflated shop pricing. I'll give you the exact part list with links.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">What's the $79/month Small Business Plan? <span class="arr">▼</span></div>
-    <div class="faq-a">Two priority remote sessions per month plus a dedicated response line — I'll get back to you within 30 minutes during business hours. No contracts. Cancel anytime through Stripe. Ideal for small Westchase offices that need occasional IT help without a full-time person.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">Are after-hours appointments available? <span class="arr">▼</span></div>
-    <div class="faq-a">Yes — evenings and weekends are available with a $20 after-hours fee added to the service total. Same-day evening slots are usually available for urgent situations.</div>
+<section class="section" id="web">
+  <div class="service-block reveal">
+    <div class="service-label-box">
+      <div><div class="service-icon-lg">🌐</div><h3 style="font-size:22px;font-weight:800;margin-bottom:8px;">Web Design & Development</h3><p style="color:var(--muted);font-size:14px;line-height:1.6;">Custom, conversion-focused websites.</p></div>
+      <div class="service-num">03</div>
+    </div>
+    <div class="service-detail-box">
+      <h2>Professional Website Design</h2>
+      <p>We build fast, mobile-first websites with everything your business needs built in — Stripe payments, Cal.com booking, SEO optimization, and a design that actually converts visitors into clients.</p>
+      <ul class="service-features">
+        <li>Custom Mobile-First Design</li>
+        <li>Stripe Payment Integration</li>
+        <li>Cal.com Booking System</li>
+        <li>On-Page SEO Optimization</li>
+        <li>Contact Forms & Lead Capture</li>
+        <li>Free Hosting Setup (GitHub/Netlify)</li>
+        <li>30–60 Day Post-Launch Support</li>
+        <li>Logo Design Add-On Available</li>
+      </ul>
+      <div class="service-tags"><span class="service-tag">From $599</span><span class="service-tag">3 Packages Available</span><span class="service-tag blue">5–21 Day Delivery</span></div>
+      <a href="pricing.html" class="btn-primary" style="font-size:12px;padding:12px 28px;">View Packages</a>
+    </div>
   </div>
 </section>
 
-<div class="ctas">
-  <h2>Not Sure What You<span> Need?_</span></h2>
-  <p>Reach out and describe the issue — I'll point you to the right service and quote before anything is scheduled.</p>
-  <div class="cb">
-    <button class="bp" data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service</button>
-    <a class="bg" href="contact.html">Ask a Question →</a>
+<section class="section section-alt" id="consulting">
+  <div class="service-block flip reveal">
+    <div class="service-label-box">
+      <div><div class="service-icon-lg">🧠</div><h3 style="font-size:22px;font-weight:800;margin-bottom:8px;">IT Consulting</h3><p style="color:var(--muted);font-size:14px;line-height:1.6;">Strategy that drives real results.</p></div>
+      <div class="service-num">04</div>
+    </div>
+    <div class="service-detail-box">
+      <h2>Technology Strategy & Consulting</h2>
+      <p>We help businesses navigate the evolving tech landscape with clear, actionable strategies. From digital transformation to technology selection, our consulting aligns your tech investments with your business objectives.</p>
+      <ul class="service-features">
+        <li>Technology Stack Assessment</li>
+        <li>Digital Transformation Roadmaps</li>
+        <li>Vendor Selection & Management</li>
+        <li>IT Budget Planning & Optimization</li>
+        <li>Process Automation Strategy</li>
+        <li>Risk Assessment & Mitigation</li>
+        <li>Monthly Retainer Plans Available</li>
+        <li>Free Initial 30-Minute Consultation</li>
+      </ul>
+      <div class="service-tags"><span class="service-tag">Remote Available</span><span class="service-tag">From $199</span><span class="service-tag">Free Consult</span></div>
+      <a href="contact.html#booking" class="btn-primary" style="font-size:12px;padding:12px 28px;">Book Free Consult</a>
+    </div>
   </div>
-</div>
+</section>
+
+<section class="section" id="ai">
+  <div class="service-block reveal">
+    <div class="service-label-box">
+      <div><div class="service-icon-lg">🤖</div><h3 style="font-size:22px;font-weight:800;margin-bottom:8px;">AI Integration <span class="new-badge">New</span></h3><p style="color:var(--muted);font-size:14px;line-height:1.6;">Automate smarter, grow faster.</p></div>
+      <div class="service-num">05</div>
+    </div>
+    <div class="service-detail-box">
+      <h2>AI Integration Consulting</h2>
+      <p>Artificial intelligence isn't just for enterprise companies anymore. We identify the right AI tools for your specific business, implement them properly, and train your team to use them — saving you hours every week.</p>
+      <ul class="service-features">
+        <li>AI Readiness Assessment</li>
+        <li>Tool Selection & Implementation</li>
+        <li>Workflow Automation Setup</li>
+        <li>AI-Powered Customer Service Bots</li>
+        <li>Content Generation Workflow Design</li>
+        <li>Data Analysis & AI Reporting</li>
+        <li>Team Training & Onboarding</li>
+        <li>Ongoing Optimization Retainer</li>
+      </ul>
+      <div class="service-tags"><span class="service-tag">Remote Available</span><span class="service-tag">From $299</span><span class="service-tag blue">High ROI</span></div>
+      <a href="contact.html#booking" class="btn-primary" style="font-size:12px;padding:12px 28px;">Book Free Consult</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="marketing">
+  <div class="service-block flip reveal">
+    <div class="service-label-box">
+      <div><div class="service-icon-lg">📡</div><h3 style="font-size:22px;font-weight:800;margin-bottom:8px;">Digital Marketing</h3><p style="color:var(--muted);font-size:14px;line-height:1.6;">Data-driven growth strategies.</p></div>
+      <div class="service-num">06</div>
+    </div>
+    <div class="service-detail-box">
+      <h2>Digital Marketing That Delivers</h2>
+      <p>We build and execute marketing strategies grounded in data, not guesswork. From SEO to social media management, we help your brand reach the right audience and convert them into loyal customers.</p>
+      <ul class="service-features">
+        <li>Search Engine Optimization (SEO)</li>
+        <li>Social Media Strategy & Management</li>
+        <li>Google Ads Campaign Management</li>
+        <li>Content Marketing & Copywriting</li>
+        <li>Email Marketing Campaigns</li>
+        <li>Analytics & Performance Reporting</li>
+        <li>Full Digital Marketing Package Available</li>
+        <li>Monthly Retainer Plans</li>
+      </ul>
+      <div class="service-tags"><span class="service-tag">Remote Available</span><span class="service-tag">From $199</span><span class="service-tag">Monthly Plans</span></div>
+      <a href="pricing.html" class="btn-primary" style="font-size:12px;padding:12px 28px;">View Pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="research">
+  <div class="service-block reveal">
+    <div class="service-label-box">
+      <div><div class="service-icon-lg">🔬</div><h3 style="font-size:22px;font-weight:800;margin-bottom:8px;">Scientific Research</h3><p style="color:var(--muted);font-size:14px;line-height:1.6;">Evidence-based solutions.</p></div>
+      <div class="service-num">07</div>
+    </div>
+    <div class="service-detail-box">
+      <h2>Applied Scientific Research</h2>
+      <p>We bring rigorous scientific methodology to business challenges. Our research services provide the data, analysis, and insights you need to make informed decisions and stay ahead of the competition.</p>
+      <ul class="service-features">
+        <li>Market & Competitive Research</li>
+        <li>Data Collection & Statistical Analysis</li>
+        <li>Technical Documentation & Reporting</li>
+        <li>Feasibility Studies</li>
+        <li>Literature Reviews & Synthesis</li>
+        <li>Research-to-Application Consulting</li>
+        <li>Custom Multi-Phase Research Projects</li>
+      </ul>
+      <div class="service-tags"><span class="service-tag">Remote Available</span><span class="service-tag">From $199</span><span class="service-tag">3–10 Day Turnaround</span></div>
+      <a href="contact.html" class="btn-primary" style="font-size:12px;padding:12px 28px;">Discuss Your Needs</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="engineering">
+  <div class="service-block flip reveal">
+    <div class="service-label-box">
+      <div><div class="service-icon-lg">⚙️</div><h3 style="font-size:22px;font-weight:800;margin-bottom:8px;">Engineering Solutions</h3><p style="color:var(--muted);font-size:14px;line-height:1.6;">Built to spec. Built to last.</p></div>
+      <div class="service-num">08</div>
+    </div>
+    <div class="service-detail-box">
+      <h2>Custom Engineering Design</h2>
+      <p>Our engineering services span multiple disciplines, delivering custom solutions that solve real-world problems. From systems integration to process optimization, we engineer outcomes that work.</p>
+      <ul class="service-features">
+        <li>Systems Design & Integration</li>
+        <li>Process Optimization & Automation</li>
+        <li>Technical Specifications & Documentation</li>
+        <li>Prototype Development & Testing</li>
+        <li>Quality Assurance & Compliance</li>
+        <li>Cross-Disciplinary Problem Solving</li>
+        <li>Milestone-Based Project Delivery</li>
+      </ul>
+      <div class="service-tags"><span class="service-tag">Remote Available</span><span class="service-tag">From $249</span><span class="service-tag">Custom Quotes</span></div>
+      <a href="contact.html" class="btn-primary" style="font-size:12px;padding:12px 28px;">Start a Project</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div style="background:linear-gradient(135deg,rgba(0,255,136,0.08) 0%,var(--card) 100%);border:1px solid rgba(0,255,136,0.2);padding:80px 60px;display:flex;justify-content:space-between;align-items:center;gap:40px;" class="reveal">
+    <div>
+      <h2 style="font-size:clamp(24px,3vw,40px);font-weight:800;letter-spacing:-1px;margin-bottom:12px;line-height:1.1;">Not sure which service<br><span style="color:var(--accent);">you need?</span></h2>
+      <p style="color:var(--muted);font-size:15px;">Book a free 30-minute consultation — we'll figure it out together.</p>
+    </div>
+    <div style="display:flex;gap:16px;flex-shrink:0;flex-wrap:wrap;">
+      <a href="contact.html#booking" class="btn-primary">Book Free Consultation</a>
+      <a href="pricing.html" class="btn-outline">View All Pricing</a>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <span>MR.GEEK LLC © 2024–2026 · Houston, TX</span>
-  <div class="fl"><a href="index.html">Home</a><a href="about.html">About</a><a href="process.html">Process</a><a href="contact.html">Contact</a><a href="pay.html">Pay</a><a href="tos.html">Terms</a></div>
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="footer-logo">MR.GEEK LLC</div><p>Professional IT support, PC repair, web design, and consulting services for businesses and individuals across the United States.</p><div class="footer-social" style="margin-top:20px;"><a href="#">in</a><a href="#">f</a><a href="#">𝕏</a></div></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="#pc">PC Repair</a></li><li><a href="#cyber">Cybersecurity</a></li><li><a href="#web">Web Design</a></li><li><a href="#consulting">IT Consulting</a></li><li><a href="#ai">AI Integration</a></li><li><a href="#marketing">Digital Marketing</a></li><li><a href="#research">Research</a></li><li><a href="#engineering">Engineering</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="process.html">Our Process</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+    <div class="footer-col"><h4>Legal & Pay</h4><ul><li><a href="pay.html">Pay Invoice</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="contact.html#booking">Book a Session</a></li><li><a href="tos.html">Terms of Service</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024–2026 Mr. Geek LLC · Georgia Registered LLC · All rights reserved.</div>
+    <div class="footer-copy">Payments secured by Stripe · Scheduling via Cal.com</div>
+  </div>
 </footer>
-<div class="mstk"><button data-cal-link="mrgeekllc" data-cal-origin="https://cal.com">📅 Book a Service — Same Day Available</button></div>
-
-<script type="text/javascript">(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");Cal("init",{origin:"https://cal.com"});Cal("ui",{"theme":"dark","hideEventTypeDetails":false,"layout":"month_view"});Cal("inline",{elementOrSelector:"#cal-inline",calLink:"mrgeekllc",layout:"month_view"});</script>
-<script>
-document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>q.parentElement.classList.toggle('open'));});
-const ham=document.getElementById('ham'),mm=document.getElementById('mmenu');
-ham.addEventListener('click',()=>{ham.classList.toggle('open');mm.classList.toggle('open');});
-</script>
+<div class="cookie-bar" id="cookieBar" style="display:none;"><p>We use cookies to improve your experience. <a href="tos.html">Terms of Service</a>.</p><div class="cookie-bar-actions"><button class="cookie-accept" id="cookieAccept">Accept</button><button class="cookie-decline" id="cookieDecline">Decline</button></div></div>
+<script src="main.js"></script>
 </body>
 </html>
