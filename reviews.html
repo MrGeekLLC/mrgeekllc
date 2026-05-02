@@ -29,7 +29,7 @@
 .rating-bar-count{font-family:var(--mono);font-size:11px;color:var(--muted);width:20px;text-align:right;}
 .submit-section{background:var(--surface);border:1px solid var(--border);padding:64px 56px;}
 .star-select{display:flex;gap:8px;margin-bottom:24px;}
-.star-btn{font-size:28px;background:none;border:none;cursor:none;color:var(--border);transition:color 0.2s;line-height:1;}
+.star-btn{font-size:28px;background:none;border:none;cursor:pointer;color:var(--border);transition:color 0.2s;line-height:1;}
 .star-btn.active,.star-btn:hover{color:var(--accent);}
 .form-group{margin-bottom:20px;}
 .form-label{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;display:block;margin-bottom:8px;}
@@ -37,7 +37,7 @@
 .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--accent);}
 .form-textarea{height:120px;resize:none;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.form-submit{font-family:var(--mono);font-size:13px;color:var(--bg);background:var(--accent);border:none;padding:18px 48px;letter-spacing:2px;text-transform:uppercase;cursor:none;transition:all 0.2s;clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);margin-top:8px;}
+.form-submit{font-family:var(--mono);font-size:13px;color:var(--bg);background:var(--accent);border:none;padding:18px 48px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);margin-top:8px;}
 .form-submit:hover{background:var(--accent2);}
 .success-msg{display:none;background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.3);padding:20px;text-align:center;font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:1px;margin-top:16px;}
 .platform-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2px;}
@@ -51,8 +51,7 @@
 </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+
 <nav>
   <a href="index.html" class="nav-logo">MR.<span>GEEK</span></a>
   <ul class="nav-links">
@@ -81,7 +80,6 @@
 </div>
 
 <section class="section">
-
   <!-- RATING SUMMARY -->
   <div class="rating-summary reveal">
     <div class="rating-big">
@@ -126,21 +124,18 @@
         <div class="platform-icon">🔍</div>
         <div class="platform-name">Google Business</div>
         <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Leave a Google review to help others find us</p>
-        <!-- Replace # with your Google Business review link -->
         <a href="#" class="platform-btn">Review on Google</a>
       </div>
       <div class="platform-card reveal">
         <div class="platform-icon">📘</div>
         <div class="platform-name">Facebook</div>
         <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Rate us on Facebook and share with your network</p>
-        <!-- Replace # with your Facebook page review link -->
         <a href="#" class="platform-btn">Review on Facebook</a>
       </div>
       <div class="platform-card reveal">
         <div class="platform-icon">in</div>
         <div class="platform-name">LinkedIn</div>
         <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Recommend Mr. Geek LLC on LinkedIn</p>
-        <!-- Replace # with your LinkedIn profile link -->
         <a href="#" class="platform-btn">Recommend on LinkedIn</a>
       </div>
     </div>
@@ -196,11 +191,7 @@
 
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="footer-logo">MR.GEEK LLC</div>
-      <p>Professional IT support, PC repair, web design, and consulting services nationwide.</p>
-      <div class="footer-social" style="margin-top:20px;"><a href="#">in</a><a href="#">f</a><a href="#">𝕏</a></div>
-    </div>
+    <div class="footer-brand"><div class="footer-logo">MR.GEEK LLC</div><p>Professional IT support, PC repair, web design, and consulting services nationwide.</p><div class="footer-social" style="margin-top:20px;"><a href="#">in</a><a href="#">f</a><a href="#">𝕏</a></div></div>
     <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html#pc">PC Repair</a></li><li><a href="services.html#cyber">Cybersecurity</a></li><li><a href="services.html#web">Web Design</a></li><li><a href="services.html#consulting">IT Consulting</a></li><li><a href="services.html#ai">AI Integration</a></li><li><a href="services.html#marketing">Digital Marketing</a></li></ul></div>
     <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="process.html">Our Process</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="blog.html">Blog</a></li></ul></div>
     <div class="footer-col"><h4>Legal & Pay</h4><ul><li><a href="pay.html">Pay Invoice</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="contact.html#booking">Book a Session</a></li><li><a href="tos.html">Terms of Service</a></li></ul></div>

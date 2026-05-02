@@ -25,11 +25,6 @@ body::before {
   pointer-events: none; z-index: 0;
 }
 
-/* CURSOR */
-.cursor { width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transition:transform 0.1s;mix-blend-mode:screen; }
-.cursor-ring { width:36px;height:36px;border:1px solid var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transition:all 0.15s;opacity:0.5; }
-a,button,.card { cursor:none; }
-
 /* NAV */
 nav {
   position:fixed;top:0;left:0;right:0;z-index:100;
@@ -48,7 +43,7 @@ nav {
 .nav-cta:hover { background:var(--accent2); }
 
 /* HAMBURGER */
-.hamburger { display:none;flex-direction:column;gap:5px;cursor:none;background:none;border:none;padding:4px; }
+.hamburger { display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;cursor:pointer; }
 .hamburger span { display:block;width:24px;height:2px;background:var(--text);transition:all 0.3s; }
 .hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
 .hamburger.open span:nth-child(2) { opacity:0; }
@@ -136,9 +131,9 @@ nav {
 .cookie-bar p { font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.5px;line-height:1.6; }
 .cookie-bar p a { color:var(--accent);text-decoration:none; }
 .cookie-bar-actions { display:flex;gap:12px;flex-shrink:0; }
-.cookie-accept { font-family:var(--mono);font-size:11px;color:var(--bg);background:var(--accent);border:none;padding:8px 20px;letter-spacing:1px;cursor:none;transition:background 0.2s; }
+.cookie-accept { font-family:var(--mono);font-size:11px;color:var(--bg);background:var(--accent);border:none;padding:8px 20px;letter-spacing:1px;cursor:pointer;transition:background 0.2s; }
 .cookie-accept:hover { background:var(--accent2); }
-.cookie-decline { font-family:var(--mono);font-size:11px;color:var(--muted);background:none;border:1px solid var(--border);padding:8px 20px;letter-spacing:1px;cursor:none;transition:all 0.2s; }
+.cookie-decline { font-family:var(--mono);font-size:11px;color:var(--muted);background:none;border:1px solid var(--border);padding:8px 20px;letter-spacing:1px;cursor:pointer;transition:all 0.2s; }
 .cookie-decline:hover { border-color:var(--accent);color:var(--accent); }
 
 /* FOOTER */
