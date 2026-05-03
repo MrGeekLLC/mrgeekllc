@@ -170,19 +170,113 @@ footer { border-top:1px solid var(--border);padding:64px 60px 32px;position:rela
 
 /* MOBILE */
 @media(max-width:900px) {
-  nav { padding:16px 24px; }
-  .nav-links,.nav-cta { display:none; }
+
+  /* ── NAV ── */
+  nav { padding:16px 20px; }
+  .nav-links, .nav-cta { display:none; }
   .hamburger { display:flex; }
   .sticky-book-bar { display:block; }
-  .page-hero { padding:100px 24px 60px; }
-  .section { padding:60px 24px; }
-  .grid-2,.grid-3 { grid-template-columns:1fr; }
-  footer { padding:48px 24px 80px; }
-  .footer-grid { grid-template-columns:1fr 1fr;gap:32px; }
-  .footer-bottom { flex-direction:column;text-align:center; }
-  .cookie-bar { flex-direction:column;padding:16px 24px;text-align:center; }
+
+  /* ── GLOBAL SPACING ── */
+  /* All pages get bottom padding so sticky bar never covers content */
+  body { padding-bottom:54px; }
+
+  .page-hero { padding:100px 20px 56px; }
+  .section { padding:56px 20px; }
+
+  /* ── HERO BUTTONS ── */
+  /* Stack CTA buttons vertically, full width, easy tap targets */
+  .hero-actions,
+  .cta-actions {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:stretch;
+    width:100%;
+    max-width:320px;
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-outline,
+  .cta-actions .btn-primary,
+  .cta-actions .btn-outline {
+    display:block;
+    text-align:center;
+    width:100%;
+    padding:16px 24px;
+  }
+
+  /* ── GRIDS ── */
+  .grid-2,
+  .grid-3,
+  .grid-auto { grid-template-columns:1fr; }
+
+  /* ── CARDS ── */
+  /* Disable sticky hover lift on touch devices */
+  .card:hover { transform:none; }
+  .card { padding:28px 24px; }
+
+  /* ── STATS ROW ── */
+  /* 2-column grid instead of 4-across cramming */
+  .stats-row,
+  .stats-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-title { margin-bottom:36px; }
+
+  /* ── FOOTER ── */
+  footer { padding:48px 20px 32px; }
+  .footer-grid { grid-template-columns:1fr 1fr; gap:28px; }
+  .footer-bottom { flex-direction:column; text-align:center; gap:12px; }
+  .footer-social { justify-content:center; }
+
+  /* ── COOKIE BAR ── */
+  /* Sits above sticky book bar — z-index already handles order */
+  .cookie-bar {
+    flex-direction:column;
+    padding:16px 20px;
+    text-align:center;
+    gap:14px;
+    /* Push up so it clears the sticky book bar */
+    bottom:54px;
+  }
   .cookie-bar-actions { justify-content:center; }
+
+  /* ── PAGE HERO H1 ── */
+  .page-hero h1 { letter-spacing:-1px; }
+
 }
+
 @media(max-width:480px) {
-  .footer-grid { grid-template-columns:1fr; }
+
+  /* ── NAV ── */
+  nav { padding:14px 16px; }
+
+  /* ── SPACING ── */
+  .page-hero { padding:90px 16px 48px; }
+  .section { padding:48px 16px; }
+
+  /* ── FOOTER ── */
+  .footer-grid { grid-template-columns:1fr; gap:24px; }
+  footer { padding:40px 16px 28px; }
+
+  /* ── BUTTONS ── */
+  .btn-primary, .btn-outline { font-size:12px; padding:14px 20px; }
+
+  /* ── STATS ── */
+  .stats-row,
+  .stats-grid { grid-template-columns:1fr 1fr; }
+
+  /* ── TICKER ── */
+  .ticker-item { padding:0 24px; font-size:11px; }
+
+  /* ── SECTION TITLE ── */
+  .section-title { margin-bottom:28px; }
+
+  /* ── COOKIE BAR ── */
+  .cookie-bar { padding:14px 16px; }
+
 }
