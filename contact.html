@@ -170,15 +170,27 @@
         </div>
         <div class="form-group">
           <label class="form-label">Service Needed</label>
-          <select class="form-select" name="service" data-fs-field>
-            <option value="" disabled selected>Select a service...</option>
-            <option>PC Repair & Diagnostics</option>
-            <option>Custom PC Building</option>
-            <option>Device Setup & Troubleshooting</option>
-            <option>Remote Tech Support</option>
-            <option>Small Business Plan</option>
-            <option>Not Sure Yet</option>
-          </select>
+          <select name="service" id="service" required>
+  <option value="">Select a service...</option>
+  <optgroup label="── Computer Services ──">
+    <option value="pc-repair">PC Repair &amp; Diagnostics</option>
+    <option value="custom-pc">Custom PC Building</option>
+    <option value="device-setup">Device Setup &amp; Troubleshooting</option>
+    <option value="remote-support">Remote Tech Support</option>
+  </optgroup>
+  <optgroup label="── Business &amp; Consulting ──">
+    <option value="cybersecurity">Cybersecurity</option>
+    <option value="web-design">Web Design</option>
+    <option value="it-consulting">IT &amp; Business Consulting</option>
+    <option value="ai-integration">AI Integration</option>
+    <option value="digital-marketing">Digital Marketing</option>
+    <option value="scientific-research">Scientific Research</option>
+    <option value="engineering">Engineering Solutions</option>
+  </optgroup>
+  <optgroup label="────────────────">
+    <option value="not-sure">Not Sure Yet — Book a Free Consult</option>
+  </optgroup>
+</select>
         </div>
         <div class="form-group">
           <label class="form-label">Project Details</label>
