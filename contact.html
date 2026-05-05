@@ -347,6 +347,7 @@ Cal("inline", {
   }
 });
 
+// Primary: fire on linkReady
 Cal("on", {
   action: "linkReady",
   callback: function() {
@@ -354,6 +355,16 @@ Cal("on", {
     document.getElementById('cal-inline').style.display = 'block';
   }
 });
+
+// Fallback: if linkReady never fires, show calendar after 3 seconds anyway
+setTimeout(function() {
+  var loading = document.getElementById('calLoading');
+  var cal = document.getElementById('cal-inline');
+  if (loading && loading.style.display !== 'none') {
+    loading.style.display = 'none';
+    cal.style.display = 'block';
+  }
+}, 3000);
 </script>
 
 <!-- Formspree AJAX -->
